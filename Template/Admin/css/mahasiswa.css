@@ -1,0 +1,44 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --main : #347F3C;
+    --second : #E8C21E;
+    --body : #F9F6F6;
+    --background : #FFFF;
+    --font1 : "Poppins";
+    --font2 : "Oswald"
+}
+
+ body {
+    background-color: var(--body); 
+    display: flex;
+ }
+
+ /* MAIN BAR */
+
+ .section-container {
+     width: 100%;
+ }
+
+ .chart-container, .table-container {
+    border-radius: 20px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    background-color: var(--body);
+    font-family: var(--font1);
+ }
+
+ /* CHART CONTAINER */
+ .chart-container .chart {
+     width: 70%;
+     margin: auto;
+ }
+
+ /* TBALE-CONTAINER */
+ .table-container .header-container {
+     display: flex;
+     justify-content: space-between;
+ }
