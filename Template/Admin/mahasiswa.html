@@ -95,6 +95,25 @@
 
 
     <!-- MAIN-BAR -->
+    
+                
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                        <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="staticBackdropLabel">List Asisten Lab</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    ...
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
     <div class="section-container px-3">
 
         <div class="container chart-container my-3 py-3">
@@ -112,8 +131,7 @@
             <!-- HEADER -->
             <div class="header-container">
                 <h3>Table</h3>
-                
-                <a href="" class="mx-3"><div class="mx-auto create-btn btn btn-outline-success">Create<i class='bx bx-add-to-queue'></i></div></a>
+               <div class="me-3 create-btn btn btn-outline-success d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#exampleModal">Aslab<i class='bx bx-desktop'></i></div>
 
             </div>
            <!--  HEADER END -->
@@ -156,7 +174,7 @@
 
                         <tr>
                             <td>211402075</td>
-                            <td>Dzakiy Dzakwan</td>
+                            <td>Dzakiy Dzakwan<span class="badge bg-light text-danger"><i class='fs-6 bx bx-desktop'></i></box-icon></span></td>
                             <td>Teknologi Informasi</td>
                             <td>2</td>
                             <td>2021</td>
