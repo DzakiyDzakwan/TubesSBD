@@ -13,9 +13,43 @@
     <!-- CSS -->
     <link rel="stylesheet" href="css/mahasiswa.css">
     <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="css/aslab.css">
     <title>Mahasiswa</title>
 </head>
 <body>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">List Asisten Lab</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <!-- MODAL BODY -->
+                    <div class="modal-body">
+                        <table class="table text-center">
+                            <tr>
+                                <td>1</td>
+                                <td>Dzakiy Dzakwan</td>
+                                <td class="text-end">
+                                    <div class="btn btn-primary">
+                                        <a href="" class="text-white">
+                                            <i class="bx bx-plus-circle"></i>
+                                        </a>
+                                    </div>
+                                    <div class="btn btn-danger">
+                                        <i class='bx bx-trash'></i>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>  
 
     <!-- SIDEBAR START -->
     <div class="nav-container d-flex">
@@ -95,25 +129,6 @@
 
 
     <!-- MAIN-BAR -->
-    
-                
-                <!-- Modal -->
-                <div class="modal fade" id="exampleModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-                        <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="staticBackdropLabel">List Asisten Lab</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    ...
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
     <div class="section-container px-3">
 
         <div class="container chart-container my-3 py-3">
