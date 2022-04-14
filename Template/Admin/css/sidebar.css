@@ -46,6 +46,10 @@
   color: var(--second);
 }
 
+.nav-container .navigation-float .menu-container ul a:hover {
+  color: var(--second);
+}
+
 .nav-container .navigation-float .menu-container ul a {
   text-decoration: none;
   color: var(--body);

@@ -13,13 +13,12 @@
     <!-- CSS -->
     <link rel="stylesheet" href="css/mahasiswa.css">
     <link rel="stylesheet" href="css/sidebar.css">
-    <link rel="stylesheet" href="css/aslab.css">
     <title>Mahasiswa</title>
 </head>
 <body>
 
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <!-- Modal-Aslab -->
+    <div class="modal fade" id="aslabTable" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
             <div class="modal-content">
                     <div class="modal-header">
@@ -29,27 +28,98 @@
                     <!-- MODAL BODY -->
                     <div class="modal-body">
                         <table class="table text-center">
+
                             <tr>
+                                <td id="user_id" class="d-none">001</td>
                                 <td>1</td>
                                 <td>Dzakiy Dzakwan</td>
                                 <td class="text-end">
-                                    <div class="btn btn-primary">
-                                        <a href="" class="text-white">
-                                            <i class="bx bx-plus-circle"></i>
-                                        </a>
+                                    <div id="enrollbtn" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#aslabEnroll">
+                                        <i class="bx bx-plus-circle"></i>
                                     </div>
-                                    <div class="btn btn-danger">
-                                        <i class='bx bx-trash'></i>
-                                    </div>
+                                    <a href="">
+                                        <div class="btn btn-danger">
+                                            <i class='bx bx-trash'></i>
+                                        </div>
+                                    </a>
                                 </td>
                             </tr>
+
+                            <tr>
+                                <td id="user_id" class="d-none">004</td>
+                                <td>2</td>
+                                <td>Rizki Sahat</td>
+                                <td class="text-end">
+                                    <div id="enrollbtn" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#aslabEnroll">
+                                        <i class="bx bx-plus-circle"></i>
+                                    </div>
+                                    <a href="">
+                                        <div class="btn btn-danger">
+                                            <i class='bx bx-trash'></i>
+                                        </div>
+                                    </a>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td id="user_id" class="d-none">003</td>
+                                <td>3</td>
+                                <td>Rizqi Amelia</td>
+                                <td class="text-end">
+                                    <div id="enrollbtn" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#aslabEnroll">
+                                        <i class="bx bx-plus-circle"></i>
+                                    </div>
+                                    <a href="">
+                                        <div class="btn btn-danger">
+                                            <i class='bx bx-trash'></i>
+                                        </div>
+                                    </a>
+                                </td>
+                            </tr>
+
                         </table>
                     </div>
 
                 </div>
             </div>
         </div>
-    </div>  
+    </div>
+    <!-- Modal Aslab End -->
+
+    <!-- Modal Enroll aslab -->
+    <div class="modal fade" id="aslabEnroll" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Enroll Aslab</h5>
+                        <button type="button" class="btn-close"data-bs-toggle="modal" data-bs-target="#aslabTable"></button>
+                    </div>
+                    <!-- MODAL BODY -->
+                    <div class="modal-body">
+                        <form action="" method="POST" class="form-floating">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="nik" placeholder="1987543" value="" disabled>
+                                <label for="nik">User</label>
+                            </div>
+
+                            <div class="form-floating my-3">
+                                <select class="form-select" id="kelas" aria-label="Floating label select example">
+                                  <option value="S2">S2</option>
+                                  <option value="S3">S3</option>
+                                </select>
+                                <label for="kelas">Pendidikan Terakhir</label>
+                            </div>
+                            
+                            <button class="btn btn-success d-block mx-auto" type="submit" style="width: 100px;">SUBMIT</button>
+
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Enroll Aslab End -->
 
     <!-- SIDEBAR START -->
     <div class="nav-container d-flex">
@@ -146,7 +216,7 @@
             <!-- HEADER -->
             <div class="header-container">
                 <h3>Table</h3>
-               <div class="me-3 create-btn btn btn-outline-success d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#exampleModal">Aslab<i class='bx bx-desktop'></i></div>
+               <div class="me-3 create-btn btn btn-outline-success d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#aslabTable">Aslab<i class='bx bx-desktop'></i></div>
 
             </div>
            <!--  HEADER END -->
@@ -246,7 +316,8 @@
     <!-- FONT AWESOME -->
     <!-- <script src="https://kit.fontawesome.com/9c0c4e63c7.js" crossorigin="anonymous"></script> -->
     <!-- VANILLA-JS -->
-    <script src="js/dashboard.js"></script>
+    <script src="js/sidebar.js"></script>
+    <script src="js/aslab.js"></script>
     <!-- CHART JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js" integrity="sha512-QSkVNOCYLtj73J4hbmVoOV6KVZuMluZlioC+trLpewV8qMjsWqlIQvkn1KGX2StWvPMdWGBqim1xlC8krl1EKQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
