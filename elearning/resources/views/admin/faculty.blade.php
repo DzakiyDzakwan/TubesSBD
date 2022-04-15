@@ -1,109 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- GOOGLE FONTS -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <!-- BOOTSTRAP -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
-      crossorigin="anonymous"
-    />
-    <!-- BOX-ICON -->
-    <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet" />
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/sidebar.css" />
-    <link rel="stylesheet" href="css/fakultas.css" />
+@extends('main.admintemplate')
+  @section('css')
+  <link rel="stylesheet" href="{{asset('css/sidebar.css')}}" />
+  <link rel="stylesheet" href="{{asset('css/fakultas.css')}}" />
+  @endsection
+
+  @section('title')
     <title>Fakultas</title>
-  </head>
-  <body>
-    <!-- ALERT -->
-    <div class="alert alert-danger alert-dismissible fade show text-center" role="alert">
-      <strong>Kode Fakultas</strong> Sudah tersedia.
-      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
-    <!-- ALERT END -->
+  @endsection
 
-    <!-- SIDEBAR START -->
-    <div class="nav-container d-flex">
-      <div class="navigation-float py-3">
-        <!-- LOGO CONTAINER START -->
-        <div class="logo-container">
-          <img src="img/usu.png" alt="usu_logo" />
-          <h4>Dashboard</h4>
-        </div>
-        <!-- LOGO CONTAINER END -->
+   <!-- ALERT -->
+   <div class="alert alert-danger alert-dismissible fade show text-center" role="alert">
+    <strong>Kode Fakultas</strong> Sudah tersedia.
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  <!-- ALERT END -->
 
-        <!-- MENU CONTAINER START -->
-        <div class="menu-container py-3">
-          <ul>
-            <a href="#" class="menu-item">
-              <li>
-                <i class="bx bxs-dashboard"></i>
-                <p>Dashboard</p>
-              </li>
-            </a>
-
-            <a href="#" class="menu-item">
-              <li>
-                <i class="bx bx-user"></i>
-                <p>User</p>
-              </li>
-            </a>
-
-            <a href="#" class="menu-item">
-              <li>
-                <i class="bx bxs-graduation"></i>
-                <p>Mahasiswa</p>
-              </li>
-            </a>
-
-            <a href="#" class="menu-item">
-              <li>
-                <i class="bx bxs-chalkboard"></i>
-                <p>Dosen</p>
-              </li>
-            </a>
-
-            <a href="#" class="menu-item active">
-              <li>
-                <i class="bx bxs-school"></i>
-                <p>University</p>
-              </li>
-            </a>
-          </ul>
-        </div>
-        <!-- MENU CONTAINER END -->
-
-        <!-- Profile COntainer START -->
-        <div class="profile-container">
-          <img src="img/avatar1.png" alt="" />
-          <div class="popover">
-            <ul>
-              <a href="">
-                <li>Setting</li>
-              </a>
-              <a href="">
-                <li>Logout</li>
-              </a>
-            </ul>
-          </div>
-        </div>
-        <!-- PROFILE CONTAINER END -->
-      </div>
-    </div>
-    <!-- SIDEBAR END -->
-
-    <!-- MAIN-BAR -->
-
-    <div class="section-container px-3">
+  @section('content')
       <!-- FAKULTAS CONTAINER -->
       <div class="container fakultas my-3 p-3">
         <h3>Data Fakultas</h3>
@@ -331,30 +243,4 @@
         </div>
       </div>
       <!-- Matakuliah CONTAINER END -->
-    </div>
-    <!-- MAIN-BAR END -->
-
-    <!-- JQUERY -->
-    <script
-      src="https://code.jquery.com/jquery-3.6.0.js"
-      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
-      crossorigin="anonymous"
-    ></script>
-    <!-- BOOTSTRAP -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-      crossorigin="anonymous"
-    ></script>
-    <!-- FONT AWESOME -->
-    <!-- <script src="https://kit.fontawesome.com/9c0c4e63c7.js" crossorigin="anonymous"></script> -->
-    <!-- VANILLA-JS -->
-    <!-- CHART JS -->
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"
-      integrity="sha512-QSkVNOCYLtj73J4hbmVoOV6KVZuMluZlioC+trLpewV8qMjsWqlIQvkn1KGX2StWvPMdWGBqim1xlC8krl1EKQ=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-  </body>
-</html>
+  @endsection
