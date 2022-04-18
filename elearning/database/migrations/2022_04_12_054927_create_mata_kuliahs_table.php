@@ -10,7 +10,7 @@ class CreateMataKuliahsTable extends Migration
      * Run the migrations.
      *
      * @return void
-     */
+    */
     public function up()
     {
         Schema::create('mata_kuliahs', function (Blueprint $table) {

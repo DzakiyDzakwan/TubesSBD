@@ -17,11 +17,9 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $fillable = [
-        'first_name',
-        'last_name',
-        'email',
-        'password'
+    protected $guarded = [
+        'user_id',
+        'added_at'
     ];
 
     /**
@@ -42,4 +40,21 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function mahasiswa()
+    {
+        return $this->hasOne(Mahasiswa::class);
+    }
+    public function admin()
+    {
+        return $this->hasOne(admin::class);
+    }
+    public function dosen()
+    {
+        return $this->hasOne(dosen::class);
+    }
+    public function enrollment()
+    {
+        return $this->hasMany(enrollment::class);
+    }
 }

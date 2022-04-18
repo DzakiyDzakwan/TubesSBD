@@ -8,4 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class admin extends Model
 {
     use HasFactory;
+
+    protected $guarded = [
+        'admin_id',
+        'user_id',
+        'created_at'
+    ];
+
+    public function User()
+    {
+        return $this->hasOne(User::class);
+    }
 }

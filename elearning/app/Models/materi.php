@@ -8,4 +8,18 @@ use Illuminate\Database\Eloquent\Model;
 class materi extends Model
 {
     use HasFactory;
+
+    protected $guarded = [
+        'materi_id',
+        'pertemuan'
+    ];
+
+    public function pertemuan()
+    {
+        return $this->hasOne(pertemuan::class);
+    }
+    public function tugas()
+    {
+        return $this->hasOne(tugas::class);
+    }
 }
