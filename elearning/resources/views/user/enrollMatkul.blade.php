@@ -1,0 +1,79 @@
+@extends('main.usertemplate')
+
+@section('title')
+<title>Enroll Mata Kuliah</title>
+@endsection
+
+@section('content')
+    <div class="container my-4 bg-light py-3">
+        <div class="text-center my-3 fw-bold pb-2 fs-2 text-success">S1 - Teknologi Informasi</div>
+
+        <div class="row mx-2 my-4">
+            <div class="col-2 px-4">Search courses</div>
+            <div class="col-5"><input class="form-control form-control-sm" type="text" aria-label=".form-control-sm example"></div>
+            <div class="col"><button type="button" class="btn btn-secondary btn-sm ">Go</button></div>
+        </div>
+        
+
+        <!-- tabel matkul -->
+        <div class="px-3">
+            <table class="table table-striped">
+                <div class="mx-3">
+                    <tr>
+                        <td class="px-4">[TIF1207] Struktur Data Dan Algoritma - Kelas A</td>
+                        <td class="text-secondary">Sawaluddin TBA</td>
+                        <td><div class="text-end px-4"><button type="button" class="btn btn-success btn-sm ">Enroll</button></td></div>
+                    </tr>
+                    <tr>
+                        <td class="px-4">[TIF1207] Struktur Data Dan Algoritma - Kelas B</td>
+                        <td class="text-secondary">Sawaluddin TBA</td>
+                        <td><div class="text-end px-4"><button type="button" class="btn btn-success btn-sm ">Enroll</button></td></div>
+                    </tr>
+                    <tr>
+                        <td class="px-4">[TIF1207] Struktur Data Dan Algoritma - Kelas C</td>
+                        <td class="text-secondary">Fanindia Purnamasari TBA</td>
+                        <td><div class="text-end px-4"><button type="button" class="btn btn-success btn-sm ">Enroll</button></td></div>
+                    </tr>
+                    <tr>
+                        <td class="px-4">[TIF1205] Sistem Basis Data - Kelas A</td>
+                        <td class="text-secondary">Sarah Purnamawati</td>
+                        <td><div class="text-end px-4"><button type="button" class="btn btn-success btn-sm ">Enroll</button></td></div>
+                    </tr>
+                    <tr>
+                        <td class="px-4">[TIF1205] Sistem Basis Data - Kelas B</td>
+                        <td class="text-secondary">Sarah Purnamawati</td>
+                        <td><div class="text-end px-4"><button type="button" class="btn btn-success btn-sm ">Enroll</button></td></div>
+                    </tr>
+                    <tr>
+                        <td class="px-4">[TIF1205] Sistem Basis Data - Kelas C</td>
+                        <td class="text-secondary">Sarah Purnamawati</td>
+                        <td><div class="text-end px-4"><button type="button" class="btn btn-success btn-sm ">Enroll</button></td></div>
+                    </tr>
+                
+                </div>
+            </table>
+        </div>
+
+        <!-- pagination tabel-->
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center text-decoration-none text-success">
+              <li class="page-item">
+                <a class="page-link text-decoration-none text-success" href="#" aria-label="Previous">
+                  <span aria-hidden="true">&laquo;</span>
+                </a>
+              </li>
+              <li class="page-item"><a class="page-link text-decoration-none text-success" href="#">1</a></li>
+              <li class="page-item"><a class="page-link text-decoration-none text-success" href="#">2</a></li>
+              <li class="page-item"><a class="page-link text-decoration-none text-success" href="#">3</a></li>
+              <li class="page-item">
+                <a class="page-link text-decoration-none text-success" href="#" aria-label="Next">
+                  <span aria-hidden="true">&raquo;</span>
+                </a>
+              </li>
+            </ul>
+        </nav>
+        <!-- end pagination tabel-->
+
+    </div>
+    
+@endsection
