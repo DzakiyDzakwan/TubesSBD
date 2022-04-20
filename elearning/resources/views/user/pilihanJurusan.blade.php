@@ -1,7 +1,7 @@
 @extends('main.usertemplate')
 
 @section('title')
-<title>Participants</title>
+<title>Pilihan Jurusan</title>
 @endsection
 
 @section('content')
