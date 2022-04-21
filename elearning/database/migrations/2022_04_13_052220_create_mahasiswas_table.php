@@ -18,13 +18,14 @@ class CreateMahasiswasTable extends Migration
             $table->char('NISN')->unique;
             $table->char('semester', 2);
             $table->char('program');
-            $table->timestamp('tanggal_terdaftar', $precision = 0);
             $table->year('angkatan');
             $table->enum('status_keaktifan', ['aktif', 'tidak_aktif']);
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade');
-            $table->char('jurusan');
-            $table->foreign('jurusan')->references('kode_jurusan')->on('jurusans')->onDelete('cascade');
+            $table->foreign('user_id')->references('user_id')->on('users');
+            $table->string('jurusan');
+            $table->foreign('jurusan')->references('kode_jurusan')->on('jurusans');
+            $table->timestamp('created_at', $precision = 0);
+            $table->timestamp('updated_at', $precision = 0)->nullable();
         });
     }
 

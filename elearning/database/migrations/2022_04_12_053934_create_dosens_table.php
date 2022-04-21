@@ -19,8 +19,10 @@ class CreateDosensTable extends Migration
             $table->date('tanggal_terdaftar');
             $table->string('pendidikan_terakhir', 100);
             $table->enum('status_keaktifan', ['aktif', 'tidak_aktif']);
-            $table->bigInteger('user_id')->unsigned();
+            $table->bigInteger('user_id')->unsigned()->nullable();
             $table->foreign('user_id')->references('user_id')->on('users');
+            $table->timestamp('created_at', $precision = 0);
+            $table->timestamp('updated_at', $precision = 0)->nullable();
         });
     }
 

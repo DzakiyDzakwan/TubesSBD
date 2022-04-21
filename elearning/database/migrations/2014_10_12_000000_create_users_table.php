@@ -24,13 +24,15 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('first_name', 200);
             $table->string('last_name', 200);
+            $table->string('name');
             $table->enum('jenis_kelamin',['laki2', 'perempuan']);
             $table->string('agama', 100);
             $table->enum('kewarganegaraan', ['indonesia', 'luar_negeri']);
             $table->char('nomor_hp', 12);
             $table->date('tanggal_lahir');
             $table->text('alamat_domisili');
-            $table->timestamp('added_at', $precision = 0);
+            $table->timestamp('created_at', $precision = 0);
+            $table->timestamp('updated_at', $precision = 0)->nullable();
         });
     }
 

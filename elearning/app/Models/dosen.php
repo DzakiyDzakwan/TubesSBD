@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Foundation\Auth\User;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class dosen extends Model
 {
@@ -11,8 +12,7 @@ class dosen extends Model
     
     protected $guarded = [
         'NIP',
-        'added_at',
-        'user_id'
+        'added_at'
     ];
 
     public function User()

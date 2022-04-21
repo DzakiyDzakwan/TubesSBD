@@ -17,7 +17,8 @@ class CreateAdminsTable extends Migration
             $table->id('admin_id');
             $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('user_id')->on('users');
-            $table->timestamp('created_at', $precision=0);
+            $table->timestamp('created_at', $precision = 0);
+            $table->timestamp('updated_at', $precision = 0)->nullable();
         });
     }
 

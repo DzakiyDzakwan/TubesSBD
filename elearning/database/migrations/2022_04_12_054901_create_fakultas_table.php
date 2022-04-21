@@ -18,6 +18,8 @@ class CreateFakultasTable extends Migration
             $table->string('nama_fakultas', 200);
             $table->char('dekan', 20);
             $table->foreign('dekan')->references('NIP')->on('dosens');
+            $table->timestamp('created_at', $precision = 0);
+            $table->timestamp('updated_at', $precision = 0)->nullable();
         });
     }
 

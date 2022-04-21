@@ -17,9 +17,10 @@ class CreateJurusansTable extends Migration
             $table->char('kode_jurusan')->primary();
             $table->string('nama_jurusan', 200);
             $table->char('degree', 2);
-            $table->date('created_at');
             $table->char('fakultas');
             $table->foreign('fakultas')->references('kode_fakultas')->on('fakultas');
+            $table->timestamp('created_at', $precision = 0);
+            $table->timestamp('updated_at', $precision = 0)->nullable();
         });
     }
 
