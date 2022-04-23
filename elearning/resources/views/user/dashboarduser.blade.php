@@ -120,9 +120,8 @@
                           </a>
                           <p class="card-text mt-3 text-muted">Genap 2021/2022</p>
                           <p>
-                            <a class="card-link link-dark text-decoration-none pb-5" href="#"
-                              >[TIF1207] Struktur Data Dan Algoritma - Kelas C</a
-                            >
+                            <a class="card-link link-dark text-decoration-none pb-5" href="/user/matakuliah">
+                              [TIF1207] Struktur Data Dan Algoritma - Kelas C</a>
                           </p>
                         </div>
                       </div>

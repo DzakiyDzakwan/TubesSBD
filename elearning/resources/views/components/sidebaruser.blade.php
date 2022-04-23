@@ -44,7 +44,7 @@
                   </li>
                   <li class="w-100">
                     <a
-                      href="/user/matkul"
+                      href="/user/matakuliah"
                       class="nav-link list-group-item list-group-item-action border-0 py-3"
                       aria-current="true"
                       ><i class="fa-solid fa-folder"></i> Pertemuan 1</a

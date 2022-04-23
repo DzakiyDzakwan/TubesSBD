@@ -38,7 +38,7 @@
                             <label class="form-check-label" for="defaultCheck1">Remember username</label>
                         </div>
                         <div class="d-grid gap-3 mb-4">
-                            <button class="btn btn-primary" type="submit">LOG IN</button>
+                            <button class="btn btn-primary " type="submit"><a href="/user" class="text-decoration-none text-light">LOG IN</a></button>
                             <button class="btn btn-light" type="forgotpass">FORGET PASSWORD</button>
                         </div>
                     </form>
