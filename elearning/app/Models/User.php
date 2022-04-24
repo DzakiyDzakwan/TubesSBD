@@ -18,8 +18,8 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $guarded = [
-        'user_id',
-        'added_at'
+        'created_at',
+        'updated_at'
     ];
 
     /**
@@ -45,16 +45,12 @@ class User extends Authenticatable
     {
         return $this->hasOne(Mahasiswa::class);
     }
-    public function admin()
-    {
-        return $this->hasOne(admin::class);
-    }
     public function dosen()
     {
-        return $this->hasOne(dosen::class);
+        return $this->hasOne(Dosen::class);
     }
     public function enrollment()
     {
-        return $this->hasMany(enrollment::class);
+        return $this->hasMany(Enrollment::class);
     }
 }

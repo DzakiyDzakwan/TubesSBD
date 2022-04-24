@@ -12,13 +12,13 @@ class Mahasiswa extends Model
     use HasFactory;
 
     protected $guarded = [
-        'NIM',
-        'added_at'
+        'created_at',
+        'updated_at'
     ];
 
-    public function User()
+    public function user()
     {
-        return $this->hasOne(User::class);
+        return $this->belongsTo(User::class);
     }
     public function jurusan()
     {

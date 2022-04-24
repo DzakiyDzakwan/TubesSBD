@@ -6,30 +6,30 @@ use Illuminate\Foundation\Auth\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class dosen extends Model
+class Dosen extends Model
 {
     use HasFactory;
     
     protected $guarded = [
-        'NIP',
-        'added_at'
+        'created_at',
+        'updated_at'
     ];
 
-    public function User()
+    public function user()
     {
-        return $this->hasOne(User::class);
+        return $this->belongsTo(User::class);
     }
     public function fakultas()
     {
-        return $this->belongsTo(fakultas::class);
+        return $this->hasOne(Fakultas::class);
     }
     public function kelas()
     {
-        return $this->belongsToMany(kelas::class);
+        return $this->belongsToMany(Kelas::class);
     }
     public function mata_kuliah()
     {
-        return $this->hasManyThrough(mata_kuliah::class, kelas::class);
+        return $this->hasManyThrough(Mata_kuliah::class, Kelas::class);
     }
 }
 

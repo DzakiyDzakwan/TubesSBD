@@ -5,13 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class mata_kuliah extends Model
+class Mata_kuliah extends Model
 {
     use HasFactory;
 
     protected $guarded = [
-        'kode_mata_kuliah',
-        'jurusan'
+        'created_at',
+        'updated_at'
     ];
 
     public function kelas()

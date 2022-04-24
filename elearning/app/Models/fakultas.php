@@ -5,21 +5,21 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class fakultas extends Model
+class Fakultas extends Model
 {
     use HasFactory;
 
     protected $guarded = [
-        'kode_fakultas',
-        'dekan'
+        'created_at',
+        'updated_at'
     ];
 
     public function dosen()
     {
-        return $this->hasMany(dosen::class);
+        return $this->belongsTo(Dosen::class);
     }
     public function jurusan()
     {
-        return $this->hasMany(jurusan::class);
+        return $this->hasMany(Jurusan::class);
     }
 }
