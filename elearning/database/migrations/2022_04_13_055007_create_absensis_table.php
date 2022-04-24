@@ -14,13 +14,13 @@ class CreateAbsensisTable extends Migration
     public function up()
     {
         Schema::create('absensis', function (Blueprint $table) {
-            $table->bigInteger('absensi_id')->primary();
-            $table->enum('status', ['aktif', 'tidak_aktif']);
-            $table->timestamp('waktu_absensi', $precision=0);
-            $table->char('mahasiswa_id', 9);
-            $table->foreign('mahasiswa_id')->references('NIM')->on('mahasiswas');
-            $table->bigInteger('pertemuan')->unsigned();
-            $table->foreign('pertemuan')->references('pertemuan_id')->on('pertemuans');
+            $table->bigIncrements('absensi_id');
+            $table->enum('status', ['hadir', 'terlambat', 'absen']);
+            $table->char('mahasiswa', 9)->nullable(false);
+            $table->foreign('mahasiswa')->references('NIM')->on('mahasiswas')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->bigInteger('pertemuan')->unsigned()->nullable(false);
+            $table->foreign('pertemuan')->references('pertemuan_id')->on('pertemuans')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->timestamps();
         });
     }
 

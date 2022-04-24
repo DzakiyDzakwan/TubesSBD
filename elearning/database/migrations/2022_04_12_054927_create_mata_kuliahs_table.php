@@ -13,14 +13,13 @@ class CreateMataKuliahsTable extends Migration
     */
     public function up()
     {
-        Schema::create('mata_kuliahs', function (Blueprint $table) {
-            $table->char('kode_mata_kuliah', 6)->primary();
+        Schema::create('matakuliahs', function (Blueprint $table) {
+            $table->char('kode_mata_kuliah', 6)->nullable(false)->primary();
             $table->string('nama_matkul', 200);
             $table->integer('sks')->unsigned();
-            $table->char('jurusan', 9);
-            $table->foreign('jurusan')->references('kode_jurusan')->on('jurusans');
-            $table->timestamp('created_at', $precision = 0);
-            $table->timestamp('updated_at', $precision = 0)->nullable();
+            $table->char('jurusan', 6);
+            $table->foreign('jurusan')->references('kode_jurusan')->on('jurusans')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->timestamps();
         });
     }
 

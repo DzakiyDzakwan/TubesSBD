@@ -15,10 +15,11 @@ class CreateKelasTable extends Migration
     {
         Schema::create('kelas', function (Blueprint $table) {
             $table->char('kelas_id', 6)->primary();
-            $table->char('dosen', 9);
+            $table->char('dosen');
             $table->foreign('dosen')->references('NIP')->on('dosens');
-            $table->char('mata_kuliah', 6);
-            $table->foreign('mata_kuliah')->references('kode_mata_kuliah')->on('mata_kuliahs');
+            $table->char('mata_kuliah', 6)->nullable(false);
+            $table->foreign('mata_kuliah')->references('kode_mata_kuliah')->on('matakuliahs')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->timestamps();
         });
     }
 

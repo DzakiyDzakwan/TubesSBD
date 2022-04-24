@@ -14,15 +14,12 @@ class CreateDosensTable extends Migration
     public function up()
     {
         Schema::create('dosens', function (Blueprint $table) {
-            $table->char('NIP', 9)->primary();
-            $table->char('NIDN', 9)->unique();
-            $table->date('tanggal_terdaftar');
-            $table->string('pendidikan_terakhir', 100);
-            $table->enum('status_keaktifan', ['aktif', 'tidak_aktif']);
-            $table->bigInteger('user_id')->unsigned()->nullable();
-            $table->foreign('user_id')->references('user_id')->on('users');
-            $table->timestamp('created_at', $precision = 0);
-            $table->timestamp('updated_at', $precision = 0)->nullable();
+            $table->char('NIP')->nullable(true)->primary();
+            $table->char('NIDN', 10)->unique();
+            $table->enum('status', ['aktif', 'inaktif']);
+            $table->char('user')->nullable(false);
+            $table->foreign('user')->references('NIK')->on('users')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->timestamps();
         });
     }
 

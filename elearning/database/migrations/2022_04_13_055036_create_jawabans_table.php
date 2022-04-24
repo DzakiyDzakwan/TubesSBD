@@ -14,12 +14,12 @@ class CreateJawabansTable extends Migration
     public function up()
     {
         Schema::create('jawabans', function (Blueprint $table) {
-            $table->bigInteger('jawaban_id')->unsigned();
-            $table->string('nama_tugas, 200');
-            $table->bigInteger('tugas')->unsigned();
+            $table->bigIncrements('jawaban_id');
+            $table->string('nama_tugas', 200);
+            $table->bigInteger('tugas')->unsigned()->nullable(false);
             $table->foreign('tugas')->references('tugas_id')->on('tugas');
-            $table->char('mahasiswa', 9);
-            $table->foreign('mahasiswa')->references('NIM')->on('mahasiswas');
+            $table->char('mahasiswa', 9)->nullable(false);
+            $table->foreign('mahasiswa')->references('NIM')->on('mahasiswas')->cascadeOnDelete()->cascadeOnUpdate();
             $table->integer('nilai')->unsigned();
             $table->timestamps();
         });

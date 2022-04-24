@@ -14,11 +14,12 @@ class CreateMaterisTable extends Migration
     public function up()
     {
         Schema::create('materis', function (Blueprint $table) {
-            $table->bigInteger('materi_id')->unsigned()->primary();
+            $table->bigIncrements('materi_id')->nullable(false);
             $table->string('nama_materi', 200);
             $table->text('deskripsi');
-            $table->bigInteger('pertemuan')->unsigned();
-            $table->foreign('pertemuan')->references('pertemuan_id')->on('pertemuans');
+            $table->bigInteger('pertemuan')->nullable(false)->unsigned();
+            $table->foreign('pertemuan')->references('pertemuan_id')->on('pertemuans')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->timestamps();
         });
     }
 

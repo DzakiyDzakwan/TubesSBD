@@ -14,12 +14,13 @@ class CreateTugasTable extends Migration
     public function up()
     {
         Schema::create('tugas', function (Blueprint $table) {
-            $table->bigInteger('tugas_id')->unsigned()->primary();
+            $table->bigIncrements('tugas_id')->nullable(false);
             $table->string('nama_tugas', 200);
             $table->text('deskripsi');
             $table->date('deadline_tugas');
-            $table->bigInteger('materi')->unsigned();
+            $table->bigInteger('materi')->nullable(false)->unsigned();
             $table->foreign('materi')->references('materi_id')->on('materis');
+            $table->timestamps();
         });
     }
 

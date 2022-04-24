@@ -14,18 +14,17 @@ class CreateMahasiswasTable extends Migration
     public function up()
     {
         Schema::create('mahasiswas', function (Blueprint $table) {
-            $table->char('NIM', 9)->primary();
-            $table->char('NISN')->unique;
-            $table->char('semester', 2);
-            $table->char('program');
-            $table->year('angkatan');
-            $table->enum('status_keaktifan', ['aktif', 'tidak_aktif']);
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('user_id')->on('users');
-            $table->string('jurusan');
-            $table->foreign('jurusan')->references('kode_jurusan')->on('jurusans');
-            $table->timestamp('created_at', $precision = 0);
-            $table->timestamp('updated_at', $precision = 0)->nullable();
+            $table->char('NIM', 9)->nullable(false)->primary();
+            $table->char('NISN')->nullable(false)->unique();
+            $table->char('semester')->nullable(false);
+            $table->char('program')->nullable(false);
+            $table->year('angkatan')->nullable(false);
+            $table->enum('status', ['aktif','inactive'])->nullable(false);  
+            $table->char('user')->nullable(false);
+            $table->foreign('user')->references('NIK')->on('users')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->char('jurusan', 6)->nullable(false);
+            $table->foreign('jurusan')->references('kode_jurusan')->on('jurusans')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->timestamps();
         });
     }
 

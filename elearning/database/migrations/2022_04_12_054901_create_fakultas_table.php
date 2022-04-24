@@ -14,12 +14,11 @@ class CreateFakultasTable extends Migration
     public function up()
     {
         Schema::create('fakultas', function (Blueprint $table) {
-            $table->char('kode_fakultas')->primary();
-            $table->string('nama_fakultas', 200);
-            $table->char('dekan', 20);
-            $table->foreign('dekan')->references('NIP')->on('dosens');
-            $table->timestamp('created_at', $precision = 0);
-            $table->timestamp('updated_at', $precision = 0)->nullable();
+            $table->char("kode_fakultas", 6)->nullable(false)->primary();
+            $table->string('nama_fakultas')->nullable(false);
+            $table->char('dekan')->nullable(true);
+            $table->foreign('dekan')->references('NIP')->on('dosens')->cascadeOnUpdate()->nullOnDelete();
+            $table->timestamps();
         });
     }
 
