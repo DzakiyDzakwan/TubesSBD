@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class materi extends Model
+class Materi extends Model
 {
     use HasFactory;
 
@@ -16,10 +16,10 @@ class materi extends Model
 
     public function pertemuan()
     {
-        return $this->hasOne(pertemuan::class);
+        return $this->hasOne(Pertemuan::class);
     }
     public function tugas()
     {
-        return $this->hasOne(tugas::class);
+        return $this->hasOne(Tugas::class);
     }
 }

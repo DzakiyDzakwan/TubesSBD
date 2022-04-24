@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class jawaban extends Model
+class Jawaban extends Model
 {
     use HasFactory;
 
@@ -22,6 +22,6 @@ class jawaban extends Model
 
     public function tugas()
     {
-        return $this->belongsTo(tugas::class);
+        return $this->belongsTo(Tugas::class);
     }
 }

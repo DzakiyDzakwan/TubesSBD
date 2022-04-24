@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class enrollment extends Model
+class Enrollment extends Model
 {
     use HasFactory;
 
@@ -21,6 +21,6 @@ class enrollment extends Model
 
     public function kelas()
     {
-        return $this->belongsToMany(kelas::class);
+        return $this->belongsToMany(Kelas::class);
     }
 }

@@ -16,14 +16,14 @@ class Mata_kuliah extends Model
 
     public function kelas()
     {
-        return $this->belongsToMany(kelas::class);
+        return $this->belongsToMany(Kelas::class);
     }
     public function jurusan()
     {
-        return $this->belongsTo(jurusan::class);
+        return $this->belongsTo(Jurusan::class);
     }
     public function dosen()
     {
-        return $this->hasManyThrough(dosen::class, kelas::class);
+        return $this->hasManyThrough(Dosen::class, Kelas::class);
     }
 }

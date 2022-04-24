@@ -22,14 +22,14 @@ class Mahasiswa extends Model
     }
     public function jurusan()
     {
-        return $this->belongsTo(jurusan::class);
+        return $this->belongsTo(Jurusan::class);
     }
     public function jawaban()
     {
-        return $this->hasOne(jawaban::class);
+        return $this->hasOne(Jawaban::class);
     }
     public function asisten_lab()
     {
-        return $this->hasOne(asisten_lab::class);
+        return $this->hasOne(Asisten_lab::class);
     }
 }
