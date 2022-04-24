@@ -56,19 +56,26 @@
             </tr>
           </thead>
           <tbody>
+            
+            @foreach ($users as $user)
             <tr>
-              <td class="user_id d-none">1</td>
-              <td class="nikUser">211402075</td>
-              <td>Dzakiy Dzakwan</td>
-              <td>dzakcart@gmail.com</td>
-              <td>081232134456</td>
-              <td>Islam</td>
-              <td>Pria</td>
-              <td class="statusUser">Siswa</td>
+              <td class="nikUser">{{$user['NIK']}}</td>
+              <td>{{$user['first_name']}} {{$user['last_name']}}</td>
+              <td>{{$user['email']}}</td>
+              <td>{{$user['nomor_hp']}}</td>
+              <td>{{$user['agama']}}</td>
+              <td>{{$user['jenis_kelamin']}}</td>
+              <td class="statusUser">{{$user['status']}}</td>
               <td>
+                @if ($user['status'] === 'mahasiswa')
                 <div class="btn btn-primary daftarBtn" data-bs-toggle="modal" data-bs-target="#mhsModal">
                   <i class="bx bx-book-add"></i>
                 </div>
+                @else
+                <div class="btn btn-primary daftarBtn" data-bs-toggle="modal" data-bs-target="#dosenModal">
+                  <i class="bx bx-book-add"></i>
+                </div>
+                @endif
                 <a href="text-decoration-none text-white">
                   <div class="btn btn-danger">
                     <i class="bx bx-trash"></i>
@@ -76,6 +83,7 @@
                 </a>
               </td>
             </tr>
+            @endforeach
 
           </tbody>
         </table>

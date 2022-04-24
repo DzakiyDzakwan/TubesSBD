@@ -41,9 +41,10 @@
                 </tr>
               </thead>
               <tbody>
+                @foreach ($fakultas as $fklts)
                 <tr>
-                  <td>F001</td>
-                  <td>Kedokteran</td>
+                  <td>{{$fklts['kode_fakultas']}}</td>
+                  <td>{{$fklts['nama_fakultas']}}</td>
                   <td>
                     <a href="" class="text-decoration-none">
                       <div class="btn btn-primary">
@@ -57,6 +58,7 @@
                     </a>
                   </td>
                 </tr>
+                @endforeach
               </tbody>
             </table>
           </div>
@@ -77,10 +79,9 @@
               <input class="form-control" type="text" name="jurusan_name" id="nama" />
               <label for="fakultas">Fakultas</label>
               <select class="form-select" aria-label="Default select example" id="fakultas">
-                <option selected>Tes</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
+                @foreach ($fakultas as $fklts)
+                <option value="{{$fklts['kode_fakultas']}}">{{$fklts['nama_fakultas']}}</option>
+                @endforeach
               </select>
               <input class="btn btn-success my-3 form-control" type="submit" value="SUBMIT" />
             </form>
@@ -97,10 +98,11 @@
                 </tr>
               </thead>
               <tbody>
+                @foreach ($jurusans as $jurusan)
                 <tr>
-                  <td>J001</td>
-                  <td>Ilmu Kedokteran</td>
-                  <td>Kedokteran</td>
+                  <td>{{$jurusan['kode_jurusan']}}</td>
+                  <td>{{$jurusan['nama_jurusan']}}</td>
+                  <td>{{$jurusan['nama_fakultas']}}</td>
                   <td>
                     <a href="" class="text-decoration-none">
                       <div class="btn btn-primary">
@@ -114,6 +116,7 @@
                     </a>
                   </td>
                 </tr>
+                @endforeach
               </tbody>
             </table>
           </div>
@@ -207,13 +210,12 @@
             </form>
           </div>
           <div class="table-fakultas overflow-auto py-2 px-5">
-            <h5 class="text-center sticky-top bg-white fw-bold">Table Jurusan</h5>
+            <h5 class="text-center sticky-top bg-white fw-bold">Table Kelas</h5>
             <table class="table text-center">
               <thead>
                 <tr>
                   <th>Kode Kelas</th>
                   <th>Nama Kelas</th>
-                  <th>Matakuliah</th>
                   <th>Dosen</th>
                   <th>Action</th>
                 </tr>
@@ -221,7 +223,6 @@
               <tbody>
                 <tr>
                   <td>K001</td>
-                  <td class="fs-6">Pengantar Ilmu Kedokteran KOM A</td>
                   <td>Pengantar Ilmu Kedokteran</td>
                   <td>Budiman</td>
                   <td>

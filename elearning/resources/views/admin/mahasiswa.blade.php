@@ -72,24 +72,26 @@
               </thead>
               <tbody>
 
+                  @foreach ($mahasiswa as $mhs)
                   <tr>
-                      <td>211402075</td>
-                      <td>Dzakiy Dzakwan<span class="badge bg-light text-danger"><i class='fs-6 bx bx-desktop'></i></box-icon></span></td>
-                      <td>Teknologi Informasi</td>
-                      <td>2</td>
-                      <td>2021</td>
-                      <td>Aktif</td>
-                      <td>
-                          <div class="btn btn-primary">
-                              <i class='bx bx-book-add'></i>
-                          </div>
-                          <a href="">
-                              <div class="btn btn-danger">
-                                  <i class='bx bx-trash'></i>
-                              </div>
-                          </a>
-                      </td>
-                  </tr>
+                    <td>{{$mhs['NIM']}}</td>
+                    <td>{{$mhs['first_name']}} {{$mhs['last_name']}}<span class="badge bg-light text-danger"><i class='fs-6 bx bx-desktop'></i></box-icon></span></td>
+                    <td>{{$mhs['nama_jurusan']}}</td>
+                    <td>{{$mhs['semester']}}</td>
+                    <td>{{$mhs['angkatan']}}</td>
+                    <td>{{$mhs['status']}}</td>
+                    <td>
+                        <div class="btn btn-primary">
+                            <i class='bx bx-book-add'></i>
+                        </div>
+                        <a href="">
+                            <div class="btn btn-danger">
+                                <i class='bx bx-trash'></i>
+                            </div>
+                        </a>
+                    </td>
+                </tr>
+                  @endforeach
                   
               </tbody>
           </table>

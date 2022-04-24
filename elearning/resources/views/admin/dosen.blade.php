@@ -70,11 +70,12 @@
         </tr>
       </thead>
       <tbody>
+        @foreach ($dosens as $dosen)
         <tr>
-          <td>211402075</td>
-          <td>Dzakiy Dzakwan</td>
-          <td>211402075</td>
-          <td>Aktif</td>
+          <td>{{$dosen['NIP']}}</td>
+          <td>{{$dosen['first_name'] }} {{$dosen['last_name']}}</td>
+          <td>{{$dosen['NIDN']}}</td>
+          <td>{{$dosen['status']}}</td>
           <td>
             <!-- <div class="btn btn-primary">
               <i class="bx bx-book-add"></i>
@@ -84,6 +85,7 @@
             </div>
           </td>
         </tr>
+        @endforeach
       </tbody>
     </table>
   </div>

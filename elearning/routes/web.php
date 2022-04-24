@@ -26,6 +26,10 @@ Route::get('/admin', [AdminController::class, 'dashboard']);
 
 Route::get('/admin/user', [AdminController::class, 'user']);
 
+Route::post('/admin/user/create-mahasiswa', [AdminController::class, 'mahasiswaStore']);
+
+Route::post('/admin/user/create-dosen', [AdminController::class, 'dosenStore']);
+
 Route::get('/admin/mahasiswa', [AdminController::class, 'mahasiswa']);
 
 Route::get('/admin/dosen', [AdminController::class, 'dosen']);

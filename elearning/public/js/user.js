@@ -6,23 +6,21 @@ let tableBody = document.querySelector("tbody");
 let daftarBtn = document.querySelectorAll(".daftarBtn");
 
 daftarBtn.forEach((param, id) => {
-  $(param).on("click", () => {
-    nik = nikUser[id].innerText;
-    status = statusUser[id].innerText;
-    user_id = idUser[id].innerText;
+    $(param).on("click", () => {
+        nik = nikUser[id].innerText;
+        status = statusUser[id].innerText;
 
-    if (status === "Siswa") {
-      let nikMhs = document.querySelector("#nikMhs");
-      nikMhs.value = nik;
-    } else {
-      let nikDosen = document.querySelector("#nikDosen");
-      nikDosen.value = nik;
-    }
+        if (status === "mahasiswa") {
+            let nikMhs = document.querySelector("#nikMhs");
+            nikMhs.value = nik;
+        } else {
+            let nikDosen = document.querySelector("#nikDosen");
+            nikDosen.value = nik;
+        }
 
-    console.log(nik);
-    console.log(status);
-    console.log(user_id);
-  });
+        console.log(nik);
+        console.log(status);
+    });
 });
 
 /* $.getJSON("js/user.json", (result) => {

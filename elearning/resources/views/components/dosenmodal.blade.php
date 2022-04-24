@@ -13,26 +13,21 @@
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
-                  <form class="form-floating" action="" method="POST">
-
-                    <input type="hidden" id="userid" value="">
-
+                  <form class="form-floating" action="/admin/user/create-dosen" method="POST">
+                    @csrf
                     <div class="form-floating my-3">
-                      <input type="text" class="form-control" id="nikDosen" placeholder="name@example.com" value="NIK" disabled>
+                      <input type="text" class="form-control" id="nikDosen" placeholder="NIK" value="" name="NIK">
                       <label for="nikDosen">NIK</label>
                     </div>
 
                     <div class="form-floating my-3">
-                      <input type="text" class="form-control" id="nidn" placeholder="NIDN" autocomplete="off">
-                      <label for="nidn">NIDN</label>
+                      <input type="text" class="form-control" id="NIP" placeholder="NIP" autocomplete="off" name="NIP">
+                      <label for="NIP">NIP</label>
                     </div>
 
                     <div class="form-floating my-3">
-                      <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
-                        <option value="S2">S2</option>
-                        <option value="S3">S3</option>
-                      </select>
-                      <label for="floatingSelect">Pendidikan Terakhir</label>
+                      <input type="text" class="form-control" id="nidn" placeholder="NIDN" autocomplete="off" name="NIDN">
+                      <label for="nidn">NIDN</label>
                     </div>
                     
                     <button class="btn btn-success d-block mx-auto" type="submit" style="width: 100px;">SUBMIT</button>

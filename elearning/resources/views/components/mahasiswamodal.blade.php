@@ -15,27 +15,31 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                    <form class="form-floating" action="" method="POST">
-
-                      <input type="hidden" id="useridMhs" value="">
+                    <form class="form-floating" action="/admin/user/create-mahasiswa" method="POST">
+                      @csrf
 
                       <div class="form-floating my-3">
-                        <input type="text" class="form-control" id="nikMhs" placeholder="nik" value="NIK" disabled>
+                        <input type="text" class="form-control" id="nikMhs" placeholder="nik" value="NIK" name="NIK">
                         <label for="nikMhs">NIK</label>
                       </div>
 
                       <div class="form-floating my-3">
-                        <input type="text" class="form-control" id="nim" placeholder="NIM" autocomplete="off">
+                        <input type="text" class="form-control" id="nim" placeholder="NIM" autocomplete="off" name="NIM">
                         <label for="nim">NIM</label>
+                      </div>
+                      
+                      <div class="form-floating my-3">
+                        <input type="text" class="form-control" id="NISN" placeholder="NISN" autocomplete="off" name="NISN">
+                        <label for="NISN">NISN</label>
                       </div>
 
                       <div class="form-floating my-3">
-                        <input type="text" class="form-control" id="Angkatan" placeholder="name@example.com" value="">
+                        <input type="text" class="form-control" id="Angkatan" placeholder="20**" value="" name="angkatan">
                         <label for="Angkatan">Angkatan</label>
                       </div>
 
                       <div class="form-floating my-3">
-                        <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                        <select class="form-select" id="floatingSelect" aria-label="Floating label select example" name="program">
                           <option value="D3">D3</option>
                           <option value="S1">S1</option>
                           <option value="S2">S2</option>
@@ -45,10 +49,10 @@
                       </div>
 
                       <div class="form-floating my-3">
-                        <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
-                          <option value="1">One</option>
-                          <option value="2">Two</option>
-                          <option value="3">Three</option>
+                        <select class="form-select" id="floatingSelect" aria-label="Floating label select example" name="jurusan">
+                          @foreach ($jurusans as $jurusan)
+                          <option value="{{$jurusan['kode_jurusan']}}">{{$jurusan['nama_jurusan']}}</option>
+                          @endforeach
                         </select>
                         <label for="floatingSelect">Jurusan</label>
                       </div>
