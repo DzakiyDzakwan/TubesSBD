@@ -168,4 +168,17 @@ class AdminController extends Controller
         ]);
     }
 
+    public function fakultasStore(Request $request) {
+
+        /* dd($request->all()); */
+
+        $request->validate([
+            'kode_fakultas'=>'required|min:5',
+            'nama_fakultas'=>'required'
+        ]);
+
+        return back();
+
+    }
+
 }

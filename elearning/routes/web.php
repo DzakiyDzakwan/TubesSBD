@@ -45,6 +45,22 @@ Route::delete('/admin/dosen/delete-dosen/{id}', [AdminController::class, 'dosenD
 /* ADMIN FAKULTAS */
 Route::get('/admin/faculty', [AdminController::class, 'faculty']);
 
+Route::post('/admin/faculty/create-fakultas', [AdminController::class, 'fakultasStore']);
+
+Route::delete('/admin/faculty/delete-fakultas/{id}', [AdminController::class, 'fakultasDelete']);
+
+Route::post('/admin/faculty/create-jurusan', [AdminController::class, 'jurusanStore']);
+
+Route::delete('/admin/faculty/delete-jurusan/{id}', [AdminController::class, 'jurusanDelete']);
+
+Route::post('/admin/faculty/create-matkul', [AdminController::class, 'matkulStore']);
+
+Route::delete('/admin/faculty/delete-matkul/{id}', [AdminController::class, 'matkulDelete']);
+
+Route::post('/admin/faculty/create-kelas', [AdminController::class, 'kelasStore']);
+
+Route::delete('/admin/faculty/delete-kelas/{id}', [AdminController::class, 'kelasDelete']);
+
 
 //LOGIN
 Route::get('/', [LoginController::class, 'login']);

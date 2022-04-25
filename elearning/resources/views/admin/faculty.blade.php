@@ -19,14 +19,21 @@
       <!-- FAKULTAS CONTAINER -->
       <div class="container fakultas my-3 p-3">
         <h3>Data Fakultas</h3>
+        <!-- ALERT -->
+        <div class="alert alert-danger alert-dismissible fade show text-center" role="alert">
+          <strong>Kode Fakultas</strong> Sudah tersedia.
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        <!-- ALERT END -->
         <div class="container d-flex" style="border: 1px solid; height: 400px">
           <div class="form-fakultas p-2">
             <h5 class="text-center fw-bold">Create Fakultas</h5>
-            <form action="" method="POST" class="text-dark py-3 fw-bold">
+            <form action="/admin/faculty/create-fakultas" method="POST" class="text-dark py-3 fw-bold">
+              @csrf
               <label for="id">Kode Fakultas</label>
-              <input class="form-control" type="text" name="id" id="id" />
+              <input class="form-control @error('kode_fakultas') is-invalid @enderror" type="text" name="kode_fakultas" id="id" autocomplete="off"/>
               <label for="nama" class="my-2">Nama Fakultas</label>
-              <input class="form-control" type="text" name="" id="nama" />
+              <input class="form-control" type="text" name="nama_fakultas" id="nama" autocomplete="off"/>
               <input class="btn btn-success my-3 form-control" type="submit" value="SUBMIT" />
             </form>
           </div>
