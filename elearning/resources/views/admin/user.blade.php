@@ -66,7 +66,7 @@
               <td>{{$user['agama']}}</td>
               <td>{{$user['jenis_kelamin']}}</td>
               <td class="statusUser">{{$user['status']}}</td>
-              <td>
+              <td class="d-flex justify-content-center">
                 @if ($user['status'] === 'mahasiswa')
                 <div class="btn btn-primary daftarBtn" data-bs-toggle="modal" data-bs-target="#mhsModal">
                   <i class="bx bx-book-add"></i>
@@ -76,11 +76,13 @@
                   <i class="bx bx-book-add"></i>
                 </div>
                 @endif
-                <a href="text-decoration-none text-white">
-                  <div class="btn btn-danger">
+                <form action="/admin/user/delete-user/{{$user['NIK']}}" method="post">
+                  @csrf
+                  @method('DELETE')
+                  <button type="submit" class="btn btn-danger">
                     <i class="bx bx-trash"></i>
-                  </div>
-                </a>
+                  </button>
+                </form>
               </td>
             </tr>
             @endforeach

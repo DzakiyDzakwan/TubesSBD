@@ -10,53 +10,25 @@
               <div class="modal-body">
                   <table class="table text-center">
 
+                      @foreach ($aslabs as $aslab)
                       <tr>
-                          <td id="user_id" class="d-none">001</td>
-                          <td>1</td>
-                          <td>Dzakiy Dzakwan</td>
-                          <td class="text-end">
-                              <div id="enrollbtn" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#aslabEnroll">
-                                  <i class="bx bx-plus-circle"></i>
-                              </div>
-                              <a href="">
-                                  <div class="btn btn-danger">
-                                      <i class='bx bx-trash'></i>
-                                  </div>
-                              </a>
-                          </td>
-                      </tr>
-
-                      <tr>
-                          <td id="user_id" class="d-none">004</td>
-                          <td>2</td>
-                          <td>Rizki Sahat</td>
-                          <td class="text-end">
-                              <div id="enrollbtn" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#aslabEnroll">
-                                  <i class="bx bx-plus-circle"></i>
-                              </div>
-                              <a href="">
-                                  <div class="btn btn-danger">
-                                      <i class='bx bx-trash'></i>
-                                  </div>
-                              </a>
-                          </td>
-                      </tr>
-
-                      <tr>
-                          <td id="user_id" class="d-none">003</td>
-                          <td>3</td>
-                          <td>Rizqi Amelia</td>
-                          <td class="text-end">
-                              <div id="enrollbtn" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#aslabEnroll">
-                                  <i class="bx bx-plus-circle"></i>
-                              </div>
-                              <a href="">
-                                  <div class="btn btn-danger">
-                                      <i class='bx bx-trash'></i>
-                                  </div>
-                              </a>
-                          </td>
-                      </tr>
+                        <td id="user_id" class="d-none">{{$aslab['NIK']}}</td>
+                        <td>{{$loop->iteration}}</td>
+                        <td>{{$aslab['first_name']}} {{$aslab['last_name']}}</td>
+                        <td class="text-end d-flex justify-content-center">
+                            <div id="enrollbtn" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#aslabEnroll">
+                                <i class="bx bx-plus-circle"></i>
+                            </div>
+                            <form action="/admin/mahasiswa/delete-aslab/{{$aslab['aslab_id']}}" method="post">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger">
+                                    <i class='bx bx-trash'></i>
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                      @endforeach
 
                   </table>
               </div>

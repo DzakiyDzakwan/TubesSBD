@@ -1,0 +1,66 @@
+-Login & Register
+1. Login - Sahat
+2. Register - Sahat
+
+-Admin
+1. Read User -Dzakiy ✅
+2. Delete User - Dzakiy
+3. Read Mahasiswa - Dzakiy ✅
+4. Add Mahasiswa - Dzakiy✅
+5. Delete Mahasiswa - Dzakiy✅
+6. Read Dosen - Dzakiy ✅
+7. Add Dosen - Dzakiy✅
+8. Delete Dosen - Dzakiy✅
+9. Read Aslab - Dzakiy
+10. Add Aslab  - Dzakiy
+11. Enroll Aslab - Dzakiy
+12. Delete Aslab - Dzakiy
+13. Read Fakultas - Dzakiy ✅
+14. Edit Fakultas
+15. Delete Fakultas
+16. Read Jurusan - Dzakiy✅
+17. Edit Jurusan
+18. Delete Jurusan
+19. Read Mata Kuliah - Dzakiy✅
+20. Edit Mata Kuliah
+21. Delete Mata Kuliah
+22. Read Kelas - Dzakiy✅
+23. Edit Kelas
+24. Delete Kelas
+
+-User
+--Enrollment
+1. Read Fakultas
+2. Read Jurusan
+3. Read Kelas
+4. Enroll Kelas
+
+--Dashboard
+1. Read Sidebar Kelas
+---Mahasiswa
+1. Read kelas yang sudah di enroll
+2. Read Pertemuan di setiap kelas
+3. Read Materi di setiap pertemuan
+4. Read tugas di setiap pertemuan
+5. Insert Tugas
+6. Edit Tugas
+7. Delete Tugas
+
+Dzakiy List : 
+1. Read User -Dzakiy ✅
+2. Delete User - Dzakiy ✅
+3. Read Mahasiswa - Dzakiy ✅
+4. Add Mahasiswa - Dzakiy✅
+5. Delete Mahasiswa - Dzakiy ✅
+6. Read Dosen - Dzakiy ✅
+7. Add Dosen - Dzakiy✅
+8. Delete Dosen - Dzakiy ✅
+9. Read Aslab - Dzakiy ✅
+10. Add Aslab  - Dzakiy ✅
+11. Enroll Aslab - Dzakiy ❌
+12. Delete Aslab - Dzakiy ✅
+13. Read Fakultas - Dzakiy ✅
+11. Read Fakultas ✅
+12. Read Jurusan ✅
+13. Read Mata Kuliah ✅
+14. Read Kelas ✅

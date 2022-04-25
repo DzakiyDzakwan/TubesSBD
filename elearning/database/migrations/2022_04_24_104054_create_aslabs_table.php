@@ -18,6 +18,7 @@ class CreateAslabsTable extends Migration
             $table->date('tanggal_pelantikan');
             $table->char('mahasiswa', 9)->nullable(false);
             $table->foreign('mahasiswa')->references('NIM')->on('mahasiswas');
+            $table->timestamps();
         });
     }
 

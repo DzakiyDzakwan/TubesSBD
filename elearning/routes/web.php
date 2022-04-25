@@ -26,14 +26,28 @@ Route::get('/admin', [AdminController::class, 'dashboard']);
 
 Route::get('/admin/user', [AdminController::class, 'user']);
 
+Route::delete('/admin/user/delete-user/{id}', [AdminController::class, 'userDelete']);
+
 Route::post('/admin/user/create-mahasiswa', [AdminController::class, 'mahasiswaStore']);
 
 Route::post('/admin/user/create-dosen', [AdminController::class, 'dosenStore']);
 
+/* ADMIN MAHASISWA */
 Route::get('/admin/mahasiswa', [AdminController::class, 'mahasiswa']);
 
+Route::delete('/admin/mahasiswa/delete-mahasiswa/{id}', [AdminController::class, 'mahasiswaDelete']);
+
+/* ADMIN ASLAB */
+Route::post('/admin/mahasiswa/add-aslab/{id}', [AdminController::class , 'addAslab']);
+
+Route::delete('/admin/mahasiswa/delete-aslab/{id}', [AdminController::class, 'aslabDelete']);
+
+/* ADMIN DOSEN */
 Route::get('/admin/dosen', [AdminController::class, 'dosen']);
 
+Route::delete('/admin/dosen/delete-dosen/{id}', [AdminController::class, 'dosenDelete']);
+
+/* ADMIN FAKULTAS */
 Route::get('/admin/faculty', [AdminController::class, 'faculty']);
 
 

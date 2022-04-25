@@ -57,21 +57,21 @@
         <table class="table">
           <tr>
             <td>Fakultas</td>
-            <td>12</td>
+            <td>{{$fakultas}}</td>
             <td>Jurusan</td>
-            <td>24</td>
+            <td>{{$jurusan}}</td>
           </tr>
           <tr>
             <td>Mata-Kuliah</td>
-            <td>48</td>
+            <td>{{$matkul}}</td>
             <td>User</td>
-            <td>500</td>
+            <td>{{$user}}</td>
           </tr>
           <tr>
             <td>Mahasiswa</td>
-            <td>400</td>
+            <td>{{$mahasiswa}}</td>
             <td>Dosen</td>
-            <td>100</td>
+            <td>{{$dosen}}</td>
           </tr>
         </table>
       </div>

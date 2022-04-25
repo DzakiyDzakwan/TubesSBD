@@ -10,8 +10,7 @@ class Aslab extends Model
     use HasFactory;
 
     protected $guarded = [
-        'aslab_id',
-        'added_at'
+        'aslab_id'
     ];
 
     public function mahasiswa(){

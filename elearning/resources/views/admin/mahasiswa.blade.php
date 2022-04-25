@@ -16,7 +16,7 @@
 
     @section('content')
     
-    <div class="container chart-container my-3 py-3">
+    {{-- <div class="container chart-container my-3 py-3">
 
       <h3>Mahasiswa</h3>
 
@@ -24,7 +24,7 @@
           <canvas class="my-3" id="studentChart"></canvas>
       </div>
 
-  </div>
+  </div> --}}
 
   <div class="container table-container my-3 py-3">
 
@@ -62,6 +62,7 @@
               <thead>
                   <tr>
                       <th>NIM</th>
+                      <th>NISN</th>
                       <th>Nama</th>
                       <th>Jurusan</th>
                       <th>Semester</th>
@@ -75,20 +76,26 @@
                   @foreach ($mahasiswa as $mhs)
                   <tr>
                     <td>{{$mhs['NIM']}}</td>
+                    <td>{{$mhs['NISN']}}</td>
                     <td>{{$mhs['first_name']}} {{$mhs['last_name']}}<span class="badge bg-light text-danger"><i class='fs-6 bx bx-desktop'></i></box-icon></span></td>
                     <td>{{$mhs['nama_jurusan']}}</td>
                     <td>{{$mhs['semester']}}</td>
                     <td>{{$mhs['angkatan']}}</td>
                     <td>{{$mhs['status']}}</td>
-                    <td>
-                        <div class="btn btn-primary">
-                            <i class='bx bx-book-add'></i>
-                        </div>
-                        <a href="">
-                            <div class="btn btn-danger">
+                    <td class="d-flex align-items-center justify-content-center">
+                        <form action="/admin/mahasiswa/add-aslab/{{$mhs['NIM']}}" method="POST">
+                            @csrf
+                            <button type="submit" class="btn btn-primary">
+                                <i class='bx bx-book-add'></i>
+                            </button>
+                        </form>
+                        <form action="/admin/mahasiswa/delete-mahasiswa/{{$mhs['NIM']}}" method="post">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger">
                                 <i class='bx bx-trash'></i>
-                            </div>
-                        </a>
+                            </button>
+                        </form>
                     </td>
                 </tr>
                   @endforeach

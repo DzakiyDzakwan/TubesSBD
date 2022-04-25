@@ -10,13 +10,13 @@
 @endsection
 
 @section('content')
-<div class="container chart-container my-3 py-3">
+{{-- <div class="container chart-container my-3 py-3">
   <h3>Dosen</h3>
 
   <div class="chart">
     <canvas class="my-3" id="dosenChart"></canvas>
   </div>
-</div>
+</div> --}}
 
 <div class="container table-container my-3 py-3">
   <!-- HEADER -->
@@ -80,9 +80,13 @@
             <!-- <div class="btn btn-primary">
               <i class="bx bx-book-add"></i>
             </div> -->
-            <div class="btn btn-danger">
-              <i class="bx bx-trash"></i>
-            </div>
+              <form action="/admin/dosen/delete-dosen/{{$dosen['NIP']}}" method="post">
+                @csrf
+                @method('DELETE')
+                <button class="btn btn-danger">
+                  <i class="bx bx-trash"></i>
+                </button>
+              </form>
           </td>
         </tr>
         @endforeach
