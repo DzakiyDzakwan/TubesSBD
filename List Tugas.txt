@@ -46,6 +46,21 @@
 6. Edit Tugas
 7. Delete Tugas
 
+
+--Dosen
+1. Read kelas yang dimasuki
+2. Create Pertemuan
+3. Create Materi
+4. Edit Materi
+5. Delete Materi
+6. Create Tugas
+7. Edit Tugas
+8. Lihat Jawaban
+9. Nilai Jawaban
+
+-Read Profil User & Guru
+-Edit Profil User & Guru
+
 Dzakiy List : 
 1. Read User -Dzakiy ✅
 2. Delete User - Dzakiy ✅
