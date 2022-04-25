@@ -37,9 +37,11 @@
                             <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
                             <label class="form-check-label" for="defaultCheck1">Remember username</label>
                         </div>
-                        <div class="d-grid gap-3 mb-4">
+                        <div class="d-grid gap-2 mb-4">
                             <button class="btn btn-primary " type="submit"><a href="/user" class="text-decoration-none text-light">LOG IN</a></button>
-                            <button class="btn btn-light" type="forgotpass">FORGET PASSWORD</button>
+                            <a class="btn btn-secondary text-light fw-light" type="forgotpass">Register</a>
+                            {{-- <button class="btn btn-light" type="forgotpass">FORGET PASSWORD</button> --}}
+                            
                         </div>
                     </form>
                     <p class="text-secondary text-center">Supported Browser</p>

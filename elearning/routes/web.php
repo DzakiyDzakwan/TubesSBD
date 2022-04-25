@@ -17,11 +17,6 @@ use App\Http\Controllers\DosenController;
 |
 */
 
-/* Route::get('/admin', function () {
-    $page = "dashboard";
-    return view('dashboardadmin',compact('page'));
-}); */
-
 Route::get('/admin', [AdminController::class, 'dashboard']);
 
 Route::get('/admin/user', [AdminController::class, 'user']);
@@ -52,7 +47,7 @@ Route::get('/admin/faculty', [AdminController::class, 'faculty']);
 
 
 //LOGIN
-Route::get('/login', [LoginController::class, 'login']);
+Route::get('/', [LoginController::class, 'login']);
 
 // USER
 Route::get('/user', [UserController::class, 'dashboard']);
