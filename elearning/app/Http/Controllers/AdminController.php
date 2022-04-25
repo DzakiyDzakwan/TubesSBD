@@ -153,6 +153,7 @@ class AdminController extends Controller
     public function faculty() {
         $page  = 'faculty';
 
+        $dosen =  Dosen::join('users', 'dosens.user', '=', 'users.NIK')->select('dosens.NIP', 'users.first_name', 'users.last_name')->get();
         $fakultas = Fakultas::get();
         $jurusan = Jurusan::join('fakultas', 'jurusans.fakultas_id' , '=', 'fakultas.kode_fakultas')->get();
         $matakuliah = Mata_kuliah::join('jurusans', 'mata_kuliahs.jurusan', '=', 'jurusans.kode_jurusan')->get();
@@ -163,7 +164,8 @@ class AdminController extends Controller
             'fakultas'=>$fakultas,
             'jurusans'=>$jurusan,
             'matakuliah'=>$matakuliah,
-            'kelas'=>$kelas
+            'kelas'=>$kelas,
+            'dosens'=>$dosen
 
         ]);
     }
@@ -177,8 +179,42 @@ class AdminController extends Controller
             'nama_fakultas'=>'required'
         ]);
 
+        Fakultas::create([
+            'kode_fakultas'=>$request->kode_fakultas,
+            'nama_fakultas'=>$request->nama_fakultas,
+            'dekan'=>$request->dekan
+        ]);
+
         return back();
 
+    }
+
+    public function fakultasDelete($id) {
+
+    }
+
+    public function jurusanStore(Request $request) {
+
+    }
+
+    public function jurusanDelete($id) {
+        
+    }
+
+    public function matkulStore(Request $request) {
+
+    }
+
+    public function matkulDelete($id) {
+        
+    }
+
+    public function kelasStore(Request $request) {
+        
+    }
+
+    public function kelasDelete($id) {
+        
     }
 
 }

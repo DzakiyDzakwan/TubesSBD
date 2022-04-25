@@ -9,22 +9,33 @@
   @endsection
 
    <!-- ALERT -->
-   <div class="alert alert-danger alert-dismissible fade show text-center" role="alert">
+   {{-- <div class="alert alert-danger alert-dismissible fade show text-center" role="alert">
     <strong>Kode Fakultas</strong> Sudah tersedia.
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-  </div>
+  </div> --}}
   <!-- ALERT END -->
+
+   <!-- ALERT -->
+   @error('kode_fakultas')
+   <div class="alert alert-danger alert-dismissible fade show text-center" role="alert">
+     {{-- <strong>Kode Fakultas</strong> Tidak boleh Kosong. --}}
+     <strong>Kode Fakultas</strong> Tidak boleh Kosong.
+     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+   </div>  
+   @enderror
+
+   @error('nama_fakultas')
+   <div class="alert alert-danger alert-dismissible fade show text-center" role="alert">
+     <strong>Nama Fakultas</strong> Tidak boleh Kosong.
+     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+   </div>  
+   @enderror
+   <!-- ALERT END -->
 
   @section('content')
       <!-- FAKULTAS CONTAINER -->
       <div class="container fakultas my-3 p-3">
         <h3>Data Fakultas</h3>
-        <!-- ALERT -->
-        <div class="alert alert-danger alert-dismissible fade show text-center" role="alert">
-          <strong>Kode Fakultas</strong> Sudah tersedia.
-          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-        <!-- ALERT END -->
         <div class="container d-flex" style="border: 1px solid; height: 400px">
           <div class="form-fakultas p-2">
             <h5 class="text-center fw-bold">Create Fakultas</h5>
@@ -33,7 +44,14 @@
               <label for="id">Kode Fakultas</label>
               <input class="form-control @error('kode_fakultas') is-invalid @enderror" type="text" name="kode_fakultas" id="id" autocomplete="off"/>
               <label for="nama" class="my-2">Nama Fakultas</label>
-              <input class="form-control" type="text" name="nama_fakultas" id="nama" autocomplete="off"/>
+              <input class="form-control @error('kode_fakultas') is-invalid @enderror" type="text" name="nama_fakultas" id="nama" autocomplete="off"/>
+              <label for="dekan" class="my-2">Dekan</label>
+              <select class="form-select" aria-label="Default select example" id="dekan" name="dekan">
+                <option value= "">NULL</option>
+                @foreach ($dosens as $dosen)
+                  <option value="{{$dosen['NIP']}}">{{$dosen['first_name']}} {{$dosen['last_name']}}</option> 
+                @endforeach
+              </select>
               <input class="btn btn-success my-3 form-control" type="submit" value="SUBMIT" />
             </form>
           </div>
@@ -144,10 +162,9 @@
               <input class="form-control" type="text" name="jurusan_name" id="nama_matkul" />
               <label for="fakultas">Jurusan</label>
               <select class="form-select" aria-label="Default select example" id="jurusan">
-                <option selected>Tes</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
+                @foreach ($jurusans as $jurusan)
+                  <option value="{{$jurusan['kode_jurusan']}}">{{$jurusan['nama_jurusan']}}</option>  
+                @endforeach    
               </select>
               <input class="btn btn-success my-3 form-control" type="submit" value="SUBMIT" />
             </form>
@@ -206,12 +223,11 @@
                 <option value="2">Two</option>
                 <option value="3">Three</option>
               </select>
-              <label for="fakultas">Dosen</label>
-              <select class="form-select" aria-label="Default select example" id="jurusan">
-                <option selected>Tes</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
+              <label for="dosen">Dosen</label>
+              <select class="form-select" aria-label="Default select example" id="dosen">
+                @foreach ($dosens as $dosen)
+                <option value="{{$dosen['NIP']}}">{{$dosen['first_name']}} {{$dosen['last_name']}}</option>
+                @endforeach
               </select>
               <input class="btn btn-success my-3 form-control" type="submit" value="SUBMIT" />
             </form>
