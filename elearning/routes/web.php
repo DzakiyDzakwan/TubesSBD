@@ -69,6 +69,7 @@ Route::get('/', [LoginController::class, 'login']);
 
 // REGISTER
 Route::get('/register', [RegisterController::class, 'register']);
+Route::post('/register', [RegisterController::class, 'store']);
 
 // USER
 Route::get('/user', [UserController::class, 'dashboard']);
