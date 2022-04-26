@@ -65,6 +65,9 @@ Route::delete('/admin/faculty/delete-kelas/{id}', [AdminController::class, 'kela
 //LOGIN
 Route::get('/', [LoginController::class, 'login']);
 
+// REGISTER
+Route::get('/register', [LoginController::class, 'login']);
+
 // USER
 Route::get('/user', [UserController::class, 'dashboard']);
 
