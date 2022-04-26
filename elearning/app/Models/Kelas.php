@@ -10,9 +10,8 @@ class Kelas extends Model
     use HasFactory;
 
     protected $guarded = [
-        'kelas_id',
-        'dosen',
-        'mata_kuliah'
+        'created_at',
+        'updated_at'
     ];
 
     public function enrollment()
