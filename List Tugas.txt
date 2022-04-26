@@ -16,17 +16,21 @@
 11. Enroll Aslab - Dzakiy
 12. Delete Aslab - Dzakiy
 13. Read Fakultas - Dzakiy ✅
-14. Edit Fakultas
-15. Delete Fakultas
-16. Read Jurusan - Dzakiy✅
-17. Edit Jurusan
-18. Delete Jurusan
-19. Read Mata Kuliah - Dzakiy✅
-20. Edit Mata Kuliah
-21. Delete Mata Kuliah
-22. Read Kelas - Dzakiy✅
-23. Edit Kelas
-24. Delete Kelas
+14. Add Fakultas - Dzakiy ✅
+15. Edit Fakultas
+16. Delete Fakultas - Dzakiy ✅
+17. Read Jurusan - Dzakiy✅
+18. Add Jurusan
+19. Edit Jurusan
+20. Delete Jurusan
+21. Read Mata Kuliah - Dzakiy✅
+22. Add Mata Kuliah
+23. Edit Mata Kuliah
+24. Delete Mata Kuliah
+25. Read Kelas - Dzakiy✅
+26. Add Kelas
+27. Edit Kelas
+28. Delete Kelas
 
 -User
 --Enrollment

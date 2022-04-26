@@ -191,22 +191,66 @@ class AdminController extends Controller
 
     public function fakultasDelete($id) {
 
+        Fakultas::where('kode_fakultas', $id)->delete();
+
+        return back();
+
     }
 
     public function jurusanStore(Request $request) {
+
+        $request->validate([
+            'kode_jurusan'=>'required|min:5',
+            'nama_jurusan'=>'required',
+        ]);
+
+        Jurusan::create([
+            'kode_jurusan'=>$request->kode_jurusan,
+            'nama_jurusan'=>$request->nama_jurusan,
+            'fakultas_id'=>$request->fakultas,
+            'degree'=>$request->degree
+        ]);
+
+        /* dd($request->all()); */
+
+        return back();
 
     }
 
     public function jurusanDelete($id) {
         
+        Jurusan::where('kode_jurusan', $id)->delete();
+
+        return back();
+
     }
 
     public function matkulStore(Request $request) {
+
+        $request->validate([
+            'kode_matkul'=>"required",
+            'nama_matkul'=> 'required',
+            'sks'=> 'required'
+        ]);
+
+
+        Mata_kuliah::create([
+            'kode_mata_kuliah'=>$request->kode_matkul,
+            'nama_matkul'=>$request->nama_matkul,
+            'sks'=>$request->sks,
+            'jurusan'=>$request->jurusan
+        ]);
+
+        return back();
 
     }
 
     public function matkulDelete($id) {
         
+        Mata_kuliah::where('kode_mata_kuliah', $id)->delete();
+
+        return back();
+
     }
 
     public function kelasStore(Request $request) {
