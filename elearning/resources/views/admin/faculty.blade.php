@@ -19,49 +19,63 @@
    @error('kode_fakultas')
    <div class="alert alert-danger alert-dismissible fade show text-center" role="alert">
      {{-- <strong>Kode Fakultas</strong> Tidak boleh Kosong. --}}
-     <strong>Kode Fakultas</strong> Tidak boleh Kosong.
+     {{$message}}
      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
    </div>  
    @enderror
 
    @error('nama_fakultas')
    <div class="alert alert-danger alert-dismissible fade show text-center" role="alert">
-     <strong>Nama Fakultas</strong> Tidak boleh Kosong.
+     {{-- <strong>Nama Fakultas</strong> Tidak boleh Kosong. --}}
+     {{$message}}
      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
    </div>  
    @enderror
 
    @error('kode_jurusan')
    <div class="alert alert-danger alert-dismissible fade show text-center" role="alert">
-     <strong>Kode Fakultas</strong> Tidak boleh Kosong.
+     {{-- <strong>Kode Fakultas</strong> Tidak boleh Kosong. --}}
+     {{$message}}
      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
    </div>  
    @enderror
 
    @error('nama_jurusan')
    <div class="alert alert-danger alert-dismissible fade show text-center" role="alert">
-     <strong>Nama Jurusan</strong> Tidak boleh Kosong.
+     {{-- <strong>Nama Jurusan</strong> Tidak boleh Kosong. --}}
+     {{$message}}
      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
    </div>  
    @enderror
 
-   @error('kode_matkul')
+   @error('kode_mata_kuliah')
    <div class="alert alert-danger alert-dismissible fade show text-center" role="alert">
-     <strong>Kode Matkul</strong> Tidak boleh Kosong.
+     {{-- <strong>Kode Matkul</strong> Tidak boleh Kosong. --}}
+     <strong>{{$message}}</strong>
      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
    </div>  
    @enderror
 
    @error('nama_matkul')
    <div class="alert alert-danger alert-dismissible fade show text-center" role="alert">
-     <strong>Nama Mata Kuliah</strong> Tidak boleh Kosong.
+     {{-- <strong>Nama Mata Kuliah</strong> Tidak boleh Kosong. --}}
+     <strong>{{$message}}</strong>
      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
    </div>  
    @enderror
 
    @error('sks')
    <div class="alert alert-danger alert-dismissible fade show text-center" role="alert">
-     <strong>SKS</strong> Tidak boleh Kosong.
+     {{-- <strong>SKS</strong> Tidak boleh Kosong. --}}
+     {{$message}}
+     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+   </div>  
+   @enderror
+
+   @error('kelas_id')
+   <div class="alert alert-danger alert-dismissible fade show text-center" role="alert">
+     {{-- <strong>SKS</strong> Tidak boleh Kosong. --}}
+     <strong>{{$message}}</strong>
      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
    </div>  
    @enderror
@@ -208,8 +222,8 @@
             <h5 class="text-center fw-bold">Create Matakuliah</h5>
             <form action="/admin/faculty/create-matkul" method="POST" class="text-dark py-3 fw-bold">
               @csrf
-              <label for="kode_matkul">Kode Matakuliah</label>
-              <input class="form-control @error('kode_matkul') is-invalid @enderror" type="text" name="kode_matkul" id="kode_matkul" autocomplete="off"/>
+              <label for="kode_mata_kuliah">Kode Matakuliah</label>
+              <input class="form-control @error('kode_mata_kuliah') is-invalid @enderror" type="text" name="kode_mata_kuliah" id="kode_mata_kuliah" autocomplete="off"/>
               <label for="nama_matkul" class="my-2">Nama Matakuliah</label>
               <input class="form-control @error('nama_matkul') is-invalid @enderror" type="text" name="nama_matkul" id="nama_matkul" autocomplete="off"/>
               <label for="sks" class="my-2">Jumlah SKS</label>
@@ -240,7 +254,7 @@
                   <td>{{$matkul['kode_mata_kuliah']}}</td>
                   <td>{{$matkul['nama_matkul']}}</td>
                   <td>{{$matkul['nama_jurusan']}}</td>
-                  <td class="d-flex justify_content_center">
+                  <td class="d-flex justify-content-center">
                     <form action="">
                       <div class="btn btn-primary">
                         <i class="bx bx-edit-alt"></i>
@@ -269,19 +283,18 @@
         <div class="container d-flex" style="border: 1px solid; height: 400px">
           <div class="form-fakultas p-2">
             <h5 class="text-center fw-bold">Create Kelas</h5>
-            <form action="" method="POST" class="text-dark py-3 fw-bold">
-              <label for="kode_kelas">Kode Kelas</label>
-              <input class="form-control" type="text" name="kode_kelas" id="kode_kelas" />
-              <label for="nama_kelas" class="my-2">Nama Kelas</label>
-              <input class="form-control" type="text" name="nama_kelas" id="nama_kelas" />
-              <label for="matkul_kelas">Matakuliah</label>
-              <select class="form-select" aria-label="Default select example" id="matkul_kelas" name="matkul_kelas">
+            <form action="/admin/faculty/create-kelas" method="POST" class="text-dark py-3 fw-bold">
+              @csrf
+              <label for="kelas_id">Kode Kelas</label>
+              <input class="form-control @error('kelas_id') is-invalid @enderror" type="text" name="kelas_id" id="kelas_id" autocomplete="off"/>
+              <label for="mata_kuliah">Matakuliah</label>
+              <select class="form-select" aria-label="Default select example" id="mata_kuliah" name="mata_kuliah">
                 @foreach ($matakuliah as $matkul)
                   <option value="{{$matkul['kode_mata_kuliah']}}">{{$matkul['nama_matkul']}}</option>
                 @endforeach
               </select>
               <label for="dosen">Dosen</label>
-              <select class="form-select" aria-label="Default select example" id="dosen">
+              <select class="form-select" aria-label="Default select example" id="dosen" name="dosen">
                 @foreach ($dosens as $dosen)
                 <option value="{{$dosen['NIP']}}">{{$dosen['first_name']}} {{$dosen['last_name']}}</option>
                 @endforeach
@@ -296,28 +309,32 @@
                 <tr>
                   <th>Kode Kelas</th>
                   <th>Nama Kelas</th>
-                  <th>Dosen</th>
+                  <th>Matakuliah</th>
                   <th>Action</th>
                 </tr>
               </thead>
               <tbody>
+                @foreach ($kelas as $kls)
                 <tr>
-                  <td>K001</td>
-                  <td>Pengantar Ilmu Kedokteran</td>
-                  <td>Budiman</td>
-                  <td>
-                    <a href="" class="text-decoration-none">
+                  <td>{{$kls['kelas_id']}}</td>
+                  <td>{{$kls['nama_matkul']}}</td>
+                  <td>{{$kls['first_name']}} {{$kls['last_name']}}</td>
+                  <td class="d-flex justify-content-center">
+                    <form action="" method="post">
                       <div class="btn btn-primary">
                         <i class="bx bx-edit-alt"></i>
                       </div>
-                    </a>
-                    <a href="" class="text-decoration-none">
-                      <div class="btn btn-danger">
+                    </form>
+                    <form action="/admin/faculty/delete-kelas/{{$kls['kelas_id']}}" method="POST" class="ms-2">
+                      @csrf
+                      @method('DELETE')
+                      <button type="submit" class="btn btn-danger">
                         <i class="bx bx-trash"></i>
-                      </div>
-                    </a>
+                      </button>
+                    </form>
                   </td>
                 </tr>
+                @endforeach
               </tbody>
             </table>
           </div>

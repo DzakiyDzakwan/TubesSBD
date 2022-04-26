@@ -175,8 +175,8 @@ class AdminController extends Controller
         /* dd($request->all()); */
 
         $request->validate([
-            'kode_fakultas'=>'required|min:5',
-            'nama_fakultas'=>'required'
+            'kode_fakultas'=>'required|min:5|unique:fakultas',
+            'nama_fakultas'=>'required|unique:fakultas'
         ]);
 
         Fakultas::create([
@@ -200,8 +200,8 @@ class AdminController extends Controller
     public function jurusanStore(Request $request) {
 
         $request->validate([
-            'kode_jurusan'=>'required|min:5',
-            'nama_jurusan'=>'required',
+            'kode_jurusan'=>'required|min:5|unique:jurusans',
+            'nama_jurusan'=>'required|unique:jurusans',
         ]);
 
         Jurusan::create([
@@ -228,8 +228,8 @@ class AdminController extends Controller
     public function matkulStore(Request $request) {
 
         $request->validate([
-            'kode_matkul'=>"required",
-            'nama_matkul'=> 'required',
+            'kode_mata_kuliah'=>"required|min:5|max:6|unique:mata_kuliahs",
+            'nama_matkul'=> 'required|unique:mata_kuliahs',
             'sks'=> 'required'
         ]);
 
@@ -255,10 +255,30 @@ class AdminController extends Controller
 
     public function kelasStore(Request $request) {
         
+        /* dd($request->all()); */
+
+        $request->validate([
+            'kelas_id'=>'required|max:6|unique:kelas'
+        ]);
+
+        Kelas::create([
+
+            'kelas_id'=>$request->kelas_id,
+            'dosen'=>$request->dosen,
+            'mata_kuliah'=>$request->mata_kuliah
+
+        ]);
+        
+        return back();
+
     }
 
     public function kelasDelete($id) {
         
+        Kelas::where('kelas_id', $id)->delete();
+
+        return back();
+
     }
 
 }
