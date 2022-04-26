@@ -15,11 +15,5 @@ class LoginController extends Controller
 
     }
 
-    public function register(){
-
-        return view('user.register', [
-            'title' => "Register"
-        ]);
-
-    }
+    
 }

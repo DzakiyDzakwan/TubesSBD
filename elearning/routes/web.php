@@ -1,10 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\LoginController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DosenController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -66,7 +68,7 @@ Route::delete('/admin/faculty/delete-kelas/{id}', [AdminController::class, 'kela
 Route::get('/', [LoginController::class, 'login']);
 
 // REGISTER
-Route::get('/register', [LoginController::class, 'login']);
+Route::get('/register', [RegisterController::class, 'register']);
 
 // USER
 Route::get('/user', [UserController::class, 'dashboard']);
