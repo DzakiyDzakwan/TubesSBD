@@ -23,6 +23,11 @@
                 <div class="card-body ml-auto">
                   <img src="https://elearning2.usu.ac.id/pluginfile.php/1/core_admin/logo/0x200/1648753770/usu-kampusmerdeka.png" alt="" width="365px">
                     <form>
+                      @if(session()->has('success'))
+                      <div class="alert alert-success alert-dismissible fade show text-center" role="alert">
+                        {{ session('success') }}
+                      </div>
+                      @endif
                         <div class="row mt-2 mb-3">
                             <div class="col">
                             <input type="text" class="form-control" placeholder="NIP/NIDN/NIM" aria-label="">
@@ -39,7 +44,7 @@
                         </div>
                         <div class="d-grid gap-2 mb-4">
                             <button class="btn btn-primary " type="submit"><a href="/user" class="text-decoration-none text-light">LOG IN</a></button>
-                            <a class="btn btn-secondary text-light fw-light" type="forgotpass">Register</a>
+                            <a href="/register" class="btn btn-secondary text-light fw-light" type="forgotpass">Register</a>
                             {{-- <button class="btn btn-light" type="forgotpass">FORGET PASSWORD</button> --}}
                             
                         </div>

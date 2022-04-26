@@ -26,27 +26,27 @@
                       @csrf
                         <div class="row mt-1 mb-2">
                             <div class="col">
-                            <input type="text" class="form-control" placeholder="NIK" aria-label="">
+                            <input type="text" class="form-control" placeholder="NIK" aria-label="" name="NIK">
                             </div>
                         </div>
                         <div class="row mb-2">
                             <div class="col">
-                            <input type="email" class="form-control" placeholder="usu@gmail.com" aria-label="">
+                            <input type="email" class="form-control" placeholder="usu@gmail.com" aria-label="" name="email">
                             </div>
                         </div>
                         <div class="row mb-2">
                           <div class="col">
-                          <input type="text" class="form-control" placeholder="Nomor HP" aria-label="">
+                          <input type="text" class="form-control" placeholder="Nomor HP" aria-label="" name="nomor_hp">
                           </div>
                       </div>
                         <div class="row mb-2">
                             <div class="col">
-                            <input type="text" class="form-control" placeholder="First Name" aria-label="">
+                            <input type="text" class="form-control" placeholder="First Name" aria-label="" name="first_name">
                             </div>
                         </div>
                         <div class="row mb-2">
                             <div class="col">
-                            <input type="text" class="form-control" placeholder="Last Name" aria-label="">
+                            <input type="text" class="form-control" placeholder="Last Name" aria-label="" name="last_name">
                             </div>
                         </div>
                         <div><p class="my-1">Jenis Kelamin</p>
@@ -57,7 +57,7 @@
                         </div>
                         <div class="row mb-2">
                             <div class="col">
-                            <input type="text" class="form-control" placeholder="Agama" aria-label="">
+                            <input type="text" class="form-control" placeholder="Agama" aria-label="" name="agama">
                             </div>
                         </div>
                         <div><p class="my-1">Kewarganegaraan</p>
@@ -67,9 +67,19 @@
                           </select>
                         <div class="row mb-2">
                             <div class="col">
-                            <input type="password" class="form-control" placeholder="Password" aria-label="">
+                            <input type="password" class="form-control" placeholder="Password" aria-label="" name="password">
                             </div>
                         </div>
+                        <div class="row mb-2">
+                          <div class="col">
+                          <input type="text" class="form-control" placeholder="Alamat" aria-label="" name="alamat">
+                          </div>
+                      </div>
+                      <div class="row mb-2">
+                        <div class="col">
+                        <input type="date" class="form-control" placeholder="Tanggal Lahir" aria-label="" name="tgl_lahir">
+                        </div>
+                    </div>
                         <div class="d-grid gap-3 mb-4">
                             <button class="btn btn-primary" type="submit">Register</button>
                         </div>
