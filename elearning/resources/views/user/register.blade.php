@@ -17,12 +17,13 @@
             <h4><b>E-Learning Universitas Sumatera Utara</b></h4>
           </div>
 
-          <!--Form Login-->
+          <!--Form Register-->
           <div class="col my-4">
             <div class="card mx-auto border-0 shadow" style="max-width: 400px">
                 <div class="card-body ml-auto">
                   <img src="https://elearning2.usu.ac.id/pluginfile.php/1/core_admin/logo/0x200/1648753770/usu-kampusmerdeka.png" alt="" width="365px">
-                    <form>
+                    <form action="/register" method="post">
+                      @csrf
                         <div class="row mt-1 mb-2">
                             <div class="col">
                             <input type="text" class="form-control" placeholder="NIK" aria-label="">
@@ -34,6 +35,11 @@
                             </div>
                         </div>
                         <div class="row mb-2">
+                          <div class="col">
+                          <input type="text" class="form-control" placeholder="Nomor HP" aria-label="">
+                          </div>
+                      </div>
+                        <div class="row mb-2">
                             <div class="col">
                             <input type="text" class="form-control" placeholder="First Name" aria-label="">
                             </div>
@@ -43,38 +49,25 @@
                             <input type="text" class="form-control" placeholder="Last Name" aria-label="">
                             </div>
                         </div>
-                        <div><p>Jenis Kelamin</p>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                            <label class="form-check-label" for="flexRadioDefault1">
-                              Laki-Laki
-                            </label>
-                          </div>
-                          <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                            <label class="form-check-label" for="flexRadioDefault2">
-                              Perempuan
-                            </label>
-                          </div>
+                        <div><p class="my-1">Jenis Kelamin</p>
+                          <select class="form-select my-3" aria-label="Default select example" id="jenis_kelamin" name="jenis_kelamin">
+                            <option value="PRIA">PRIA</option>
+                            <option value="WANITA">WANITA</option>
+                          </select>
                         </div>
                         <div class="row mb-2">
                             <div class="col">
                             <input type="text" class="form-control" placeholder="Agama" aria-label="">
                             </div>
                         </div>
-                        <div class="row mb-2">
-                            <div class="col">
-                            <input type="text" class="form-control" placeholder="Kewarganegaraan" aria-label="">
-                            </div>
-                        </div>
+                        <div><p class="my-1">Kewarganegaraan</p>
+                          <select class="form-select my-3" aria-label="Default select example" id="kewarganegaraan" name="kewarganegaraan">
+                            <option value="WNI">WNI</option>
+                            <option value="WNA">WNA</option>
+                          </select>
                         <div class="row mb-2">
                             <div class="col">
                             <input type="password" class="form-control" placeholder="Password" aria-label="">
-                            </div>
-                        </div>
-                        <div class="row mb-2">
-                            <div class="col">
-                            <input type="text" class="form-control" placeholder="Status" aria-label="">
                             </div>
                         </div>
                         <div class="d-grid gap-3 mb-4">
