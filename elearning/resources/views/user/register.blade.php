@@ -26,27 +26,52 @@
                       @csrf
                         <div class="row mt-1 mb-2">
                             <div class="col">
-                            <input type="text" class="form-control" placeholder="NIK" aria-label="" name="NIK">
+                            <input type="text" class="form-control @error('NIK')is-invalid @enderror" placeholder="NIK" aria-label="" name="NIK">
+                            @error('NIK')
+                            <div class="invalid-feedback">
+                              {{ $message }}
+                            </div>
+                            @enderror
                             </div>
                         </div>
                         <div class="row mb-2">
                             <div class="col">
-                            <input type="email" class="form-control" placeholder="usu@gmail.com" aria-label="" name="email">
+                            <input type="email" class="form-control @error('email')is-invalid @enderror" placeholder="usu@gmail.com" aria-label="" name="email">
+                            @error('email')
+                            <div class="invalid-feedback">
+                              {{ $message }}
+                            </div>
+                            @enderror
                             </div>
                         </div>
                         <div class="row mb-2">
                           <div class="col">
-                          <input type="text" class="form-control" placeholder="Nomor HP" aria-label="" name="nomor_hp">
+                          <input type="text" class="form-control @error('nomor_hp')is-invalid @enderror" placeholder="Nomor HP" aria-label="" name="nomor_hp">
+                          @error('nomor_hp')
+                            <div class="invalid-feedback">
+                              {{ $message }}
+                            </div>
+                            @enderror
                           </div>
                       </div>
                         <div class="row mb-2">
                             <div class="col">
-                            <input type="text" class="form-control" placeholder="First Name" aria-label="" name="first_name">
+                            <input type="text" class="form-control @error('first_name')is-invalid @enderror" placeholder="First Name" aria-label="" name="first_name">
+                            @error('first_name')
+                            <div class="invalid-feedback">
+                              {{ $message }}
+                            </div>
+                            @enderror
                             </div>
                         </div>
                         <div class="row mb-2">
                             <div class="col">
-                            <input type="text" class="form-control" placeholder="Last Name" aria-label="" name="last_name">
+                            <input type="text" class="form-control @error('last_name')is-invalid @enderror" placeholder="Last Name" aria-label="" name="last_name">
+                            @error('last_name')
+                            <div class="invalid-feedback">
+                              {{ $message }}
+                            </div>
+                            @enderror
                             </div>
                         </div>
                         <div><p class="my-1">Jenis Kelamin</p>
@@ -57,7 +82,12 @@
                         </div>
                         <div class="row mb-2">
                             <div class="col">
-                            <input type="text" class="form-control" placeholder="Agama" aria-label="" name="agama">
+                            <input type="text" class="form-control @error('agama')is-invalid @enderror" placeholder="Agama" aria-label="" name="agama">
+                            @error('agama')
+                            <div class="invalid-feedback">
+                              {{ $message }}
+                            </div>
+                            @enderror
                             </div>
                         </div>
                         <div><p class="my-1">Kewarganegaraan</p>
@@ -67,22 +97,38 @@
                           </select>
                         <div class="row mb-2">
                             <div class="col">
-                            <input type="password" class="form-control" placeholder="Password" aria-label="" name="password">
+                            <input type="password" class="form-control @error('email')is-invalid @enderror" placeholder="Password" aria-label="" name="password">
+                            @error('email')
+                            <div class="invalid-feedback">
+                              {{ $message }}
+                            </div>
+                            @enderror
                             </div>
                         </div>
                         <div class="row mb-2">
                           <div class="col">
-                          <input type="text" class="form-control" placeholder="Alamat" aria-label="" name="alamat">
+                          <input type="text" class="form-control @error('alamat')is-invalid @enderror" placeholder="Alamat" aria-label="" name="alamat">
+                          @error('alamat')
+                            <div class="invalid-feedback">
+                              {{ $message }}
+                            </div>
+                            @enderror
                           </div>
                       </div>
                       <div class="row mb-2">
                         <div class="col">
-                        <input type="date" class="form-control" placeholder="Tanggal Lahir" aria-label="" name="tgl_lahir">
+                        <input type="date" class="form-control @error('tgl_lahir')is-invalid @enderror" placeholder="Tanggal Lahir" aria-label="" name="tgl_lahir">
+                        @error('tgl_lahir')
+                            <div class="invalid-feedback">
+                              {{ $message }}
+                            </div>
+                            @enderror
                         </div>
                     </div>
                         <div class="d-grid gap-3 mb-4">
                             <button class="btn btn-primary" type="submit">Register</button>
                         </div>
+                        <small class="d-block text-center my-1">Sudah Punya akun? <a href="/">Login disini!</a></small>
                     </form>
                 </div>
             </div>
