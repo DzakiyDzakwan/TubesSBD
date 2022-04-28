@@ -22,20 +22,31 @@
             <div class="card mx-auto border-0 shadow" style="max-width: 400px">
                 <div class="card-body ml-auto">
                   <img src="https://elearning2.usu.ac.id/pluginfile.php/1/core_admin/logo/0x200/1648753770/usu-kampusmerdeka.png" alt="" width="365px">
-                    <form>
+                    <form action="/" method="post">
+                      @csrf
                       @if(session()->has('success'))
                       <div class="alert alert-success alert-dismissible fade show text-center" role="alert">
                         {{ session('success') }}
                       </div>
                       @endif
+                      @if(session()->has('loginError'))
+                      <div class="alert alert-danger alert-dismissible fade show text-center" role="alert">
+                        {{ session('loginError') }}
+                      </div>
+                      @endif
                         <div class="row mt-2 mb-3">
                             <div class="col">
-                            <input type="text" class="form-control" placeholder="NIP/NIDN/NIM" aria-label="">
+                            <input type="text" name="NIK" id="NIK" class="form-control @error('NIK') is-invalid @enderror" placeholder="NIK" aria-label="" autofocus required value="{{ old('NIK') }}">
+                            @error('NIK')
+                              <div class="div invalid-feedback">
+                                {{ $message }}
+                              </div>
+                            @enderror
                             </div>
                         </div>
                         <div class="row mb-3">
                             <div class="col">
-                            <input type="password" class="form-control" placeholder="Password" aria-label="">
+                            <input type="password" name="password" id="password" class="form-control" placeholder="Password" aria-label="" required>
                             </div>
                         </div>
                         <div class="form-check mb-3">

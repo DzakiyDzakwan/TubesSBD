@@ -40,7 +40,7 @@ Route::post('/admin/mahasiswa/add-aslab/{id}', [AdminController::class , 'addAsl
 Route::delete('/admin/mahasiswa/delete-aslab/{id}', [AdminController::class, 'aslabDelete']);
 
 /* ADMIN DOSEN */
-Route::get('/admin/dosen', [AdminController::class, 'dosen']);
+Route::get('/admin/dosen', [AdminController::class, 'dosen'])->middleware('auth');
 
 Route::delete('/admin/dosen/delete-dosen/{id}', [AdminController::class, 'dosenDelete']);
 
@@ -64,15 +64,21 @@ Route::post('/admin/faculty/create-kelas', [AdminController::class, 'kelasStore'
 Route::delete('/admin/faculty/delete-kelas/{id}', [AdminController::class, 'kelasDelete']);
 
 
-//LOGIN
-Route::get('/', [LoginController::class, 'login']);
+// LOGIN
+Route::get('/', [LoginController::class, 'login'])->name('login')->middleware('guest');
+
+Route::post('/', [LoginController::class, 'authenticate']);
+
+// LOGOUT
+Route::post('/logout', [LoginController::class, 'logout']);
 
 // REGISTER
-Route::get('/register', [RegisterController::class, 'register']);
+Route::get('/register', [RegisterController::class, 'register'])->middleware('guest');
+
 Route::post('/register', [RegisterController::class, 'store']);
 
 // USER
-Route::get('/user', [UserController::class, 'dashboard']);
+Route::get('/dashboard', [UserController::class, 'dashboard'])->middleware('auth');
 
 Route::get('/user/sitehome', [UserController::class, 'sitehome']);
 
