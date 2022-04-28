@@ -78,7 +78,7 @@ Route::get('/register', [RegisterController::class, 'register'])->middleware('gu
 Route::post('/register', [RegisterController::class, 'store']);
 
 // USER
-Route::get('/dashboard', [UserController::class, 'dashboard']);
+Route::get('/dashboard', [UserController::class, 'dashboard'])->middleware('auth');
 
 Route::get('/user/sitehome', [UserController::class, 'sitehome']);
 
