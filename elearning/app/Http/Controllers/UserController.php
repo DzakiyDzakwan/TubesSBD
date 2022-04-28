@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests;
+use App\Models\User;
+use App\Models\Mahasiswa;
+use App\Models\Dosen;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -52,7 +57,18 @@ class UserController extends Controller
     public function profile(){
         $page = 'profile';
 
-        return view('user.profile', compact('page'));
+        $mahasiswa = Mahasiswa::join('users','mahasiswas.user','=','users.NIK')->select('mahasiswas.NIM','users.first_name','users.last_name','users.email','users.nomor_hp','users.jenis_kelamin','users.agama','users.kewarganegaraan','users.alamat','users.tgl_lahir')->get();
+
+        $dosen = Dosen::join('users','dosens.user','=','users.NIK')->select('dosens.NIP','users.first_name','users.last_name','users.email','users.nomor_hp','users.jenis_kelamin','users.agama','users.kewarganegaraan','users.alamat','users.tgl_lahir')->get();
+
+        return view('user.profile', [
+            'page'=> $page,
+            'mahasiswa'=>$mahasiswa[0],
+            'dosen'=>$dosen[0]
+
+        ]);
+
+        // return view('user.profile', compact('users'));
 
     }
 
