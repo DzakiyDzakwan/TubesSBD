@@ -97,8 +97,8 @@
                           </select>
                         <div class="row mb-2">
                             <div class="col">
-                            <input type="password" class="form-control @error('email')is-invalid @enderror" placeholder="Password" aria-label="" name="password">
-                            @error('email')
+                            <input type="password" class="form-control @error('password')is-invalid @enderror" placeholder="Password" aria-label="" name="password">
+                            @error('password')
                             <div class="invalid-feedback">
                               {{ $message }}
                             </div>

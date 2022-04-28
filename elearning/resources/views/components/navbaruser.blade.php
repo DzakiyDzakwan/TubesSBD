@@ -70,9 +70,12 @@
           </li>
           <hr />
           <li>
-            <button class="dropdown-item px-5 mb-2" type="button">
+            <form action="/logout" method="post">
+              @csrf
+            <button class="dropdown-item px-5 mb-2" type="submit">
               <i class="fa-solid fa-right-from-bracket"></i> Log Out
             </button>
+          </form>
           </li>
         </ul>
       </div>
