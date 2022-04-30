@@ -33,6 +33,7 @@ class CreateUsersTable extends Migration
             $table->enum('status', ['mahasiswa','dosen']);
             $table->rememberToken();
             $table->timestamps();
+            $table->boolean('is_admin')->default(false);
         });
     }
 
