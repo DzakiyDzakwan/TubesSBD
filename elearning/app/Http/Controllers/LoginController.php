@@ -16,18 +16,26 @@ class LoginController extends Controller
             'title' => "Login"
         ]);
 
-    }
+}
 
     public function authenticate(Request $request)
     {
         $credentials = $request->validate([
             'NIK' => 'required',
+            'status' => 'required',
             'password' => 'required'
         ]);
 
         if(Auth::attempt($credentials)){
             $request->session()->regenerate();
-            return redirect()->intended('/dosen');
+            if ($request->status == "mahasiswa") {
+                
+                return redirect()->intended('/dashboard');
+            }else{
+                return redirect()->intended('/dosen');
+            }
+            // $request->session()->regenerate();
+            // return redirect()->intended('/dosen');
         }
 
         return back()->with('loginError', 'Login Gagal Bro, ntnt bisa comeback');

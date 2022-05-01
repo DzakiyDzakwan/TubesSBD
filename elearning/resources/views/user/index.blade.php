@@ -44,6 +44,12 @@
                             @enderror
                             </div>
                         </div>
+                        <div>
+                          <select class="form-select my-3" aria-label="Default select example" id="status" name="status">
+                            <option value="mahasiswa">Mahasiswa</option>
+                            <option value="dosen">Dosen</option>
+                          </select>
+                        </div>
                         <div class="row mb-3">
                             <div class="col">
                             <input type="password" name="password" id="password" class="form-control" placeholder="Password" aria-label="" required>

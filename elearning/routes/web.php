@@ -78,7 +78,7 @@ Route::get('/register', [RegisterController::class, 'register'])->middleware('gu
 Route::post('/register', [RegisterController::class, 'store']);
 
 // USER
-Route::get('/dashboard', [UserController::class, 'dashboard']);
+Route::get('/dashboard', [UserController::class, 'dashboard'])->middleware('mahasiswa');
 
 Route::get('/user/sitehome', [UserController::class, 'sitehome']);
 
@@ -99,7 +99,7 @@ Route::get('/user/pilihanjurusan', [UserController::class, 'pilihanjurusan']);
 Route::get('/user/enrollmatkul', [UserController::class, 'enrollmatkul']);
 
 //DOSEN
-Route::get('/dosen', [DosenController::class, 'dashboard'])->middleware('auth');
+Route::get('/dosen', [DosenController::class, 'dashboard'])->middleware('dosen');
 
 Route::get('/dosen/sitehome', [DosenController::class, 'sitehome']);
 

@@ -11,7 +11,6 @@ use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
-
     public function dashboard(){
         $page = 'dashboard';
 

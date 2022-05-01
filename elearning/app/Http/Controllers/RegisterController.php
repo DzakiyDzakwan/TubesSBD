@@ -31,6 +31,7 @@ class RegisterController extends Controller
             'alamat' => 'required|min:1|max:255',
             'tgl_lahir' => 'required',
             'password' => 'required|min:5|max:255',
+            'status' => 'required',
         ]);
 
         $validatedData['password'] = Hash::make($validatedData['password']);

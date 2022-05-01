@@ -105,6 +105,12 @@
                             @enderror
                             </div>
                         </div>
+                        <div><p class="my-1">Status</p>
+                          <select class="form-select my-3" aria-label="Default select example" id="status" name="status">
+                            <option value="mahasiswa">Mahasiswa</option>
+                            <option value="dosen">Dosen</option>
+                          </select>
+                        </div>
                         <div class="row mb-2">
                           <div class="col">
                           <input type="text" class="form-control @error('alamat')is-invalid @enderror" placeholder="Alamat" aria-label="" name="alamat">
