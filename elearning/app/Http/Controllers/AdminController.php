@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\Dosen;
 use App\Models\Mahasiswa;
@@ -14,6 +15,27 @@ use App\Models\Kelas;
 
 class AdminController extends Controller
 {
+
+    public function login() {
+        return view('admin.login');
+    }
+
+    public function loginAuthenticate(Request $request) {
+
+        $credentials = $request->validate([
+            'user_name' => 'required',
+            'password' => 'required'
+        ]);
+
+        if(Auth::guard('webadmin')->attempt($credentials)) {
+            $request->session()->regenerate();
+
+            return redirect()->intended('/admin/user');
+        }
+
+        return back()->with('loginFail', 'Login gagal');
+
+    }
 
     /* DASHBOARD */
     public function dashboard() {
