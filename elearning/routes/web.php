@@ -19,7 +19,11 @@ use App\Http\Controllers\RegisterController;
 |
 */
 
-Route::get('/admin', [AdminController::class, 'dashboard']);
+Route::get('/admin', [AdminController::class, 'login']);
+
+Route::post('/login', [AdminController::class, 'loginAuthenticate']);
+
+Route::get('/admin/dashboard', [AdminController::class, 'dashboard']);
 
 Route::get('/admin/user', [AdminController::class, 'user']);
 
