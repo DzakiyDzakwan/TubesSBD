@@ -7,6 +7,17 @@ use App\Http\Requests;
 use App\Models\User;
 use App\Models\Mahasiswa;
 use App\Models\Dosen;
+use App\Models\Aslab;
+use App\Models\Fakultas;
+use App\Models\Jurusan;
+use App\Models\Mata_kuliah;
+use App\Models\Kelas;
+use App\Models\Enrollment;
+use App\Models\Pertemuan;
+use App\Models\Materi;
+use App\Models\Tugas;
+use App\Models\Jawaban;
+use App\Models\Absen;
 use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
@@ -14,56 +25,145 @@ class UserController extends Controller
     public function dashboard(){
         $page = 'dashboard';
 
-        return view('user.dashboarduser', compact('page'));
+        //sidebar
+        $enrollmatkul = Enrollment::join('kelas','enrollments.kelas','=','kelas.kelas_id')->join('mata_kuliahs','kelas.mata_kuliah','=','mata_kuliahs.kode_mata_kuliah')->select('enrollments.user','enrollments.kelas','mata_kuliahs.kode_mata_kuliah','mata_kuliahs.nama_matkul')
+        // ->where('user','1208014206030003')
+        ->get();
+
+        //navbar user
+        $mahasiswa = Mahasiswa::join('users','mahasiswas.user','=','users.NIK')->select('mahasiswas.NIM','users.first_name','users.last_name')->get();
+
+        // $dosen = Dosen::join('users','dosens.user','=','users.NIK')->select('dosens.NIP','users.first_name','users.last_name','users.email','users.nomor_hp','users.jenis_kelamin','users.agama','users.kewarganegaraan','users.alamat','users.tgl_lahir')->get();
+
+        
+        return view('user.dashboarduser', [
+            'page'=> $page,
+            'mahasiswa'=>$mahasiswa[0],
+            // 'dosen'=>$dosen[0],
+            'enrollmatkul'=> $enrollmatkul
+        
+        ]);
+
+        // return view('user.dashboarduser', compact('page'));
 
     }
 
     public function sitehome(){
         $page = 'sitehome';
 
-        return view('user.sitehome', compact('page'));
+        //sidebar user
+        $enrollmatkul = Enrollment::join('kelas','enrollments.kelas','=','kelas.kelas_id')->join('mata_kuliahs','kelas.mata_kuliah','=','mata_kuliahs.kode_mata_kuliah')->select('enrollments.user','enrollments.kelas','mata_kuliahs.kode_mata_kuliah','mata_kuliahs.nama_matkul')->get();
+        
+        //navbar user
+        $mahasiswa = Mahasiswa::join('users','mahasiswas.user','=','users.NIK')->select('mahasiswas.NIM','users.first_name','users.last_name')->get();
+
+        return view('user.sitehome', [
+            'page'=> $page,
+            'mahasiswa'=>$mahasiswa[0],
+            'enrollmatkul'=> $enrollmatkul
+        
+        ]);
+
+        // return view('user.sitehome', compact('page'));
 
     }
 
     public function participants(){
         $page = 'participants';
 
-        return view('user.participants', compact('page'));
+        //sidebar user
+        $enrollmatkul = Enrollment::join('kelas','enrollments.kelas','=','kelas.kelas_id')->join('mata_kuliahs','kelas.mata_kuliah','=','mata_kuliahs.kode_mata_kuliah')->select('enrollments.user','enrollments.kelas','mata_kuliahs.kode_mata_kuliah','mata_kuliahs.nama_matkul')->get();
+        
+        //navbar user
+        $mahasiswa = Mahasiswa::join('users','mahasiswas.user','=','users.NIK')->select('mahasiswas.NIM','users.first_name','users.last_name')->get();
+
+        return view('user.participants', [
+            'page'=> $page,
+            'mahasiswa'=>$mahasiswa[0],
+            'enrollmatkul'=> $enrollmatkul
+        
+        ]);
+
+
+        // return view('user.participants', compact('page'));
 
     }
 
     public function matakuliah(){
         $page = 'matakuliah';
 
-        return view('user.matakuliah', compact('page'));
+        //sidebar user
+        $enrollmatkul = Enrollment::join('kelas','enrollments.kelas','=','kelas.kelas_id')->join('mata_kuliahs','kelas.mata_kuliah','=','mata_kuliahs.kode_mata_kuliah')->select('enrollments.user','enrollments.kelas','mata_kuliahs.kode_mata_kuliah','mata_kuliahs.nama_matkul')->get();
+
+        //navbar user
+        $mahasiswa = Mahasiswa::join('users','mahasiswas.user','=','users.NIK')->select('mahasiswas.NIM','users.first_name','users.last_name')->get();
+        
+        return view('user.matakuliah', [
+            'page'=> $page,
+            'mahasiswa'=>$mahasiswa[0],
+            'enrollmatkul'=> $enrollmatkul,
+        
+        ]);
+
+        // return view('user.matakuliah', compact('page'));
 
     }
 
     public function absen(){
         $page = 'absen';
+        
+        //sidebar user
+        $enrollmatkul = Enrollment::join('kelas','enrollments.kelas','=','kelas.kelas_id')->join('mata_kuliahs','kelas.mata_kuliah','=','mata_kuliahs.kode_mata_kuliah')->select('enrollments.user','enrollments.kelas','mata_kuliahs.kode_mata_kuliah','mata_kuliahs.nama_matkul')->get();
+        
+        //navbar user
+        $mahasiswa = Mahasiswa::join('users','mahasiswas.user','=','users.NIK')->select('mahasiswas.NIM','users.first_name','users.last_name')->get();
 
-        return view('user.absen', compact('page'));
+        return view('user.absen', [
+            'page'=> $page,
+            'mahasiswa'=>$mahasiswa[0],
+            'enrollmatkul'=> $enrollmatkul
+        
+        ]);
+
+        //return view('user.absen', compact('page'));
 
     }
 
     public function tugas(){
         $page = 'tugas';
 
-        return view('user.tugas', compact('page'));
+        //sidebar user
+        $enrollmatkul = Enrollment::join('kelas','enrollments.kelas','=','kelas.kelas_id')->join('mata_kuliahs','kelas.mata_kuliah','=','mata_kuliahs.kode_mata_kuliah')->select('enrollments.user','enrollments.kelas','mata_kuliahs.kode_mata_kuliah','mata_kuliahs.nama_matkul')->get();
+        
+        //navbar user
+        $mahasiswa = Mahasiswa::join('users','mahasiswas.user','=','users.NIK')->select('mahasiswas.NIM','users.first_name','users.last_name')->get();
+
+        return view('user.tugas', [
+            'page'=> $page,
+            'mahasiswa'=>$mahasiswa[0],
+            'enrollmatkul'=> $enrollmatkul
+        
+        ]);
+
+        //return view('user.tugas', compact('page'));
 
     }
 
     public function profile(){
         $page = 'profile';
 
-        $mahasiswa = Mahasiswa::join('users','mahasiswas.user','=','users.NIK')->select('mahasiswas.NIM','users.first_name','users.last_name','users.email','users.nomor_hp','users.jenis_kelamin','users.agama','users.kewarganegaraan','users.alamat','users.tgl_lahir')->get();
+        $mahasiswa = Mahasiswa::join('users','mahasiswas.user','=','users.NIK')->select('mahasiswas.NIM','users.NIK','users.first_name','users.last_name','users.email','users.nomor_hp','users.jenis_kelamin','users.agama','users.kewarganegaraan','users.alamat','users.tgl_lahir')->get();
 
         $dosen = Dosen::join('users','dosens.user','=','users.NIK')->select('dosens.NIP','users.first_name','users.last_name','users.email','users.nomor_hp','users.jenis_kelamin','users.agama','users.kewarganegaraan','users.alamat','users.tgl_lahir')->get();
+
+        //sidebar user
+        $enrollmatkul = Enrollment::join('kelas','enrollments.kelas','=','kelas.kelas_id')->join('mata_kuliahs','kelas.mata_kuliah','=','mata_kuliahs.kode_mata_kuliah')->select('enrollments.user','enrollments.kelas','mata_kuliahs.kode_mata_kuliah','mata_kuliahs.nama_matkul')->get();
 
         return view('user.profile', [
             'page'=> $page,
             'mahasiswa'=>$mahasiswa[0],
-            'dosen'=>$dosen[0]
+            'dosen'=>$dosen[0],
+            'enrollmatkul'=>$enrollmatkul
 
         ]);
 
@@ -71,26 +171,105 @@ class UserController extends Controller
 
     }
 
-    public function editprofil(){
+    public function editprofil($id){
         $page = 'editprofil';
 
-        return view('user.editprofil', compact('page'));
+        //yg ini jalan
+        $mahasiswa = Mahasiswa::join('users','mahasiswas.user','=','users.NIK')->join('jurusans','mahasiswas.jurusan','=','jurusans.kode_jurusan')->select('mahasiswas.NIM','mahasiswas.jurusan','users.NIK','users.first_name','users.last_name','users.email','users.nomor_hp','users.jenis_kelamin','users.agama','users.kewarganegaraan','users.alamat','users.tgl_lahir','users.password','jurusans.nama_jurusan')
+        // ->where('NIK',$id)
+        // ->first();
+        ->get();
 
+        //blm sukses
+        //$mahasiswa = User::find($id);
+
+        
+
+        // $mahasiswa = User::where('NIK')->first();
+
+        //$data= Mahasiswa::find('NIM', $id);
+        //dd($data);
+
+
+        //sidebar user
+        $enrollmatkul = Enrollment::join('kelas','enrollments.kelas','=','kelas.kelas_id')->join('mata_kuliahs','kelas.mata_kuliah','=','mata_kuliahs.kode_mata_kuliah')->select('enrollments.user','enrollments.kelas','mata_kuliahs.kode_mata_kuliah','mata_kuliahs.nama_matkul')->get();
+    
+
+        return view('user.editprofil', [
+            'page'=> $page,
+            'mahasiswa'=>$mahasiswa[0],
+            'enrollmatkul'=> $enrollmatkul
+        
+        ]);
+
+        //return view('user.editprofil', compact('page'));
+
+    }
+
+    public function updateprofile(Request $request){
+
+        DB::table('users')->where('NIK', $request->id)->update([
+
+            'NIK' => $request->NIK,
+            'first_name' => $request->first_name,
+            'last_name' => $request->last_name,
+            'tgl_lahir' => $request->tgl_lahir,
+            'jenis_kelamin' => $request->jenis_kelamin,
+            'kewarganegaraan' => $request->kewarganegaraan,
+            'alamat' => $request->alamat,
+            'agama' => $request->agama,
+            'email' => $request->email,
+            'password' => $request->password
+
+        ]);
+
+        // $mahasiswa = User::find($id);
+
+        // return back();
+        return redirect('/user/profile')->with('status', 'Data siswa Berhasil Diubah');
+
+        // return redirect('/user/profile');
     }
 
     public function pilihanjurusan(){
         $page = 'pilihanjurusan';
 
-        return view('user.pilihanjurusan', compact('page'));
+        //sidebar user
+        $enrollmatkul = Enrollment::join('kelas','enrollments.kelas','=','kelas.kelas_id')->join('mata_kuliahs','kelas.mata_kuliah','=','mata_kuliahs.kode_mata_kuliah')->select('enrollments.user','enrollments.kelas','mata_kuliahs.kode_mata_kuliah','mata_kuliahs.nama_matkul')->get();
+        
+        //navbar user
+        $mahasiswa = Mahasiswa::join('users','mahasiswas.user','=','users.NIK')->select('mahasiswas.NIM','users.first_name','users.last_name')->get();
+
+        return view('user.pilihanjurusan', [
+            'page'=> $page,
+            'mahasiswa'=>$mahasiswa[0],
+            'enrollmatkul'=> $enrollmatkul,
+        
+        ]);
+        
+        //return view('user.pilihanjurusan', compact('page'));
 
     }
 
     public function enrollmatkul(){
         $page = 'enrollmatkul';
 
-        return view('user.enrollmatkul', compact('page'));
+        //sidebar user
+        $enrollmatkul = Enrollment::join('kelas','enrollments.kelas','=','kelas.kelas_id')->join('mata_kuliahs','kelas.mata_kuliah','=','mata_kuliahs.kode_mata_kuliah')->select('enrollments.user','enrollments.kelas','mata_kuliahs.kode_mata_kuliah','mata_kuliahs.nama_matkul')->get();
+        
+        //navbar user
+        $mahasiswa = Mahasiswa::join('users','mahasiswas.user','=','users.NIK')->select('mahasiswas.NIM','users.first_name','users.last_name')->get();
+
+        return view('user.enrollmatkul', [
+            'page'=> $page,
+            'mahasiswa'=>$mahasiswa[0],
+            'enrollmatkul'=> $enrollmatkul
+        
+        ]);
+
+        //return view('user.enrollmatkul', compact('page'));
 
     }
 
-    
+
 }
