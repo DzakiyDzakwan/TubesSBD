@@ -12,8 +12,27 @@
     />
     @yield('title')
   </head>
-
   <body>
+  <!-- css Sidebar -->
+  <style>
+  .menu{
+    padding:16px;
+    background-color: #ffffff;
+    cursor: pointer;
+    padding: auto;
+    list-style: none;
+    text-decoration: none;
+    color: black;
+  }
+   .active, .menu:hover{
+    background-color: rgb(189, 219, 185);
+    color: rgb(41, 122, 24);
+    font-weight: bold;
+  }
+  .menu-nav:hover{
+    background-color: rgb(59, 150, 115);
+  }
+  </style>
 
     <!-- NAVBAR START -->
     @include('components.navbaruser')

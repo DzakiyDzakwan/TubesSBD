@@ -43,39 +43,27 @@
           data-bs-toggle="dropdown"
           aria-expanded="true"
         >
-          <p class="px-2 d-none d-sm-block">211402000 John Doe</p>
-          <img src="https://stkipamalbakti.ac.id/assets/img/berkas_dosen/012506880.png" alt="" width="30px" />
+          
+          <p class="px-2 d-none d-sm-block">{{$mahasiswa['first_name']}} {{$mahasiswa['last_name']}} {{$mahasiswa['NIM']}}</p>
+        
+          {{-- <p class="px-2 d-none d-sm-block">{{$dosen['first_name']}} {{$dosen['last_name']}} {{$dosen['NIM']}}</p> --}}
+    
+          <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" class="rounded-circle float-end" width="40px">
         </button>
         <ul
-          class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start border-0 shadow mt-3 px-3"
+          class="dropdown-menu dropdown-menu-lg-end border-0 shadow mt-3"
           aria-labelledby="dropdownMenu"
         >
           <li>
-            <button class="dropdown-item px-5 mt-2" type="button">
-              <a class="text-decoration-none link-dark" href="/user/dashboard"><i class="fas fa-tachometer-fast"></i> Dashboard</a>
-            </button>
-          </li>
-          <hr />
-          <li>
-            <button class="dropdown-item px-5" type="button"><a class="text-decoration-none link-dark" href="/user/profile"><i class="fa-solid fa-user"></i> Profile</a></button>
+            <a class="btn menu-nav dropdown-item text-decoration-none link-dark py-2 px-5" href="/dashboard"><i class="fas fa-tachometer-fast"></i> Dashboard</a>
+
           </li>
           <li>
-            <button class="dropdown-item px-5" type="button"><i class="fa-solid fa-table"></i> Grades</button>
+              <a class="btn menu-nav dropdown-item text-decoration-none link-dark py-2 px-5" href="/user/profile"><i class="fa-solid fa-user"></i> Profile</a>
           </li>
+          <hr>
           <li>
-            <button class="dropdown-item px-5" type="button"><i class="fa-solid fa-comment"></i> Messages</button>
-          </li>
-          <li>
-            <button class="dropdown-item px-5" type="button"><i class="fa-solid fa-wrench"></i> Preferences</button>
-          </li>
-          <hr />
-          <li>
-            <form action="/logout" method="post">
-              @csrf
-            <button class="dropdown-item px-5 mb-2" type="submit">
-              <i class="fa-solid fa-right-from-bracket"></i> Log Out
-            </button>
-          </form>
+              <a class="btn menu-nav dropdown-item text-decoration-none link-dark py-2 px-5" href="/"><i class="fa-solid fa-right-from-bracket"></i> Log Out</a>
           </li>
         </ul>
       </div>

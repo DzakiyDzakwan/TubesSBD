@@ -43,11 +43,12 @@
                         alt="..."
                       />
                     </a>
-                    <p class="card-text mt-3 text-muted">Genap 2021/2022</p>
+                    <p class="card-text mt-3 text-muted"></p>
                     <p><a class="card-link link-dark text-decoration-none" href="#">[TIF1205] Sistem Basis Data - Kelas C</a></p>
                   </div>
                 </div>
               </div>
+          
               <!-- End Recently accessed courses -->
 
               <!-- course overview -->
@@ -107,6 +108,7 @@
 
                   <!-- Courses-->
                   <div class="row row-cols-1 row-cols-md-2 px-4 g-4">
+                    @foreach($enrollmatkul as $matkul)
                     <div class="col">
                       <div class="card border-0">
                         <div class="card-body">
@@ -118,70 +120,17 @@
                               alt="..."
                             />
                           </a>
-                          <p class="card-text mt-3 text-muted">Genap 2021/2022</p>
+                          {{-- <p class="card-text mt-3 text-muted">Genap 2021/2022</p> --}}
+                          <br><br>
                           <p>
                             <a class="card-link link-dark text-decoration-none pb-5" href="/user/matakuliah">
-                              [TIF1207] Struktur Data Dan Algoritma - Kelas C</a>
+                              [{{$matkul['kode_mata_kuliah']}}] {{$matkul['nama_matkul']}} - Kelas  {{$matkul['kelas']}}</a>
                           </p>
                         </div>
                       </div>
                     </div>
-                    <div class="col">
-                      <div class="card border-0">
-                        <div class="card-body">
-                          <a href="#">
-                            <img
-                              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTh1sGpm9gzHAPcjot_xUynBmxYUvSoAyyzWw&usqp=CAU"
-                              height="120px"
-                              class="card-img-top rounded-3"
-                              alt="..."
-                            />
-                          </a>
-                          <p class="card-text mt-3 text-muted">Genap 2021/2022</p>
-                          <p><a class="card-link link-dark text-decoration-none" href="#">[TIF1205] Sistem Basis Data - Kelas C</a></p>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col">
-                      <div class="card border-0">
-                        <div class="card-body">
-                          <a href="#">
-                            <img
-                              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTh1sGpm9gzHAPcjot_xUynBmxYUvSoAyyzWw&usqp=CAU"
-                              height="120px"
-                              class="card-img-top rounded-3"
-                              alt="..."
-                            />
-                          </a>
-                          <p class="card-text mt-3 text-muted">Genap 2021/2022</p>
-                          <p>
-                            <a class="card-link link-dark text-decoration-none pb-5" href="#"
-                              >[TIF1203] Pemrograman Web Lanjutan - Kelas C</a
-                            >
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col">
-                      <div class="card border-0">
-                        <div class="card-body">
-                          <a href="#">
-                            <img
-                              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTh1sGpm9gzHAPcjot_xUynBmxYUvSoAyyzWw&usqp=CAU"
-                              height="120px"
-                              class="card-img-top rounded-3"
-                              alt="..."
-                            />
-                          </a>
-                          <p class="card-text mt-3 text-muted">Genap 2021/2022</p>
-                          <p>
-                            <a class="card-link link-dark text-decoration-none pb-5" href="#"
-                              >[TIF1201] Pemrograman Berorientasi Objek - Kelas C</a
-                            >
-                          </p>
-                        </div>
-                      </div>
-                    </div>
+                    @endforeach
+                    
                   </div>
                   <!-- End Courses-->
                 </div>
