@@ -32,7 +32,7 @@
                     <!-- user detail -->
                     <div class="py-3 lh-1">
                         <p class="fw-bolder pb-3 fs-5">User Details</p>
-                        <a href="/user/editprofil" class="text-decoration-none text-success"><p>Edit Profile</p></a>
+                        <a href="/user/editprofil/{{$mahasiswa->NIK}}" class="text-decoration-none text-success"><p>Edit Profile</p></a>
                         <p class="fw-bold pt-2">Birth date</p>
                         <a >{{$mahasiswa['tgl_lahir']}}</a>
                         <p class="fw-bold pt-2">Gender</p>
@@ -47,6 +47,8 @@
                         <a href="" class="text-decoration-none text-success">{{$mahasiswa['email']}}</a>
                         <p class="fw-bold pt-2">Phone number</p>
                         <a>{{$mahasiswa['nomor_hp']}}</a>
+                        {{-- <p class="fw-bold pt-2">Jurusan</p>
+                        <a>{{$mahasiswa['nama_jurusan']}}</a> --}}
                     </div>
                     <!-- end user detail -->
 
