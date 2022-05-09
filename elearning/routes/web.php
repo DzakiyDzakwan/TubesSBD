@@ -69,9 +69,9 @@ Route::delete('/admin/faculty/delete-kelas/{id}', [AdminController::class, 'kela
 
 
 // LOGIN
-// Route::get('/', [LoginController::class, 'login'])->name('login')->middleware('guest');
+Route::get('/', [LoginController::class, 'login'])->name('login')->middleware('guest');
 
-// Route::post('/', [LoginController::class, 'authenticate']);
+Route::post('/', [LoginController::class, 'authenticate']);
 
 // LOGOUT
 Route::post('/logout', [LoginController::class, 'logout']);
@@ -82,8 +82,7 @@ Route::get('/register', [RegisterController::class, 'register'])->middleware('gu
 Route::post('/register', [RegisterController::class, 'store']);
 
 // USER
-Route::get('/dashboard', [UserController::class, 'dashboard']);
-// ->middleware('mahasiswa');
+Route::get('/dashboard', [UserController::class, 'dashboard'])->middleware('mahasiswa');
 
 Route::get('/user/sitehome', [UserController::class, 'sitehome']);
 
