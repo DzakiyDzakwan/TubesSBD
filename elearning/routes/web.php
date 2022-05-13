@@ -77,12 +77,12 @@ Route::post('/', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
 
 // REGISTER
-Route::get('/register', [RegisterController::class, 'register'])->middleware('guest');
+Route::get('/register', [RegisterController::class, 'register']);
 
 Route::post('/register', [RegisterController::class, 'store']);
 
 // USER
-Route::get('/dashboard', [UserController::class, 'dashboard'])->middleware('mahasiswa');
+Route::get('/dashboard', [UserController::class, 'dashboard']);
 
 Route::get('/user/sitehome', [UserController::class, 'sitehome']);
 
@@ -105,7 +105,7 @@ Route::get('/user/pilihanjurusan/', [UserController::class, 'pilihanjurusan']);
 Route::get('/user/enrollmatkul', [UserController::class, 'enrollmatkul']);
 
 //DOSEN
-Route::get('/dosen', [DosenController::class, 'dashboard'])->middleware('dosen');
+Route::get('/dosen', [DosenController::class, 'dashboard']);
 
 Route::get('/dosen/sitehome', [DosenController::class, 'sitehome']);
 

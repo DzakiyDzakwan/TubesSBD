@@ -18,6 +18,9 @@
     />
     <!-- STYLE -->
     <style>
+      body {
+        background-color: #F2F2F2;
+      }
       .alert {
         position: fixed;
         z-index: 1;
@@ -27,6 +30,7 @@
 
       form {
         font-family: "Poppins";
+        background-color: #FFFF
       }
     </style>
     <title>Login</title>

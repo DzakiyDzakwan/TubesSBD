@@ -77,9 +77,12 @@
               <a href="">
                 <li>Setting</li>
               </a>
-              <a href="">
-                <li>Logout</li>
-              </a>
+              <form action="/logoutadmin" method="POST">
+                @csrf
+                <button type="submit" class="btn container-fluid">
+                  <li>Logout</li>
+                </button>
+              </form>
             </ul>
           </div>
         </div>
