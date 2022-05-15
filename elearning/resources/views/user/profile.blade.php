@@ -9,7 +9,8 @@
     <!-- START CONTAINER-->
     <div class="container my-2 "> 
 
-        <!--PROFIL MAHASISWA-->
+        @if (auth()->user()->status === 'mahasiswa') 
+            <!--PROFIL MAHASISWA-->
         <!--profil dan nama-->
         <div class="row py-3">
             <div class="col-1">
@@ -84,6 +85,8 @@
             </div>
         </div>
         <!-- MAHASISWA END -->
+
+        @elseif(auth()->user()->status === 'dosen')
 
         <!--PROFIL DOSEN-->
         <!--profile dan nama -->
@@ -160,6 +163,10 @@
 
         </div>
         <!--DOSEN END-->
+
+        @endif
+
+        
 
     </div>
     <!-- CONTAINER END-->

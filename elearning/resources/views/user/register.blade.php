@@ -109,6 +109,7 @@
                           <select class="form-select my-3" aria-label="Default select example" id="status" name="status">
                             <option value="mahasiswa">Mahasiswa</option>
                             <option value="dosen">Dosen</option>
+                            <option value="admin">admin</option>
                           </select>
                         </div>
                         <div class="row mb-2">

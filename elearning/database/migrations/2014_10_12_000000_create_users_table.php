@@ -18,7 +18,8 @@ class CreateUsersTable extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->string('NIK')->nullable(false)->primary();
+            $table->id();
+            $table->char('NIK')->unique();
             $table->string('email')->nullable(false)->unique();
             $table->char('nomor_hp')->unique();
             $table->string('first_name', 200)->nullable(false);
@@ -30,10 +31,9 @@ class CreateUsersTable extends Migration
             $table->string('alamat')->nullable(false);
             $table->date('tgl_lahir');
             $table->string('password', 200)->nullable(false);
-            $table->enum('status', ['mahasiswa','dosen']);
+            $table->enum('status', ['mahasiswa','dosen','admin']);
             $table->rememberToken();
             $table->timestamps();
-            $table->boolean('is_admin')->default(false);
         });
     }
 

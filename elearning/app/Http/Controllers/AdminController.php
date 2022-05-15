@@ -75,7 +75,7 @@ class AdminController extends Controller
 
     public function userDelete($nik) {
 
-        User::where('NIK', $id)->delete();
+        User::where('NIK', $nik)->delete();
 
         return back();
 
@@ -255,9 +255,10 @@ class AdminController extends Controller
             'sks'=> 'required'
         ]);
 
+        /* dd($request->all()); */
 
         Mata_kuliah::create([
-            'kode_mata_kuliah'=>$request->kode_matkul,
+            'kode_mata_kuliah'=>$request->kode_mata_kuliah,
             'nama_matkul'=>$request->nama_matkul,
             'sks'=>$request->sks,
             'jurusan'=>$request->jurusan

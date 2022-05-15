@@ -44,7 +44,7 @@
           aria-expanded="true"
         >
           
-          <p class="px-2 d-none d-sm-block">{{$mahasiswa['first_name']}} {{$mahasiswa['last_name']}} {{$mahasiswa['NIM']}}</p>
+          <p class="px-2 d-none d-sm-block">{{auth()->user()->first_name}} {{auth()->user()->last_name}}</p>
         
           {{-- <p class="px-2 d-none d-sm-block">{{$dosen['first_name']}} {{$dosen['last_name']}} {{$dosen['NIM']}}</p> --}}
     
@@ -63,7 +63,10 @@
           </li>
           <hr>
           <li>
-              <a class="btn menu-nav dropdown-item text-decoration-none link-dark py-2 px-5" href="/"><i class="fa-solid fa-right-from-bracket"></i> Log Out</a>
+              <form action="/logout" method="POST">
+                @csrf
+                <button class="btn container-fluid" type="submit"><i class="fa-solid fa-right-from-bracket"></i> Log Out</button>
+              </form>
           </li>
         </ul>
       </div>

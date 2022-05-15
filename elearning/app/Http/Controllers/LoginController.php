@@ -22,20 +22,22 @@ class LoginController extends Controller
     {
         $credentials = $request->validate([
             'NIK' => 'required',
-            'status' => 'required',
             'password' => 'required'
         ]);
 
         if(Auth::attempt($credentials)){
+
             $request->session()->regenerate();
-            if ($request->status == "mahasiswa") {
-                
+
+            //return redirect()->intended('/testadmin');
+
+            if(Auth::user()->status === "mahasiswa" || Auth::user()->status === "dosen") {
                 return redirect()->intended('/dashboard');
-            }else{
-                return redirect()->intended('/dosen');
+            } else {
+                return redirect()->intended('/admin');
             }
-            // $request->session()->regenerate();
-            // return redirect()->intended('/dosen');
+
+            
         }
 
         return back()->with('loginError', 'Login Gagal Bro, ntnt bisa comeback');

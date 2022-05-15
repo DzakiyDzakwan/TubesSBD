@@ -19,11 +19,13 @@ use App\Http\Controllers\RegisterController;
 |
 */
 
-Route::get('/admin', [AdminController::class, 'login']);
+//TEST ADMIN
 
-Route::post('/login', [AdminController::class, 'loginAuthenticate']);
+Route::get('/testadmin', function(){
+  return view('admin');
+})->name('testadmin');
 
-Route::get('/admin/dashboard', [AdminController::class, 'dashboard']);
+Route::get('/admin', [AdminController::class, 'dashboard']);
 
 Route::get('/admin/user', [AdminController::class, 'user']);
 
@@ -69,7 +71,7 @@ Route::delete('/admin/faculty/delete-kelas/{id}', [AdminController::class, 'kela
 
 
 // LOGIN
-Route::get('/', [LoginController::class, 'login'])->name('login')->middleware('guest');
+Route::get('/', [LoginController::class, 'login'])->name('login');
 
 Route::post('/', [LoginController::class, 'authenticate']);
 
