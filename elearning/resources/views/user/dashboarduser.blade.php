@@ -123,8 +123,8 @@
                           {{-- <p class="card-text mt-3 text-muted">Genap 2021/2022</p> --}}
                           <br><br>
                           <p>
-                            <a class="card-link link-dark text-decoration-none pb-5" href="/user/matakuliah">
-                              {{-- [{{$matkul['kode_mata_kuliah']}}] {{$matkul['nama_matkul']}} - Kelas  {{$matkul['kelas']}} --}}
+                            <a class="card-link link-dark text-decoration-none pb-5" href="/user/kelas/{{$matkul['kelas_id']}}">
+                              [{{$matkul['kode_mata_kuliah']}}] {{$matkul['nama_matkul']}} - Kelas  {{$matkul['kelas']}}
                             </a>
                           </p>
                         </div>

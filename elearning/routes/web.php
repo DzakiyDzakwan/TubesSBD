@@ -112,7 +112,7 @@ Route::middleware('auth')->group(function() {
     Route::put('/user/updateprofile/{id}', [ProfilController::class, 'updateprofile']);
 
     //Kelas
-    Route::get('/user/kelas', [KelasController::class, 'matakuliah']);
+    Route::get('/user/kelas/{id}', [KelasController::class, 'kelas']);
 
     Route::middleware('dosen')->group(function(){
       //Pertemuan
@@ -131,6 +131,9 @@ Route::middleware('auth')->group(function() {
     
     //Tugas
     Route::get('/user/tugas', [TugasController::class, 'tugas']);
+
+    //Jawaban
+
 
 });
 

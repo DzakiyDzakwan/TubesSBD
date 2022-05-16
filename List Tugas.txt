@@ -127,3 +127,34 @@ Neha List :
 3. Read Dashboar Kelas Mahasiswa -Neha
 4. Read Profil User & Guru -amel&neha
 5. Edit Profil User & Guru -amel&neha
+
+
+Admin : 
+1. Dzakiy
+
+Register : 
+1. Sahat
+
+Login : 
+1. Dzakiy
+2. Sahat
+
+Dashboard
+
+Profil & Edit Profil :
+1. Neha
+2. Amel 
+
+Kelas :
+1. Sahat
+
+
+Absen : 
+1. Amel
+
+Tugas :
+1. Agnes
+
+Jawaban :
+1.
+

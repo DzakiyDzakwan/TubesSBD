@@ -4,14 +4,22 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Kelas;
+use App\Models\Pertemuan;
 
 class KelasController extends Controller
 {
-    public function matakuliah(){
-        $page = 'matakuliah';
+    public function kelas($id){
+        $page = 'kelas';
 
-        $pertemuan = Kelas::select('kelas')->get();
+        //Pertemuan
+        $pertemuan = Pertemuan::select('nama_pertemuan', 'deskripsi', 'tanggal_pertemuan')->where('kelas', $id)->get();
         
+        //Materi
+
+        //Tugas
+
+        //Absensi
+
         return view('user.matakuliah', [
             'page'=> $page,
             'pertemuan'=>$pertemuan,
