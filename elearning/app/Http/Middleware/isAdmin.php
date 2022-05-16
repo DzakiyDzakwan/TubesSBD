@@ -2,10 +2,11 @@
 
 namespace App\Http\Middleware;
 
+use App\Providers\RouteServiceProvider;
 use Closure;
 use Illuminate\Http\Request;
 
-class isMahasiswa
+class isAdmin
 {
     /**
      * Handle an incoming request.
@@ -16,7 +17,8 @@ class isMahasiswa
      */
     public function handle(Request $request, Closure $next)
     {
-        if( auth()->user()->status !== 'mahasiswa' ) {
+
+        if( auth()->user()->status !== 'admin' ) {
             return back();
         }
         

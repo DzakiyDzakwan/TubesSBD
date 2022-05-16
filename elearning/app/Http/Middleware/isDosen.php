@@ -16,9 +16,10 @@ class isDosen
      */
     public function handle(Request $request, Closure $next)
     {
-        if($request->status == "dosen"){
-            return $next($request);
+        if( auth()->user()->status !== 'dosen' ) {
+            return back();
         }
-        return redirect('/dashboard')->with('error',"Error anda bukan dosen");
+        
+        return $next($request);
     }
 }

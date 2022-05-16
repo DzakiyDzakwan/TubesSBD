@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 
 class ParticipantController extends Controller
 {
+
+    //Ambil data dari table enrollment join user
+
     public function index(){
         $page = 'participants';
 

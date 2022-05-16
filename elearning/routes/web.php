@@ -15,6 +15,8 @@ use App\Http\Controllers\MateriController;
 use App\Http\Controllers\AbsensiController;
 use App\Http\Controllers\TugasController;
 
+use App\Http\Controllers\TestController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -27,123 +29,117 @@ use App\Http\Controllers\TugasController;
 |
 */
 
-//TEST ADMIN
+//TEST
 
-Route::get('/admin', [AdminController::class, 'dashboard']);
-
-Route::get('/admin/user', [AdminController::class, 'user']);
-
-Route::delete('/admin/user/delete-user/{id}', [AdminController::class, 'userDelete']);
-
-Route::post('/admin/user/create-mahasiswa', [AdminController::class, 'mahasiswaStore']);
-
-Route::post('/admin/user/create-dosen', [AdminController::class, 'dosenStore']);
-
-/* ADMIN MAHASISWA */
-Route::get('/admin/mahasiswa', [AdminController::class, 'mahasiswa']);
-
-Route::delete('/admin/mahasiswa/delete-mahasiswa/{id}', [AdminController::class, 'mahasiswaDelete']);
-
-/* ADMIN ASLAB */
-Route::post('/admin/mahasiswa/add-aslab/{id}', [AdminController::class , 'addAslab']);
-
-Route::delete('/admin/mahasiswa/delete-aslab/{id}', [AdminController::class, 'aslabDelete']);
-
-/* ADMIN DOSEN */
-Route::get('/admin/dosen', [AdminController::class, 'dosen']);
-
-Route::delete('/admin/dosen/delete-dosen/{id}', [AdminController::class, 'dosenDelete']);
-
-/* ADMIN FAKULTAS */
-Route::get('/admin/faculty', [AdminController::class, 'faculty']);
-
-Route::post('/admin/faculty/create-fakultas', [AdminController::class, 'fakultasStore']);
-
-Route::delete('/admin/faculty/delete-fakultas/{id}', [AdminController::class, 'fakultasDelete']);
-
-Route::post('/admin/faculty/create-jurusan', [AdminController::class, 'jurusanStore']);
-
-Route::delete('/admin/faculty/delete-jurusan/{id}', [AdminController::class, 'jurusanDelete']);
-
-Route::post('/admin/faculty/create-matkul', [AdminController::class, 'matkulStore']);
-
-Route::delete('/admin/faculty/delete-matkul/{id}', [AdminController::class, 'matkulDelete']);
-
-Route::post('/admin/faculty/create-kelas', [AdminController::class, 'kelasStore']);
-
-Route::delete('/admin/faculty/delete-kelas/{id}', [AdminController::class, 'kelasDelete']);
-
+Route::middleware('guest')->group(function(){
 
 // LOGIN
 Route::get('/', [LoginController::class, 'login'])->name('login');
 
 Route::post('/', [LoginController::class, 'authenticate']);
 
-// LOGOUT
-Route::post('/logout', [LoginController::class, 'logout']);
-
 // REGISTER
-Route::get('/register', [RegisterController::class, 'register']);
+Route::get('/register', [RegisterController::class, 'register'])->name('register');
 
 Route::post('/register', [RegisterController::class, 'store']);
 
+});
 
-// USER
+Route::middleware('auth')->group(function() {
 
-//Enrollment Kelas
-Route::get('/user/sitehome', [EnrollController::class, 'sitehome']);
-Route::get('/user/pilihanjurusan/{id}', [EnrollController::class, 'jurusan']);
-Route::get('/user/enrollmatkul', [EnrollController::class, 'matkul']);
+  //Admin
+  Route::middleware('admin')->group(function(){
 
-//Dashboard User
-Route::get('/dashboard', [DashboardController::class, 'index']);
+      Route::get('/admin', [AdminController::class, 'dashboard']);
 
-//Profil User
-Route::get('/user/profile', [ProfilController::class, 'profile']);
-Route::get('/user/editprofil/{id}', [ProfilController::class, 'editprofil']);
-Route::put('/user/updateprofile/{id}', [ProfilController::class, 'updateprofile']);
+      Route::get('/admin/user', [AdminController::class, 'user']);
 
-//Kelas
-Route::get('/user/kelas', [KelasController::class, 'matakuliah']);
+      Route::delete('/admin/user/delete-user/{id}', [AdminController::class, 'userDelete']);
 
-//Pertemuan
-Route::post('/user/matakuliah/createPertemuan', [PertemuanController::class, 'pertemuanStore']);
+      Route::post('/admin/user/create-mahasiswa', [AdminController::class, 'mahasiswaStore']);
 
-//Participant
-Route::get('/user/participants', [ParticipantController::class, 'index']);
+      Route::post('/admin/user/create-dosen', [AdminController::class, 'dosenStore']);
 
-//Absensi
-Route::get('/user/absen', [AbsensiController::class, 'absen']);
-Route::post('/user/absen/add-absen', [AbsensiController::class], 'absenStore');
+      /* ADMIN MAHASISWA */
+      Route::get('/admin/mahasiswa', [AdminController::class, 'mahasiswa']);
 
-//Materi
+      Route::delete('/admin/mahasiswa/delete-mahasiswa/{id}', [AdminController::class, 'mahasiswaDelete']);
+
+      /* ADMIN ASLAB */
+      Route::post('/admin/mahasiswa/add-aslab/{id}', [AdminController::class , 'addAslab']);
+
+      Route::delete('/admin/mahasiswa/delete-aslab/{id}', [AdminController::class, 'aslabDelete']);
+
+      /* ADMIN DOSEN */
+      Route::get('/admin/dosen', [AdminController::class, 'dosen']);
+
+      Route::delete('/admin/dosen/delete-dosen/{id}', [AdminController::class, 'dosenDelete']);
+
+      /* ADMIN FAKULTAS */
+      Route::get('/admin/faculty', [AdminController::class, 'faculty']);
+
+      Route::post('/admin/faculty/create-fakultas', [AdminController::class, 'fakultasStore']);
+
+      Route::delete('/admin/faculty/delete-fakultas/{id}', [AdminController::class, 'fakultasDelete']);
+
+      Route::post('/admin/faculty/create-jurusan', [AdminController::class, 'jurusanStore']);
+
+      Route::delete('/admin/faculty/delete-jurusan/{id}', [AdminController::class, 'jurusanDelete']);
+
+      Route::post('/admin/faculty/create-matkul', [AdminController::class, 'matkulStore']);
+
+      Route::delete('/admin/faculty/delete-matkul/{id}', [AdminController::class, 'matkulDelete']);
+
+      Route::post('/admin/faculty/create-kelas', [AdminController::class, 'kelasStore']);
+
+      Route::delete('/admin/faculty/delete-kelas/{id}', [AdminController::class, 'kelasDelete']);
 
 
-//Tugas
-Route::get('/user/tugas', [TugasController::class, 'tugas']);
+  });
 
-//Jawaban
- 
+    // USER
+    //Enrollment Kelas
+    Route::get('/user/sitehome', [EnrollController::class, 'sitehome']);
+    Route::get('/user/pilihanjurusan/{id}', [EnrollController::class, 'jurusan']);
+    Route::get('/user/enrollmatkul', [EnrollController::class, 'matkul']);
 
-/* //DOSEN
-Route::get('/dosen', [DosenController::class, 'dashboard']);
+    //Dashboard User
+    Route::get('/dashboard', [DashboardController::class, 'index']);
 
-Route::get('/dosen/sitehome', [DosenController::class, 'sitehome']);
+    //Profil User
+    Route::get('/user/profile', [ProfilController::class, 'profile']);
+    Route::get('/user/editprofil/{id}', [ProfilController::class, 'editprofil']);
+    Route::put('/user/updateprofile/{id}', [ProfilController::class, 'updateprofile']);
 
-Route::get('/dosen/participants', [DosenController::class, 'participants']);
+    //Kelas
+    Route::get('/user/kelas', [KelasController::class, 'matakuliah']);
 
-Route::get('/dosen/matakuliah', [DosenController::class, 'matakuliah']);
+    Route::middleware('dosen')->group(function(){
+      //Pertemuan
+      Route::post('/user/matakuliah/createPertemuan', [PertemuanController::class, 'pertemuanStore']);
+    });
 
-Route::get('/dosen/absen', [DosenController::class, 'absen']);
+    //Participant
+    Route::get('/user/participants', [ParticipantController::class, 'index']);
 
-Route::get('/dosen/tugas', [DosenController::class, 'tugas']);
+    //Absensi
+    Route::get('/user/absen', [AbsensiController::class, 'absen']);
+    Route::post('/user/absen/add-absen', [AbsensiController::class], 'absenStore');
 
-Route::get('/dosen/profile', [DosenController::class, 'profile']);
+    //Materi
 
-Route::get('/dosen/editprofil', [DosenController::class, 'editprofil']);
+    
+    //Tugas
+    Route::get('/user/tugas', [TugasController::class, 'tugas']);
 
-Route::get('/dosen/pilihanjurusan', [DosenController::class, 'pilihanjurusan']);
+});
 
-Route::get('/dosen/enrollmatkul', [DosenController::class, 'enrollmatkul']); */
+Route::get('/test', [TestController::class, 'index'])->name('test')->middleware('user');
+
+
+
+// LOGOUT
+Route::post('/logout', [LoginController::class, 'logout']);
+
 
 
