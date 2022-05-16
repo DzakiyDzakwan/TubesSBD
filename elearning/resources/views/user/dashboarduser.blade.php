@@ -124,7 +124,8 @@
                           <br><br>
                           <p>
                             <a class="card-link link-dark text-decoration-none pb-5" href="/user/matakuliah">
-                              [{{$matkul['kode_mata_kuliah']}}] {{$matkul['nama_matkul']}} - Kelas  {{$matkul['kelas']}}</a>
+                              {{-- [{{$matkul['kode_mata_kuliah']}}] {{$matkul['nama_matkul']}} - Kelas  {{$matkul['kelas']}} --}}
+                            </a>
                           </p>
                         </div>
                       </div>

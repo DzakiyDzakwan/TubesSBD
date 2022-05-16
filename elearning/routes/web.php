@@ -92,6 +92,8 @@ Route::get('/user/matakuliah', [UserController::class, 'matakuliah']);
 
 Route::get('/user/absen', [UserController::class, 'absen']);
 
+Route::post('/user/absen/add-absen', [UserController::class], 'absenStore');
+
 Route::get('/user/tugas', [UserController::class, 'tugas']);
 
 Route::get('/user/profile', [UserController::class, 'profile']);
@@ -100,7 +102,7 @@ Route::get('/user/editprofil/{id}', [UserController::class, 'editprofil']);
 
 Route::put('/user/updateprofile/{id}', [UserController::class, 'updateprofile']);
 
-Route::get('/user/pilihanjurusan/', [UserController::class, 'pilihanjurusan']);
+Route::get('/user/pilihanjurusan/{id}', [UserController::class, 'pilihanjurusan']);
 
 Route::get('/user/enrollmatkul', [UserController::class, 'enrollmatkul']);
 
