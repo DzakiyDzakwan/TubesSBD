@@ -179,7 +179,7 @@ class AdminController extends Controller
         $fakultas = Fakultas::get();
         $jurusan = Jurusan::join('fakultas', 'jurusans.fakultas_id' , '=', 'fakultas.kode_fakultas')->get();
         $matakuliah = Mata_kuliah::join('jurusans', 'mata_kuliahs.jurusan', '=', 'jurusans.kode_jurusan')->get();
-        $kelas = Kelas::join('mata_kuliahs', 'kelas.mata_kuliah', '=', 'mata_kuliahs.kode_mata_kuliah')->join('dosens', 'kelas.dosen', '=', 'dosens.NIP')->join('users', 'dosens.user', '=', 'users.NIK')->select('kelas.kelas_id', 'mata_kuliahs.nama_matkul', 'users.first_name', 'users.last_name')->get();
+        $kelas = Kelas::join('mata_kuliahs', 'kelas.mata_kuliah', '=', 'mata_kuliahs.kode_mata_kuliah')->join('dosens', 'kelas.dosen', '=', 'dosens.NIP')->join('users', 'dosens.user', '=', 'users.NIK')->select('kelas.kelas_id', 'kelas.kelas', 'mata_kuliahs.nama_matkul', 'users.first_name', 'users.last_name')->get();
 
         return view('admin.faculty', [
             'page'=>$page,
@@ -281,12 +281,14 @@ class AdminController extends Controller
         /* dd($request->all()); */
 
         $request->validate([
-            'kelas_id'=>'required|max:6|unique:kelas'
+            'kelas_id'=>'required|max:6|unique:kelas',
+            'kelas' => 'required|max:6'
         ]);
 
         Kelas::create([
 
             'kelas_id'=>$request->kelas_id,
+            'kelas'=>$request->kelas,
             'dosen'=>$request->dosen,
             'mata_kuliah'=>$request->mata_kuliah
 

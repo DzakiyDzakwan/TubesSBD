@@ -21,10 +21,6 @@ use App\Http\Controllers\RegisterController;
 
 //TEST ADMIN
 
-Route::get('/testadmin', function(){
-  return view('admin');
-})->name('testadmin');
-
 Route::get('/admin', [AdminController::class, 'dashboard']);
 
 Route::get('/admin/user', [AdminController::class, 'user']);
