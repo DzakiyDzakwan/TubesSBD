@@ -9,6 +9,7 @@
     <!-- START CONTAINER-->
     <div class="container my-2 "> 
 
+        {{-- Mahasiswa --}}
         @if (auth()->user()->status === 'mahasiswa') 
             <!--PROFIL MAHASISWA-->
         <!--profil dan nama-->

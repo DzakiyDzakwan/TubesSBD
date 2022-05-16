@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DosenController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\DashboardUserController;
 
 
 /*
@@ -79,8 +80,9 @@ Route::get('/register', [RegisterController::class, 'register']);
 
 Route::post('/register', [RegisterController::class, 'store']);
 
+
 // USER
-Route::get('/dashboard', [UserController::class, 'dashboard']);
+Route::get('/dashboard', [DashboardUserController::class, 'dashboard']);
 
 Route::get('/user/sitehome', [UserController::class, 'sitehome']);
 
