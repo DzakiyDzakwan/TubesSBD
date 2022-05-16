@@ -15,7 +15,7 @@ class CreateAbsensisTable extends Migration
     {
         Schema::create('absensis', function (Blueprint $table) {
             $table->bigIncrements('absensi_id');
-            $table->enum('status', ['hadir', 'terlambat', 'absen']);
+            $table->enum('status', ['hadir', 'terlambat', 'absen', 'null']);
             $table->char('mahasiswa', 9)->nullable(false);
             $table->foreign('mahasiswa')->references('NIM')->on('mahasiswas')->cascadeOnDelete()->cascadeOnUpdate();
             $table->bigInteger('pertemuan')->unsigned()->nullable(false);

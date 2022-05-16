@@ -19,7 +19,7 @@
             </div>
             <div class="col pl-3">
                 
-                 <h1>{{$mahasiswa['first_name']}} {{$mahasiswa['last_name']}} {{$mahasiswa['NIM']}}</h1>
+                 <h1>{{$profil['first_name']}} {{$profil['last_name']}} {{$profil['NIM']}}</h1>
                 
                 <div class="row"></div>
               <p></p>
@@ -34,21 +34,21 @@
                     <!-- user detail -->
                     <div class="py-3 lh-1">
                         <p class="fw-bolder pb-3 fs-5">User Details</p>
-                        <a href="/user/editprofil/{{$mahasiswa->NIK}}" class="text-decoration-none text-success"><p>Edit Profile</p></a>
+                        <a href="/user/editprofil/{{$profil->NIK}}" class="text-decoration-none text-success"><p>Edit Profile</p></a>
                         <p class="fw-bold pt-2">Birth date</p>
-                        <a >{{$mahasiswa['tgl_lahir']}}</a>
+                        <a >{{$profil['tgl_lahir']}}</a>
                         <p class="fw-bold pt-2">Gender</p>
-                        <a href="" class="text-decoration-none text-success">{{$mahasiswa['jenis_kelamin']}}</a>
+                        <a href="" class="text-decoration-none text-success">{{$profil['jenis_kelamin']}}</a>
                         <p class="fw-bold pt-2">Country</p>
-                        <p>{{$mahasiswa['kewarganegaraan']}}</p>
+                        <p>{{$profil['kewarganegaraan']}}</p>
                         <p class="fw-bold pt-2">Address</p>
-                        <p>{{$mahasiswa['alamat']}}</p>
+                        <p>{{$profil['alamat']}}</p>
                         <p class="fw-bold pt-2">Religion</p>
-                        <a >{{$mahasiswa['agama']}}</a>
+                        <a >{{$profil['agama']}}</a>
                         <p class="fw-bold pt-2">Email address</p>
-                        <a href="" class="text-decoration-none text-success">{{$mahasiswa['email']}}</a>
+                        <a href="" class="text-decoration-none text-success">{{$profil['email']}}</a>
                         <p class="fw-bold pt-2">Phone number</p>
-                        <a>{{$mahasiswa['nomor_hp']}}</a>
+                        <a>{{$profil['nomor_hp']}}</a>
                         {{-- <p class="fw-bold pt-2">Jurusan</p>
                         <a>{{$mahasiswa['nama_jurusan']}}</a> --}}
                     </div>
@@ -97,7 +97,7 @@
             </div>
             <div class="col pl-3">
                 
-                <h1>{{$dosen['first_name']}} {{$dosen['last_name']}} {{$dosen['NIP']}} </h1>
+                <h1>{{$profil['first_name']}} {{$profil['last_name']}} {{$profil['NIP']}} </h1>
                 
                 <div class="row"></div>
               <p></p>
@@ -114,19 +114,19 @@
                         <p class="fw-bolder pb-3 fs-5">User Details</p>
                         <a href="/user/editprofil" class="text-decoration-none text-success"><p>Edit Profile</p></a>
                         <p class="fw-bold pt-2">Birth date</p>
-                        <a >{{$dosen['tgl_lahir']}}</a>
+                        <a >{{$profil['tgl_lahir']}}</a>
                         <p class="fw-bold pt-2">Gender</p>
-                        <a href="" class="text-decoration-none text-success">{{$dosen['jenis_kelamin']}}</a>
+                        <a href="" class="text-decoration-none text-success">{{$profil['jenis_kelamin']}}</a>
                         <p class="fw-bold pt-2">Country</p>
-                        <p>{{$dosen['kewarganegaraan']}}</p>
+                        <p>{{$profil['kewarganegaraan']}}</p>
                         <p class="fw-bold pt-2">Address</p>
-                        <p>{{$dosen['alamat']}}</p>
+                        <p>{{$profil['alamat']}}</p>
                         <p class="fw-bold pt-2">Religion</p>
-                        <a >{{$dosen['agama']}}</a>
+                        <a >{{$profil['agama']}}</a>
                         <p class="fw-bold pt-2">Email address</p>
-                        <a href="" class="text-decoration-none text-success">{{$dosen['email']}}</a>
+                        <a href="" class="text-decoration-none text-success">{{$profil['email']}}</a>
                         <p class="fw-bold pt-2">Phone number</p>
-                        <a>{{$dosen['no_hp']}}</a>
+                        <a>{{$profil['no_hp']}}</a>
                     </div>
                     <!-- end user detail -->
 

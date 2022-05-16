@@ -3,10 +3,17 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\DosenController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\DashboardUserController;
+use App\Http\Controllers\EnrollController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ProfilController;
+use App\Http\Controllers\KelasController;
+use App\Http\Controllers\PertemuanController;
+use App\Http\Controllers\ParticipantController;
+use App\Http\Controllers\MateriController;
+use App\Http\Controllers\AbsensiController;
+use App\Http\Controllers\TugasController;
 
 
 /*
@@ -82,33 +89,43 @@ Route::post('/register', [RegisterController::class, 'store']);
 
 
 // USER
-Route::get('/dashboard', [DashboardUserController::class, 'dashboard']);
 
-Route::get('/user/sitehome', [UserController::class, 'sitehome']);
+//Enrollment Kelas
+Route::get('/user/sitehome', [EnrollController::class, 'sitehome']);
+Route::get('/user/pilihanjurusan/{id}', [EnrollController::class, 'jurusan']);
+Route::get('/user/enrollmatkul', [EnrollController::class, 'matkul']);
 
-Route::get('/user/participants', [UserController::class, 'participants']);
+//Dashboard User
+Route::get('/dashboard', [DashboardController::class, 'index']);
 
-Route::get('/user/matakuliah', [UserController::class, 'matakuliah']);
+//Profil User
+Route::get('/user/profile', [ProfilController::class, 'profile']);
+Route::get('/user/editprofil/{id}', [ProfilController::class, 'editprofil']);
+Route::put('/user/updateprofile/{id}', [ProfilController::class, 'updateprofile']);
 
-Route::get('/user/absen', [UserController::class, 'absen']);
+//Kelas
+Route::get('/user/kelas', [KelasController::class, 'matakuliah']);
 
-Route::post('/user/absen/add-absen', [UserController::class], 'absenStore');
+//Pertemuan
+Route::post('/user/matakuliah/createPertemuan', [PertemuanController::class, 'pertemuanStore']);
 
-Route::get('/user/tugas', [UserController::class, 'tugas']);
+//Participant
+Route::get('/user/participants', [ParticipantController::class, 'index']);
 
-Route::get('/user/profile', [UserController::class, 'profile']);
+//Absensi
+Route::get('/user/absen', [AbsensiController::class, 'absen']);
+Route::post('/user/absen/add-absen', [AbsensiController::class], 'absenStore');
 
-Route::get('/user/editprofil/{id}', [UserController::class, 'editprofil']);
+//Materi
 
-Route::put('/user/updateprofile/{id}', [UserController::class, 'updateprofile']);
 
-Route::get('/user/pilihanjurusan/{id}', [UserController::class, 'pilihanjurusan']);
+//Tugas
+Route::get('/user/tugas', [TugasController::class, 'tugas']);
 
-Route::get('/user/enrollmatkul', [UserController::class, 'enrollmatkul']);
+//Jawaban
+ 
 
-Route::post('/user/matakuliah/createPertemuan', [UserController::class, 'pertemuanStore']);
-
-//DOSEN
+/* //DOSEN
 Route::get('/dosen', [DosenController::class, 'dashboard']);
 
 Route::get('/dosen/sitehome', [DosenController::class, 'sitehome']);
@@ -127,6 +144,6 @@ Route::get('/dosen/editprofil', [DosenController::class, 'editprofil']);
 
 Route::get('/dosen/pilihanjurusan', [DosenController::class, 'pilihanjurusan']);
 
-Route::get('/dosen/enrollmatkul', [DosenController::class, 'enrollmatkul']);
+Route::get('/dosen/enrollmatkul', [DosenController::class, 'enrollmatkul']); */
 
 
