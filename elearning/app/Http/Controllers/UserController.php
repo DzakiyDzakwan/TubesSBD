@@ -151,15 +151,36 @@ class UserController extends Controller
 
         //navbar user
         $mahasiswa = Mahasiswa::join('users','mahasiswas.user','=','users.NIK')->select('mahasiswas.NIM','users.first_name','users.last_name')->get();
+
+        $pertemuan = Kelas::select('kelas')->get();
         
         return view('user.matakuliah', [
             'page'=> $page,
             'mahasiswa'=>$mahasiswa[0],
+            'pertemuan'=>$pertemuan,
             'enrollmatkul'=> $enrollmatkul,
         
         ]);
 
         // return view('user.matakuliah', compact('page'));
+
+    }
+
+    public function pertemuanStore(request $request){
+        
+        $request->validate([
+            'nama_pertemuan'=>'required',
+        
+        ]);
+
+
+        Pertemuan::create([
+            'nama_pertemuan'=>$request->nama_pertemuan,
+            'deskripsi'=>$request->deskripsi,
+            'tanggal_pertemuan'=>$request->tanggal_pertemuan,
+            'kelas'=>$request->kelas
+        ]);
+        return back();
 
     }
 

@@ -106,6 +106,8 @@ Route::get('/user/pilihanjurusan/{id}', [UserController::class, 'pilihanjurusan'
 
 Route::get('/user/enrollmatkul', [UserController::class, 'enrollmatkul']);
 
+Route::post('/user/matakuliah/createPertemuan', [UserController::class, 'pertemuanStore']);
+
 //DOSEN
 Route::get('/dosen', [DosenController::class, 'dashboard']);
 

@@ -1,11 +1,23 @@
 @extends('main.usertemplate')
 
+@include('components.createpertemuan')
+
 @section('title')
 <title>Course : [TIF1207] Struktur Data Dan Algoritma - Kelas C</title>
 @endsection
 
 @section('content')
+
+
 <div class="mx-5 px-5 my-4 pt-2 fw-bold fs-2">[TIF1207] Struktur Data Dan Algoritma - Kelas C</div>
+
+
+<div class="header-container">
+   <div class="me-3 create-btn btn btn-outline-success align-items-center" data-bs-toggle="modal" data-bs-target="#add"><i class="fas fa-plus"></i> Pertemuan</div>
+
+</div>
+
+
 <!--container -->
 <div class="container my-4 bg-light py-3">
 
