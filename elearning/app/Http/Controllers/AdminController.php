@@ -304,4 +304,52 @@ class AdminController extends Controller
 
     }
 
+    public function edit(Fakultas $fakultas)
+    {
+        $page  = 'faculty';
+
+        // $dosen =  Dosen::join('users', 'dosens.user', '=', 'users.NIK')->select('dosens.NIP', 'users.first_name', 'users.last_name')->get();
+        // $fakultas = Fakultas::get();
+        // $jurusan = Jurusan::join('fakultas', 'jurusans.fakultas_id' , '=', 'fakultas.kode_fakultas')->get();
+        // $matakuliah = Mata_kuliah::join('jurusans', 'mata_kuliahs.jurusan', '=', 'jurusans.kode_jurusan')->get();
+        // $kelas = Kelas::join('mata_kuliahs', 'kelas.mata_kuliah', '=', 'mata_kuliahs.kode_mata_kuliah')->join('dosens', 'kelas.dosen', '=', 'dosens.NIP')->join('users', 'dosens.user', '=', 'users.NIK')->select('kelas.kelas_id', 'mata_kuliahs.nama_matkul', 'users.first_name', 'users.last_name')->get();
+
+        return view('admin.editfakultas', [
+            'page'=>$page,
+            'kode_fakultas'=>$fakultas->kode_fakultas,
+            'nama_fakultas'=>$fakultas->nama_fakultas,
+            
+            // 'jurusans'=>$jurusan,
+            // 'matakuliah'=>$matakuliah,
+            // 'kelas'=>$kelas,
+            // 'dosens'=>$dosen
+
+        ]);
+    }
+
+    public function update(Request $request, Fakultas $fakultas, $f)
+    {
+
+        // dd($fakultas);
+        // $rules = ([
+        //     'kode_fakultas'=>'required|min:5|unique:fakultas',
+        //     'nama_fakultas'=>'required|unique:fakultas'
+        // ]);
+
+        // $validatedData = $request->validate($rules);
+
+        // $validatedData['kode_fakultas'] = $request->kode_fakultas;
+        // $validatedData['nama_fakultas'] = $request->name_fakultas;
+
+        // Fakultas::where('kode_fakultas', $request->kode_fakultas)
+        //         ->update($validatedData);
+
+        // return redirect('/admin/faculty')->with('success', 'berhasil diubah, mantap bro');
+
+        Fakultas::where('kode_fakultas', $f)->update([
+
+        ]);
+
+    }
+
 }

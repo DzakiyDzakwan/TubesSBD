@@ -122,11 +122,9 @@
                   <td>{{$fklts['nama_fakultas']}}</td>
                   <td>{{$fklts['dekan']}}</td>
                   <td class="d-flex justify-content-center">
-                    <form action="">
                       <div class="btn btn-primary">
-                        <i class="bx bx-edit-alt"></i>
+                        <a href="/admin/{{ $fklts->kode_fakultas }}/edit"><i class="bx bx-edit-alt"></i></a>
                       </div>
-                    </form>
                     <form action="/admin/faculty/delete-fakultas/{{$fklts['kode_fakultas']}}" method="post" class="ms-2">
                       @csrf
                       @method('DELETE')

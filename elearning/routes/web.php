@@ -69,6 +69,10 @@ Route::post('/admin/faculty/create-kelas', [AdminController::class, 'kelasStore'
 
 Route::delete('/admin/faculty/delete-kelas/{id}', [AdminController::class, 'kelasDelete']);
 
+// ADMIN EDIT
+Route::get('admin/{id}/edit', [AdminController::class, 'edit']);
+Route::put('admin/{id}', [AdminController::class, 'update']);
+
 
 // LOGIN
 Route::get('/', [LoginController::class, 'login'])->name('login');
