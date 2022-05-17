@@ -47,6 +47,50 @@ Route::post('/register', [RegisterController::class, 'store']);
 
 Route::middleware('auth')->group(function() {
 
+  Route::middleware('checkprofile')->group(function(){
+
+      // USER
+      //Enrollment Kelas
+      Route::get('/user/sitehome', [EnrollController::class, 'sitehome']);
+      Route::get('/user/pilihanjurusan/{id}', [EnrollController::class, 'jurusan']);
+      Route::get('/user/enrollmatkul', [EnrollController::class, 'matkul']);
+      Route::get('/user/pilihanmatkul/{id}', [EnrollController::class, 'pilihanmatkul']);
+
+
+      //Dashboard User
+      Route::get('/dashboard', [DashboardController::class, 'index']);
+
+      //Profil User
+      Route::get('/user/profile', [ProfilController::class, 'profile']);
+      Route::get('/user/editprofil/{id}', [ProfilController::class, 'editprofil']);
+      Route::put('/user/updateprofile/{id}', [ProfilController::class, 'updateprofile']);
+
+      //Kelas
+      Route::get('/user/kelas/{id}', [KelasController::class, 'kelas']);
+
+      Route::middleware('dosen')->group(function(){
+        //Pertemuan
+        Route::post('/user/matakuliah/createPertemuan', [PertemuanController::class, 'pertemuanStore']);
+      });
+
+      //Participant
+      Route::get('/user/participants', [ParticipantController::class, 'index']);
+
+      //Absensi
+      Route::get('/user/absen', [AbsensiController::class, 'absen']);
+      Route::post('/user/absen/add-absen', [AbsensiController::class], 'absenStore');
+
+      //Materi
+
+      
+      //Tugas
+      Route::get('/user/tugas', [TugasController::class, 'tugas']);
+
+      //Jawaban
+
+
+  });
+
   //Admin
   Route::middleware('admin')->group(function(){
 
@@ -96,45 +140,6 @@ Route::middleware('auth')->group(function() {
 
 
   });
-
-    // USER
-    //Enrollment Kelas
-    Route::get('/user/sitehome', [EnrollController::class, 'sitehome']);
-    Route::get('/user/pilihanjurusan/{id}', [EnrollController::class, 'jurusan']);
-    Route::get('/user/enrollmatkul', [EnrollController::class, 'matkul']);
-    Route::get('/user/pilihanmatkul/{id}', [EnrollController::class, 'pilihanmatkul']);
-
-
-    //Dashboard User
-    Route::get('/dashboard', [DashboardController::class, 'index']);
-
-    //Profil User
-    Route::get('/user/profile', [ProfilController::class, 'profile']);
-    Route::get('/user/editprofil/{id}', [ProfilController::class, 'editprofil']);
-    Route::put('/user/updateprofile/{id}', [ProfilController::class, 'updateprofile']);
-
-    //Kelas
-    Route::get('/user/kelas/{id}', [KelasController::class, 'kelas']);
-
-    Route::middleware('dosen')->group(function(){
-      //Pertemuan
-      Route::post('/user/matakuliah/createPertemuan', [PertemuanController::class, 'pertemuanStore']);
-    });
-
-    //Participant
-    Route::get('/user/participants', [ParticipantController::class, 'index']);
-
-    //Absensi
-    Route::get('/user/absen', [AbsensiController::class, 'absen']);
-    Route::post('/user/absen/add-absen', [AbsensiController::class], 'absenStore');
-
-    //Materi
-
-    
-    //Tugas
-    Route::get('/user/tugas', [TugasController::class, 'tugas']);
-
-    //Jawaban
 
 
 });
