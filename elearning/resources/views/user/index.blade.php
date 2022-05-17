@@ -36,8 +36,8 @@
                       @endif
                         <div class="row mt-2 mb-3">
                             <div class="col">
-                            <input type="text" name="NIK" id="NIK" class="form-control @error('NIK') is-invalid @enderror" placeholder="NIK" aria-label="" autofocus required value="{{ old('NIK') }}">
-                            @error('NIK')
+                            <input type="email" name="email" id="email" class="form-control @error('email') is-invalid @enderror" placeholder="email" aria-label="" autofocus required value="{{ old('email') }}">
+                            @error('email')
                               <div class="div invalid-feedback">
                                 {{ $message }}
                               </div>

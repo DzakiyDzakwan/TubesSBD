@@ -79,6 +79,14 @@
      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
    </div>  
    @enderror
+
+   @error('kelas')
+   <div class="alert alert-danger alert-dismissible fade show text-center" role="alert">
+     {{-- <strong>SKS</strong> Tidak boleh Kosong. --}}
+     <strong>{{$message}}</strong>
+     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+   </div>  
+   @enderror
    <!-- ALERT END -->
 
   @section('content')
@@ -242,6 +250,7 @@
                 <tr>
                   <th>Kode Matakuliah</th>
                   <th>Nama Matakuliah</th>
+                  <th>SKS</th>
                   <th>Jurusan</th>
                   <th>Action</th>
                 </tr>
@@ -251,6 +260,7 @@
                 <tr>
                   <td>{{$matkul['kode_mata_kuliah']}}</td>
                   <td>{{$matkul['nama_matkul']}}</td>
+                  <td>{{$matkul['sks']}}</td>
                   <td>{{$matkul['nama_jurusan']}}</td>
                   <td class="d-flex justify-content-center">
                     <form action="">
@@ -285,6 +295,8 @@
               @csrf
               <label for="kelas_id">Kode Kelas</label>
               <input class="form-control @error('kelas_id') is-invalid @enderror" type="text" name="kelas_id" id="kelas_id" autocomplete="off"/>
+               <label for="kelas">Kelas</label>
+              <input class="form-control @error('kelas') is-invalid @enderror" type="text" name="kelas" id="kelas" autocomplete="off"/>
               <label for="mata_kuliah">Matakuliah</label>
               <select class="form-select" aria-label="Default select example" id="mata_kuliah" name="mata_kuliah">
                 @foreach ($matakuliah as $matkul)
@@ -308,6 +320,7 @@
                   <th>Kode Kelas</th>
                   <th>Nama Kelas</th>
                   <th>Matakuliah</th>
+                  <td>Dosen</td>
                   <th>Action</th>
                 </tr>
               </thead>
@@ -315,6 +328,7 @@
                 @foreach ($kelas as $kls)
                 <tr>
                   <td>{{$kls['kelas_id']}}</td>
+                  <td>{{$kls['kelas']}}</td>
                   <td>{{$kls['nama_matkul']}}</td>
                   <td>{{$kls['first_name']}} {{$kls['last_name']}}</td>
                   <td class="d-flex justify-content-center">

@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 
-class isMahasiswa
+class userData
 {
     /**
      * Handle an incoming request.
@@ -16,10 +16,11 @@ class isMahasiswa
      */
     public function handle(Request $request, Closure $next)
     {
-        if( auth()->user()->status !== 'mahasiswa' ) {
-            return back();
+
+        if(auth()->check()) {
+            $nik = auth()->user()->NIK;
         }
-        
+
         return $next($request);
     }
 }

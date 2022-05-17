@@ -15,6 +15,7 @@ class CreateKelasTable extends Migration
     {
         Schema::create('kelas', function (Blueprint $table) {
             $table->char('kelas_id', 6)->primary();
+            $table->char('kelas', 5);
             $table->char('dosen');
             $table->foreign('dosen')->references('NIP')->on('dosens');
             $table->char('mata_kuliah', 6)->nullable(false);
