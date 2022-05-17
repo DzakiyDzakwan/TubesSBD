@@ -102,6 +102,8 @@ Route::middleware('auth')->group(function() {
     Route::get('/user/sitehome', [EnrollController::class, 'sitehome']);
     Route::get('/user/pilihanjurusan/{id}', [EnrollController::class, 'jurusan']);
     Route::get('/user/enrollmatkul', [EnrollController::class, 'matkul']);
+    Route::get('/user/pilihanmatkul/{id}', [EnrollController::class, 'pilihanmatkul']);
+
 
     //Dashboard User
     Route::get('/dashboard', [DashboardController::class, 'index']);
