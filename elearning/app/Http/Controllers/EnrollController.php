@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Fakultas;
+use App\Models\Jurusan;
+use App\Models\Mata_kuliah;
+use App\Models\Kelas;
 
 class EnrollController extends Controller
 {
@@ -45,6 +49,22 @@ class EnrollController extends Controller
 
     }
 
+    public function pilihanmatkul($id){
+        $page = 'pilihanmatkul';
+
+        $kelas = Kelas::join('dosens','kelas.dosen','=','dosens.NIP')
+        ->join('mata_kuliahs','kelas.mata_kuliah','=','mata_kuliahs.kode_mata_kuliah')
+        ->join('users','dosens.user','=','users.NIK')
+        ->join('jurusans','mata_kuliahs.jurusan','=','jurusans.kode_jurusan')
+        ->select('kelas.kelas_id','kelas.kelas','kelas.mata_kuliah','kelas.dosen','dosens.NIP','dosens.user','mata_kuliahs.nama_matkul','mata_kuliahs.jurusan','users.first_name','users.last_name','jurusans.nama_jurusan')
+        ->where('jurusans.kode_jurusan', $id)
+        ->get();
+
+        return view('user.pilihanmatkul', [
+            'page'=>$page,
+            'kelas'=>$kelas
+        ]);
+    }
 
     public function enrollmatkul(){
 

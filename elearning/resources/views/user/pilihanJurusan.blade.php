@@ -11,7 +11,7 @@
         <div class="mx-3 px-2 my-2 py-2">
             <ul >
                 @foreach ($jurusans as $jurusan)
-                <a href="/user/enrollmatkul" class="text-decoration-none text-success fw-bold fs-4" value="{{$jurusan['kode_fakultas']}}"><li>{{$jurusan->nama_jurusan}}</li></a>
+                <a href="/user/pilihanmatkul/{{$jurusan->kode_jurusan}}" class="text-decoration-none text-success fw-bold fs-4" value="{{$jurusan['kode_fakultas']}}"><li>{{$jurusan->nama_jurusan}}</li></a>
                 @endforeach
                 {{-- <a href="#" class="text-decoration-none text-success fw-bold fs-4"><li>S-1 Ilmu Komputer</li></a>
                 <a href="#" class="text-decoration-none text-success fw-bold fs-4"><li>S-2 Teknik Informatika</li></a>
