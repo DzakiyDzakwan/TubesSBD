@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Mahasiswa;
 use App\Models\Dosen;
+use App\Models\User;
 
 class ProfilController extends Controller
 {
@@ -100,8 +101,7 @@ class ProfilController extends Controller
 
         }
 
-        DB::table('users')->where('NIK', $request->id)->update([
-
+        User::where('NIK', $request->id)->update([
             'NIK' => $request->NIK,
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,

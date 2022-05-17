@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Absensi;
 
 class AbsensiController extends Controller
 {
@@ -20,7 +21,7 @@ class AbsensiController extends Controller
 
     }
 
-    public function absenStore(Request $request){
+    public function absenStore(Request $request, $status){
         // $page = 'submitabsen';
 
         Absensi::create([

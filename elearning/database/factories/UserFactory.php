@@ -29,7 +29,6 @@ class UserFactory extends Factory
             // 'nomor_hp' => $this->faker->phoneNumber(),
             // 'tanggal_lahir' => $this->faker->date(),
             // 'alamat_domisili' => $this->faker->address()
-
         ];
     }
 

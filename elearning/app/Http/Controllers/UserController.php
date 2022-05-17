@@ -19,6 +19,7 @@ use App\Models\Tugas;
 use App\Models\Jawaban;
 use App\Models\Absen;
 use Illuminate\Support\Facades\DB;
+use App\Models\absensi;
 
 class UserController extends Controller
 {
@@ -204,7 +205,7 @@ class UserController extends Controller
 
     }
 
-    public function absenStore(Request $request){
+    public function absenStore(Request $request, $status){
         // $page = 'submitabsen';
 
         Absensi::create([
@@ -295,7 +296,6 @@ class UserController extends Controller
     public function updateprofile(Request $request){
 
         DB::table('users')->where('NIK', $request->id)->update([
-
             'NIK' => $request->NIK,
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,

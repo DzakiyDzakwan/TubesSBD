@@ -43,7 +43,6 @@
           data-bs-toggle="dropdown"
           aria-expanded="true"
         >
-          
           <p class="px-2 d-none d-sm-block">{{auth()->user()->first_name}} {{auth()->user()->last_name}}</p>
         
           {{-- <p class="px-2 d-none d-sm-block">{{$dosen['first_name']}} {{$dosen['last_name']}} {{$dosen['NIM']}}</p> --}}
