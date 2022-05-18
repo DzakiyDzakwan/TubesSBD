@@ -67,5 +67,6 @@ class Kernel extends HttpKernel
         'dosen' => \App\Http\Middleware\isDosen::class,
         'admin' => \App\Http\Middleware\isAdmin::class,
         'user' => \App\Http\Middleware\userData::class,
+        'checkprofile' => \App\Http\Middleware\checkProfile::class,
     ];
 }

@@ -19,7 +19,10 @@
             </div>
             <div class="col pl-3">
                 
-                 <h1>{{$profil['first_name']}} {{$profil['last_name']}} {{$profil['NIM']}}</h1>
+                 {{-- <h1>{{$profil['first_name']}} {{$profil['last_name']}} {{$profil['NIM']}}</h1> --}}
+                 <h1>{{auth()->user()->first_name}} {{auth()->user()->last_name}}
+                    {{-- {{$editprofil->NIM}} --}}
+                </h1>
                 
                 <div class="row"></div>
               <p></p>
@@ -34,7 +37,10 @@
                     <!-- user detail -->
                     <div class="py-3 lh-1">
                         <p class="fw-bolder pb-3 fs-5">User Details</p>
-                        <a href="/user/editprofil/{{$profil->NIK}}" class="text-decoration-none text-success"><p>Edit Profile</p></a>
+
+                        @foreach ($profil as $profil)
+
+                        <a href="/user/editprofil/{{$profil->id}}" class="text-decoration-none text-success"><p>Edit Profile</p></a>
                         <p class="fw-bold pt-2">Birth date</p>
                         <a >{{$profil['tgl_lahir']}}</a>
                         <p class="fw-bold pt-2">Gender</p>
@@ -49,8 +55,10 @@
                         <a href="" class="text-decoration-none text-success">{{$profil['email']}}</a>
                         <p class="fw-bold pt-2">Phone number</p>
                         <a>{{$profil['nomor_hp']}}</a>
-                        {{-- <p class="fw-bold pt-2">Jurusan</p>
-                        <a>{{$mahasiswa['nama_jurusan']}}</a> --}}
+
+                        @endforeach
+                        
+                        
                     </div>
                     <!-- end user detail -->
 
@@ -65,14 +73,19 @@
                     <div class="pt-3 lh-1">
                         <p class="fw-bold pb-3 fs-5">Course details</p>
                         <p class="fw-bold ">Course profiles</p>
-                        <a href="" class="text-decoration-none text-success"><p>[TIF1207] Struktur Data Dan Algoritma - Kelas C</p></a>
+                        @foreach ($kelas as $enrol)
+
+                        <a href="#" class="text-decoration-none text-success"><p>[{{$enrol->kode_mata_kuliah}}] {{$enrol->nama_matkul}} - Kelas {{$enrol->kelas}}</p></a>
+                            
+                        @endforeach
+                        {{-- <a href="" class="text-decoration-none text-success"><p>[TIF1207] Struktur Data Dan Algoritma - Kelas C</p></a>
                         <a href="" class="text-decoration-none text-success"><p>[TIF1205] Sistem Basis Data - Kelas C</p></a>
                         <a href="" class="text-decoration-none text-success"><p>[TIF1203] Pemrograman Web Lanjutan - Kelas C</p></a>
                         <a href="" class="text-decoration-none text-success"><p>[TIF1201] Pemrograman Berorientasi Objek - Kelas C</p></a>
                         <a href="" class="text-decoration-none text-success"><p>[TIF1208] Praktikum Struktur Data Dan Algoritma - Kelas C</p></a>
                         <a href="" class="text-decoration-none text-success"><p>[TIF1206] Praktikum Sistem Basis Data - Kelas C</p></a>
                         <a href="" class="text-decoration-none text-success"><p>[TIF1204] Praktikum Pemrograman Web Lanjutan - Kelas C</p></a>
-                        <a href="" class="text-decoration-none text-success"><p>[TIF1202] Praktikum Pemrograman Berorientasi Objek - Kelas C</p></a>
+                        <a href="" class="text-decoration-none text-success"><p>[TIF1202] Praktikum Pemrograman Berorientasi Objek - Kelas C</p></a> --}}
                     </div>
 
                     <div class="py-3 lh-1">
@@ -97,7 +110,7 @@
             </div>
             <div class="col pl-3">
                 
-                <h1>{{$profil['first_name']}} {{$profil['last_name']}} {{$profil['NIP']}} </h1>
+                <h1>{{auth()->user()->first_name}} {{auth()->user()->last_name}} </h1>
                 
                 <div class="row"></div>
               <p></p>
@@ -112,7 +125,9 @@
                     <!-- user detail -->
                     <div class="py-3 lh-1">
                         <p class="fw-bolder pb-3 fs-5">User Details</p>
-                        <a href="/user/editprofil" class="text-decoration-none text-success"><p>Edit Profile</p></a>
+
+                        @foreach ($profil as $profil)
+                        <a href="/user/editprofil/{{$profil['id']}}" class="text-decoration-none text-success"><p>Edit Profile</p></a>
                         <p class="fw-bold pt-2">Birth date</p>
                         <a >{{$profil['tgl_lahir']}}</a>
                         <p class="fw-bold pt-2">Gender</p>
@@ -126,7 +141,8 @@
                         <p class="fw-bold pt-2">Email address</p>
                         <a href="" class="text-decoration-none text-success">{{$profil['email']}}</a>
                         <p class="fw-bold pt-2">Phone number</p>
-                        <a>{{$profil['no_hp']}}</a>
+                        <a>{{$profil['nomor_hp']}}</a>
+                        @endforeach
                     </div>
                     <!-- end user detail -->
 
@@ -141,14 +157,19 @@
                     <div class="pt-3 lh-1">
                         <p class="fw-bold pb-3 fs-5">Course details</p>
                         <p class="fw-bold ">Course profiles</p>
-                        <a href="" class="text-decoration-none text-success"><p>[TIF1207] Struktur Data Dan Algoritma - Kelas C</p></a>
+                        @foreach ($kelas as $kls)
+
+                        <a href="#" class="text-decoration-none text-success"><p>[{{$kls->kode_mata_kuliah}}] {{$kls->nama_matkul}} - Kelas {{$kls->kelas}}</p></a>
+                            
+                        @endforeach
+                        {{-- <a href="" class="text-decoration-none text-success"><p>[TIF1207] Struktur Data Dan Algoritma - Kelas C</p></a>
                         <a href="" class="text-decoration-none text-success"><p>[TIF1205] Sistem Basis Data - Kelas C</p></a>
                         <a href="" class="text-decoration-none text-success"><p>[TIF1203] Pemrograman Web Lanjutan - Kelas C</p></a>
                         <a href="" class="text-decoration-none text-success"><p>[TIF1201] Pemrograman Berorientasi Objek - Kelas C</p></a>
                         <a href="" class="text-decoration-none text-success"><p>[TIF1208] Praktikum Struktur Data Dan Algoritma - Kelas C</p></a>
                         <a href="" class="text-decoration-none text-success"><p>[TIF1206] Praktikum Sistem Basis Data - Kelas C</p></a>
                         <a href="" class="text-decoration-none text-success"><p>[TIF1204] Praktikum Pemrograman Web Lanjutan - Kelas C</p></a>
-                        <a href="" class="text-decoration-none text-success"><p>[TIF1202] Praktikum Pemrograman Berorientasi Objek - Kelas C</p></a>
+                        <a href="" class="text-decoration-none text-success"><p>[TIF1202] Praktikum Pemrograman Berorientasi Objek - Kelas C</p></a> --}}
                     </div>
 
                     <div class="py-3 lh-1">
