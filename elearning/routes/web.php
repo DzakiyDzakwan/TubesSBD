@@ -112,7 +112,8 @@ Route::middleware('auth')->group(function() {
     Route::put('/user/updateprofile/{id}', [ProfilController::class, 'updateprofile']);
 
     //Kelas
-    Route::get('/user/kelas/{id}', [KelasController::class, 'kelas']);
+    // Route::get('/user/kelas/{id}', [KelasController::class, 'kelas']);
+    Route::resource('/user/kelas', KelasController::class)->middleware(['mahasiswa', 'admin']);
 
     Route::middleware('dosen')->group(function(){
       //Pertemuan

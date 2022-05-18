@@ -11,17 +11,16 @@
 
 <div class="mx-5 px-5 my-4 pt-2 fw-bold fs-2">[TIF1207] Struktur Data Dan Algoritma - Kelas C</div>
 
-
+{{-- @if (auth()->user()->status == 'dosen') --}}
 <div class="header-container">
    <div class="me-3 create-btn btn btn-outline-success align-items-center" data-bs-toggle="modal" data-bs-target="#add"><i class="fas fa-plus"></i> Pertemuan</div>
-
 </div>
+{{-- @endif --}}
 
 
 <!--container -->
 <div class="container my-4 bg-light py-3">
-@if (auth()->user()->status == 'mahasiswa')
-@foreach ($pertemuan as $pertemuan)
+{{-- @foreach ($pertemuan as $pertemuan) --}}
 <div class="row px-5 py-4">
 <a href="#" id="#" class="fw-bold fs-3 px-2 text-decoration-none" style=" color: #008b00;">General</a>
     <div class="media py-3 ml-0">
@@ -46,8 +45,7 @@
         </div>
     </div><hr>
 {{-- end pertemuan --}}
-@endforeach
-@endif
+{{-- @endforeach --}}
 
     </div>     
                    

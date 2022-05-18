@@ -8,16 +8,16 @@
                 </div>
             
                 <div class="modal-body">
-                        <form action="/user/matakuliah/createPertemuan" method="POST" class="text-dark ">
+                        <form action="/user/matakuliah/create" method="POST" class="text-dark ">
                             @csrf
                             <label for="nama_pertemuan">Nama Pertemuan</label>
-                            <input class="form-control mb-3" type="text" name="nama_pertemuan" id="nama_pertemuan" required>
+                            <input class="form-control mb-3" type="text" name="nama_pertemuan" id="nama_pertemuan" required value="{{ old('nama_pertemuan') }}">
                             
                             <label for="deskripsi">Deskripsi</label>
-                            <textarea class="form-control mb-3" id="deskripsi" rows="3" name="deskripsi"></textarea>
+                            <textarea class="form-control mb-3" id="deskripsi" rows="3" name="deskripsi" value="{{ old('deskripsi') }}"></textarea>
 
                             <label for="tanggal_pertemuan">Tanggal Pertemuan</label>
-                            <input class="form-control mb-3" type="date" name="tanggal_pertemuan" id="tanggal_pertemuan">
+                            <input class="form-control mb-3" type="date" name="tanggal_pertemuan" id="tanggal_pertemuan" value="{{ old('tanggal_pertemuan') }}">
 
                             <label for="kelas">Kelas</label>
                             <select class="form-select mb-3" aria-label="Default select example" id="kelas" name="kelas">
