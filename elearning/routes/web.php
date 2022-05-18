@@ -53,8 +53,9 @@ Route::middleware('auth')->group(function() {
       //Enrollment Kelas
       Route::get('/user/sitehome', [EnrollController::class, 'sitehome']);
       Route::get('/user/pilihanjurusan/{id}', [EnrollController::class, 'jurusan']);
-      Route::get('/user/enrollmatkul', [EnrollController::class, 'matkul']);
       Route::get('/user/pilihanmatkul/{id}', [EnrollController::class, 'pilihanmatkul']);
+      Route::get('/user/enrollmatkul/{id}', [EnrollController::class, 'enrollmatkul']);
+      Route::post('/user/enrollme', [EnrollController::class, 'enroll']);
 
 
       //Dashboard User
