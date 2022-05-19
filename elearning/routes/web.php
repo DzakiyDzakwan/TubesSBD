@@ -78,8 +78,8 @@ Route::middleware('auth')->group(function() {
       Route::get('/user/participants', [ParticipantController::class, 'index']);
 
       //Absensi
-      Route::get('/user/absen', [AbsensiController::class, 'absen']);
-      Route::post('/user/absen/add-absen', [AbsensiController::class], 'absenStore');
+      Route::get('/user/absen/{id}', [AbsensiController::class, 'absen']);
+      Route::post('/user/absen/add-absen', [AbsensiController::class, 'absenStore']);
 
       //Materi
 
