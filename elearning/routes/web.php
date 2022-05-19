@@ -67,12 +67,13 @@ Route::middleware('auth')->group(function() {
       Route::put('/user/updateprofile/{id}', [ProfilController::class, 'updateprofile']);
 
       //Kelas
-      Route::get('/user/kelas/{id}', [KelasController::class, 'kelas']);
+      Route::get('/user/matakuliah/{id}', [KelasController::class, 'kelas']);
+      
 
-      Route::middleware('dosen')->group(function(){
+      // Route::middleware('dosen')->group(function(){
         //Pertemuan
         Route::post('/user/matakuliah/createPertemuan', [PertemuanController::class, 'pertemuanStore']);
-      });
+      // });
 
       //Participant
       Route::get('/user/participants', [ParticipantController::class, 'index']);

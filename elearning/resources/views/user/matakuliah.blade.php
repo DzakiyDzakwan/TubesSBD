@@ -13,11 +13,11 @@
 @endforeach
 
 {{-- dosen membuat pertemuan --}}
-@if(auth()->user()->status === 'dosen')
+{{-- @if(auth()->user()->status === 'dosen') --}}
 <div class="header-container">
    <div class="me-3 create-btn btn btn-outline-success align-items-center" data-bs-toggle="modal" data-bs-target="#add"><i class="fas fa-plus"></i> Pertemuan</div>
 </div>
-@endif
+{{-- @endif --}}
 
 
 <!--container -->

@@ -18,13 +18,13 @@
         <li><i class="fas fa-graduation-cap"></i> My courses</li>
       </a>
 
-      {{-- @foreach($enrollmatkul as $matkul)
-      <a href="/user/matakuliah" class="menu border-0 py-3 
+      @foreach($enrollmatkul as $matkul)
+      <a href="/user/matakuliah/{{$matkul['kelas_id']}}" class="menu border-0 py-3 
       {{Request::is('user/matakuliah')?'active':''}}" href="{{url('/user/matakuliah')}}
       ">
           <li><i class="fas fa-graduation-cap"></i> [{{$matkul['kode_mata_kuliah']}}] {{$matkul['nama_matkul']}} - Kelas  {{$matkul['kelas']}}</li>
       </a>
-      @endforeach --}}
+      @endforeach
 
         {{-- <ul class="collapse list-unstyled nav flex-column " id="submenu">
           <a class="nav-link menu border-0 py-3 
