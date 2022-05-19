@@ -15,10 +15,6 @@
                 @foreach ($jurusans as $jurusan)
                 <a href="/user/pilihanmatkul/{{$jurusan->kode_jurusan}}" class="text-decoration-none text-success fw-bold fs-4" value="{{$jurusan['kode_fakultas']}}"><li>{{$jurusan->nama_jurusan}}</li></a>
                 @endforeach
-                {{-- <a href="#" class="text-decoration-none text-success fw-bold fs-4"><li>S-1 Ilmu Komputer</li></a>
-                <a href="#" class="text-decoration-none text-success fw-bold fs-4"><li>S-2 Teknik Informatika</li></a>
-                <a href="#" class="text-decoration-none text-success fw-bold fs-4"><li>S-2 Sains Data dan Kecerdasan Buatan</li></a>
-                <a href="#" class="text-decoration-none text-success fw-bold fs-4"><li>S-3 Ilmu Komputers</li></a> --}}
             </ul>
         </div>
 

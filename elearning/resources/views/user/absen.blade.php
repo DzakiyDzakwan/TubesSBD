@@ -6,26 +6,38 @@
 
 @section('content')
   <div class="container my-4 bg-light py-3">
-    <div class="mx-2 my-3 mb-5 fw-bold pb-2 fs-3">[TIF1207] Struktur Data Dan Algoritma - Kelas C</div>
+    
+    @foreach($pertemuan as $prtm)
+    <div class="mx-2 my-3 mb-5 fw-bold pb-2 fs-3">[{{$prtm->mata_kuliah}}] {{$prtm->nama_matkul}} - {{$prtm->kelas}}</div>
+    @endforeach
     <div class="card card-body border-0">
       <div class="">Presensi Hari Ini</div>
       <form action="/user/absen/add-absen" method="POST">
-        <div class="row">
-          <div class="col-2 form-check ">
-            <input class="form-check-input" type="radio" name="Hadir" id="Hadir" >
-            <label class="form-check-label" for="Hadir">
+        @csrf
+        @foreach($mahasiswas as $mahasiswa)
+        <input type="hidden" class="col form-control" id="mahasiswa" name="mahasiswa" value="{{$mahasiswa->NIM}}">
+        @endforeach
+
+        @foreach($pertemuan as $prtm)
+        <input type="hidden" class="col form-control" id="pertemuan" name="pertemuan" value="{{$prtm->pertemuan_id}}">
+        @endforeach
+
+        <div class="row px-2 py-2">
+          <div class="col-2 form-check">
+            <input class="form-check-input" type="radio" name="status" id="status" value="hadir" >
+            <label class="form-check-label" for="hadir">
               Hadir
             </label>
           </div>
           <div class="col-2 form-check ">
-            <input class="form-check-input" type="radio" name="Terlambat" id="Terlambat" >
-            <label class="form-check-label" for="Terlambat">
+            <input class="form-check-input" type="radio" name="status" id="status" value="terlambat">
+            <label class="form-check-label" for="terlambat">
               Terlambat
             </label>
           </div>
           <div class="col-2 form-check ">
-            <input class="form-check-input" type="radio" name="Absen" id="Absen" >
-            <label class="form-check-label" for="Absen">
+            <input class="form-check-input" type="radio" name="status" id="status" value="absen">
+            <label class="form-check-label" for="absen">
               Absen
             </label>
           </div>
@@ -45,53 +57,17 @@
         <!-- judul tabel -->
         <tr>
             <th>Date</th>
-            <th>Description</th>
             <th>Status</th>
-            <th>Points</th>
-            <th width="20%">Remarks</th>
         </tr>
         </thead>
         <!-- data tabel -->
+        @foreach($absens as $absen)
         <tr>
-          <td>
-            Mon 4 Apr 2022<br>
-            8:30AM - 10AM
-          </td>
-          <td>Regular class session</td>
-          <td>Present</td>
-          <td>2 / 2	</td>
-          <td>Self-recorded</td>
+          <td>{{$absen->tanggal_pertemuan}}</td>
+          <td>{{$absen->status}}</td>
+          <td>{{$absen->created_at}}</td>
         </tr>
-        <tr>
-          <td>
-            Mon 13 Apr 2022<br>
-            8:30AM - 10AM
-          </td>
-          <td>Regular class session</td>
-          <td>Present</td>
-          <td>2 / 2	</td>
-          <td>Self-recorded</td>
-        </tr>
-        <tr>
-          <td>
-            Mon 20 Apr 2022<br>
-            8:30AM - 10AM
-          </td>
-          <td>Regular class session</td>
-          <td>Present</td>
-          <td>2 / 2	</td>
-          <td>Self-recorded</td>
-        </tr>
-        <tr>
-          <td>
-            Mon 27 Apr 2022<br>
-            8:30AM - 10AM
-          </td>
-          <td>Regular class session</td>
-          <td>Present</td>
-          <td>2 / 2	</td>
-          <td>Self-recorded</td>
-        </tr>
+        @endforeach
     </table>
     </div>
   </div>

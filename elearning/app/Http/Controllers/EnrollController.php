@@ -38,11 +38,14 @@ class EnrollController extends Controller
         // $jurusans = Jurusan::all();
         // return view('user.pilihanjurusan', compact('jurusans'));
 
+        // $matkuls = Mata_kuliah::join('jurusans','mata_kuliahs.jurusan','=','jurusans.kode_jurusan')->join('fakultas','jurusans.fakultas_id','=','fakultas.kode_fakultas')->select('jurusans.nama_jurusan','fakultas.nama_fakultas')->where('fakultas.kode_fakultas', $id )->get();
+
         $jurusans = Jurusan::join('fakultas','jurusans.fakultas_id','=','fakultas.kode_fakultas')->select('jurusans.kode_jurusan','jurusans.nama_jurusan','jurusans.fakultas_id','fakultas.kode_fakultas','fakultas.nama_fakultas')->where('fakultas.kode_fakultas', $id )->get();
 
         return view('user.pilihanjurusan', [
             'page'=> $page,
-            'jurusans'=>$jurusans
+            'jurusans'=>$jurusans,
+            // 'matkuls'=>$matkuls
         
         ]);
         

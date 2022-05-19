@@ -13,9 +13,19 @@ class KelasController extends Controller
         $page = 'kelas';
         $nik = auth()->user()->NIK;
 
+<<<<<<< HEAD
         //Pertemuan
         $pertemuan = Pertemuan::select('nama_pertemuan', 'deskripsi', 'tanggal_pertemuan')->where('kelas', $id)->get();
 
+=======
+        //judul kelas
+        $kelas = Kelas::join('mata_kuliahs','kelas.mata_kuliah','=','mata_kuliahs.kode_mata_kuliah')
+        ->select('kelas.mata_kuliah','kelas.kelas','kelas.kelas_id','mata_kuliahs.nama_matkul')->where('kelas.kelas_id', $id)->get();
+        
+        //show pertemuan
+        $pertemuan = Pertemuan::join('kelas','pertemuans.kelas','=','kelas.kelas_id')->select('pertemuans.nama_pertemuan','pertemuans.deskripsi','pertemuans.tanggal_pertemuan','pertemuans.pertemuan_id','pertemuans.kelas','kelas.kelas_id')->where('kelas.kelas_id', $id)->get();
+        
+>>>>>>> 43266e96a5af5f6f396807b65854df56f5377869
         //Materi
         if(auth()->user()->status === 'mahasiswa'){
 
@@ -36,6 +46,7 @@ class KelasController extends Controller
             'enrollmatkul' => $kelas,
             'page'=> $page,
             'pertemuan'=>$pertemuan,
+            'kelas'=>$kelas
         
         ]);
 
