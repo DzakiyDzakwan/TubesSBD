@@ -14,7 +14,7 @@ class KelasController extends Controller
         $nik = auth()->user()->NIK;
 
         //judul kelas
-        $kelas = Kelas::join('mata_kuliahs','kelas.mata_kuliah','=','mata_kuliahs.kode_mata_kuliah')
+        $juduls = Kelas::join('mata_kuliahs','kelas.mata_kuliah','=','mata_kuliahs.kode_mata_kuliah')
         ->select('kelas.mata_kuliah','kelas.kelas','kelas.kelas_id','mata_kuliahs.nama_matkul')->where('kelas.kelas_id', $id)->get();
         
         //show pertemuan
@@ -40,7 +40,8 @@ class KelasController extends Controller
             'enrollmatkul' => $kelas,
             'page'=> $page,
             'pertemuan'=>$pertemuan,
-            'kelas'=>$kelas
+            'kelas'=>$kelas,
+            'juduls'=>$juduls
         
         ]);
 

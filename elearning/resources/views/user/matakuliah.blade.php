@@ -8,16 +8,16 @@
 
 @section('content')
 
-@foreach($kelas as $kls)
+@foreach($juduls as $kls)
 <div class="mx-5 px-5 my-4 pt-2 fw-bold fs-2">[{{$kls->mata_kuliah}}] {{$kls->nama_matkul}} - {{$kls->kelas}}</div>
 @endforeach
 
 {{-- dosen membuat pertemuan --}}
-{{-- @if(auth()->user()->status === 'dosen') --}}
+@if(auth()->user()->status === 'dosen')
 <div class="header-container">
    <div class="me-3 create-btn btn btn-outline-success align-items-center" data-bs-toggle="modal" data-bs-target="#add"><i class="fas fa-plus"></i> Pertemuan</div>
 </div>
-{{-- @endif --}}
+@endif
 
 
 <!--container -->
