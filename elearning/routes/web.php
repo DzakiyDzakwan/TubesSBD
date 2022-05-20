@@ -74,10 +74,13 @@ Route::middleware('auth')->group(function() {
       // Route::middleware('dosen')->group(function(){
         //Pertemuan
         Route::post('/user/matakuliah/createPertemuan', [PertemuanController::class, 'pertemuanStore']);
+        Route::delete('/user/matakuliah/deletePertemuan/{id}', [PertemuanController::class, 'pertemuanDelete']);
+        Route::get('/user/matakuliah/editPertemuan/{id}', [PertemuanController::class, 'pertemuanEdit']);
+        Route::put('/user/matakuliah/updatePertemuan/{id}', [PertemuanController::class, 'pertemuanUpdate']);
       // });
 
       //Participant
-      Route::get('/user/participants', [ParticipantController::class, 'index']);
+      Route::get('/user/participants/{id}', [ParticipantController::class, 'index']);
 
       //Absensi
       Route::get('/user/absen/{id}', [AbsensiController::class, 'absen']);
