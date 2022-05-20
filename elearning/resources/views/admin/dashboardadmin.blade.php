@@ -10,7 +10,7 @@
 
     @section('content')
      <!-- DATA USER START -->
-      <div class="container data-user my-3 py-3">
+      {{-- <div class="container data-user my-3 py-3">
           <h3>Data User</h3>
 
           <div class="chart">
@@ -18,11 +18,11 @@
           </div>
 
           <a href="/admin/user"><div class="mx-auto detail-btn btn btn-outline-success">Detail</div></a>
-      </div>
+      </div> --}}
       <!--  DATA USER END -->
 
       <!-- CARD SECTION START -->
-      <div class="container card-section my-3">
+     {{--  <div class="container card-section my-3">
         <div class="row">
           <!-- DATA-MAHASISWA START -->
           <div class="col-lg-6 data-container py-3">
@@ -48,7 +48,7 @@
           </div>
           <!-- DATA DOSEN END -->
         </div>
-      </div>
+      </div> --}}
       <!-- CARD SECTION END -->
 
       <div class="container detail-container my-3 py-3">

@@ -87,13 +87,21 @@
      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
    </div>  
    @enderror
+
+   @if (session()->has('success'))
+   <div class="alert alert-success alert-dismissible fade show text-center" role="alert">
+    {{-- <strong>SKS</strong> Tidak boleh Kosong. --}}
+    <strong>{{session('success')}}</strong>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div> 
+   @endif
    <!-- ALERT END -->
 
   @section('content')
       <!-- FAKULTAS CONTAINER -->
       <div class="container fakultas my-3 p-3">
         <h3>Data Fakultas</h3>
-        <div class="container d-flex" style="border: 1px solid; height: 400px">
+        <div class="container d-flex" style="height: 400px">
           <div class="form-fakultas p-2">
             <h5 class="text-center fw-bold">Create Fakultas</h5>
             <form action="/admin/faculty/create-fakultas" method="POST" class="text-dark py-3 fw-bold">
@@ -130,11 +138,11 @@
                   <td>{{$fklts['nama_fakultas']}}</td>
                   <td>{{$fklts['dekan']}}</td>
                   <td class="d-flex justify-content-center">
-                    <form action="">
+                    <a href="/admin/faculty/edit-fakultas/{{ $fklts["kode_fakultas"] }}">
                       <div class="btn btn-primary">
                         <i class="bx bx-edit-alt"></i>
                       </div>
-                    </form>
+                    </a>
                     <form action="/admin/faculty/delete-fakultas/{{$fklts['kode_fakultas']}}" method="post" class="ms-2">
                       @csrf
                       @method('DELETE')
@@ -155,7 +163,7 @@
       <!-- Jurusan CONTAINER -->
       <div class="container fakultas my-3 p-3">
         <h3>Data Jurusan</h3>
-        <div class="container d-flex" style="border: 1px solid; height: 400px">
+        <div class="container d-flex" style="height: 400px">
           <div class="form-fakultas p-2">
             <h5 class="text-center fw-bold">Create Jurusan</h5>
             <form action="/admin/faculty/create-jurusan" method="POST" class="text-dark py-3 fw-bold">
@@ -200,11 +208,11 @@
                   <td>{{$jurusan['degree']}}</td>
                   <td>{{$jurusan['nama_fakultas']}}</td>
                   <td class="d-flex justify-content-center">
-                    <form action="" method="post">
+                    <a href="/admin/faculty/edit-jurusan/{{ $jurusan["kode_jurusan"] }}">
                       <div class="btn btn-primary">
                         <i class="bx bx-edit-alt"></i>
                       </div>
-                    </form>
+                    </a>
                     <form action="/admin/faculty/delete-jurusan/{{$jurusan['kode_jurusan']}}" method="post" class="ms-2">
                       @csrf
                       @method('DELETE')
@@ -225,7 +233,7 @@
       <!-- Matakuliah CONTAINER -->
       <div class="container fakultas my-3 p-3">
         <h3>Data Matakuliah</h3>
-        <div class="container d-flex" style="border: 1px solid; height: 400px">
+        <div class="container d-flex" style="height: 400px">
           <div class="form-fakultas p-2">
             <h5 class="text-center fw-bold">Create Matakuliah</h5>
             <form action="/admin/faculty/create-matkul" method="POST" class="text-dark py-3 fw-bold">
@@ -265,11 +273,11 @@
                   <td>{{$matkul['sks']}}</td>
                   <td>{{$matkul['nama_jurusan']}}</td>
                   <td class="d-flex justify-content-center">
-                    <form action="">
+                    <a href="/admin/faculty/edit-matkul/{{ $matkul["kode_mata_kuliah"] }}">
                       <div class="btn btn-primary">
                         <i class="bx bx-edit-alt"></i>
                       </div>
-                    </form>
+                    </a>
                     <form action="/admin/faculty/delete-matkul/{{$matkul['kode_mata_kuliah']}}" method="POST" class="ms-2">
                       @csrf
                       @method('DELETE')
@@ -290,7 +298,7 @@
       <!-- Kelas CONTAINER -->
       <div class="container fakultas my-3 p-3">
         <h3>Data Kelas</h3>
-        <div class="container d-flex" style="border: 1px solid; height: 400px">
+        <div class="container d-flex" style="height: 400px">
           <div class="form-fakultas p-2">
             <h5 class="text-center fw-bold">Create Kelas</h5>
             <form action="/admin/faculty/create-kelas" method="POST" class="text-dark py-3 fw-bold">
@@ -334,11 +342,11 @@
                   <td>{{$kls['nama_matkul']}}</td>
                   <td>{{$kls['first_name']}} {{$kls['last_name']}}</td>
                   <td class="d-flex justify-content-center">
-                    <form action="" method="post">
+                    <a href="/admin/faculty/edit-kelas/{{ $kls["kelas_id"] }}">
                       <div class="btn btn-primary">
                         <i class="bx bx-edit-alt"></i>
                       </div>
-                    </form>
+                    </a>
                     <form action="/admin/faculty/delete-kelas/{{$kls['kelas_id']}}" method="POST" class="ms-2">
                       @csrf
                       @method('DELETE')

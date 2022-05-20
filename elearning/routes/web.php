@@ -14,6 +14,7 @@ use App\Http\Controllers\ParticipantController;
 use App\Http\Controllers\MateriController;
 use App\Http\Controllers\AbsensiController;
 use App\Http\Controllers\TugasController;
+use App\Http\Controllers\EditAdminController;
 
 use App\Http\Controllers\TestController;
 
@@ -139,6 +140,11 @@ Route::middleware('auth')->group(function() {
       Route::post('/admin/faculty/create-kelas', [AdminController::class, 'kelasStore']);
 
       Route::delete('/admin/faculty/delete-kelas/{id}', [AdminController::class, 'kelasDelete']);
+
+      //Edit
+      Route::get('/admin/faculty/{page}/{id}', [EditAdminController::class, 'index']);
+
+      Route::patch('/admin/faculty/edit/{page}', [EditAdminController::class, 'update']);
 
 
   });
