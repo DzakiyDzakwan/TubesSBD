@@ -7,7 +7,16 @@
 @section('content')
 
     <!-- START CONTAINER-->
-    <div class="container my-2 "> 
+    <div class="container my-5 "> 
+
+        
+        @if ($message = Session::get('success'))
+	    <div class="alert alert-success alert-block">
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>	
+		  <strong>{{ $message }}</strong>
+	    </div>
+	    @endif
+
 
         {{-- Mahasiswa --}}
         @if (auth()->user()->status === 'mahasiswa') 
@@ -18,11 +27,11 @@
               <div ><img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" class="rounded-circle float-end" width="100px"></div>
             </div>
             <div class="col pl-3">
-                
-                 {{-- <h1>{{$profil['first_name']}} {{$profil['last_name']}} {{$profil['NIM']}}</h1> --}}
-                 <h1>{{auth()->user()->first_name}} {{auth()->user()->last_name}}
-                    {{-- {{$editprofil->NIM}} --}}
-                </h1>
+
+            @foreach ($profil as $profils)
+                 <h1>{{$profils->first_name}} {{$profils->last_name}} {{$profils->NIM}}</h1>
+                 {{-- <h1>{{auth()->user()->first_name}} {{auth()->user()->last_name}}</h1> --}}
+            @endforeach
                 
                 <div class="row"></div>
               <p></p>
@@ -109,9 +118,10 @@
               <div ><img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" class="rounded-circle float-end" width="100px"></div>
             </div>
             <div class="col pl-3">
-                
-                <h1>{{auth()->user()->first_name}} {{auth()->user()->last_name}} </h1>
-                
+                @foreach ($profil as $profils)
+                <h1>{{$profils->first_name}} {{$profils->last_name}} {{$profils->NIDN}}</h1>
+                {{-- <h1>{{auth()->user()->first_name}} {{auth()->user()->last_name}}</h1> --}}
+                @endforeach
                 <div class="row"></div>
               <p></p>
             </div>

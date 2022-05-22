@@ -16,9 +16,10 @@
             </div>
             <div class="col pl-3">
                 
-                <h1>{{auth()->user()->first_name}} {{auth()->user()->last_name}}
-                    {{-- {{$editprofil->NIM}} --}}
-                </h1>
+            @foreach ($editprofil as $editprofils)
+                <h1>{{$editprofils->first_name}} {{$editprofils->last_name}} {{$editprofils->NIM}}</h1>
+                {{-- <h1>{{auth()->user()->first_name}} {{auth()->user()->last_name}}</h1> --}}
+            @endforeach
             
                
             </div>
@@ -173,9 +174,9 @@
               <div ><img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" class="rounded-circle float-end" width="100px"></div>
             </div>
             <div class="col pl-3">
-                <h1>{{auth()->user()->first_name}} {{auth()->user()->last_name}}
-                    {{-- {{$editprofil['NIDN']}} --}}
-                </h1>
+                @foreach ($editprofil as $editprofils)
+                <h1>{{$editprofils->first_name}} {{$editprofils->last_name}} {{$editprofils->NIDN}}</h1>
+                @endforeach
                 <div class="row"></div>
               <p></p>
             </div>

@@ -103,7 +103,7 @@ class ProfilController extends Controller
                 // 'password' => $request->password
     
             ]);
-            return redirect('/user/profile');
+            return redirect('/user/profile')->with('success', 'Data berhasil diperbarui');
 
 
         } elseif(auth()->user()->status === "dosen") {
@@ -125,7 +125,7 @@ class ProfilController extends Controller
                 // 'password' => $request->password
     
             ]);
-            return redirect('/user/profile');
+            return redirect('/user/profile')->with('success', 'Data berhasil diperbarui');
 
         }
 
