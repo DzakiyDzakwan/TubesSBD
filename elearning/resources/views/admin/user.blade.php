@@ -93,7 +93,8 @@
       <!-- TABLE END -->
 
       <!-- pagination START -->
-      @include('components.pagination')
+      {{$users->links()}}
+      {{-- @include('components.pagination') --}}
       <!-- PAGINATION END -->
     </div>
     @endsection

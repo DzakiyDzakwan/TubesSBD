@@ -62,8 +62,7 @@ class AdminController extends Controller
     public function user() {
         $page = 'user';
 
-        $user = User::select('NIK', 'first_name', 'last_name', 'email', 'nomor_hp', 'agama', 'jenis_kelamin', 'status')->get();
-        //$user = User::select('NIK', 'first_name', 'last_name', 'email', 'nomor_hp', 'agama', 'jenis_kelamin', 'status')->skip(0)->take(5)->get();
+        $user = User::select('NIK', 'first_name', 'last_name', 'email', 'nomor_hp', 'agama', 'jenis_kelamin', 'status')->paginate(5);
         $jurusan = Jurusan::get();
 
         return view('admin.user', [
@@ -118,7 +117,9 @@ class AdminController extends Controller
     public function mahasiswa() {
         $page = 'mahasiswa';
 
-        $mahasiswa = Mahasiswa::join('jurusans','mahasiswas.jurusan', '=', 'jurusans.kode_jurusan')->join('users', 'mahasiswas.user', '=', 'users.NIK')->select('mahasiswas.NIM','mahasiswas.NISN' ,'mahasiswas.semester', 'mahasiswas.angkatan', 'mahasiswas.status' ,'users.first_name', 'users.last_name', 'jurusans.nama_jurusan')->get();
+        $mahasiswa = Mahasiswa::join('jurusans','mahasiswas.jurusan', '=', 'jurusans.kode_jurusan')->join('users', 'mahasiswas.user', '=', 'users.NIK')->select('mahasiswas.NIM','mahasiswas.NISN' ,'mahasiswas.semester', 'mahasiswas.angkatan', 'mahasiswas.status' ,'users.first_name', 'users.last_name', 'jurusans.nama_jurusan')->paginate(5);
+
+
         $aslab = Aslab::join('mahasiswas', 'aslabs.mahasiswa', '=', 'mahasiswas.NIM')->join('users', 'mahasiswas.user', '=', 'users.NIK')->select('users.first_name', 'users.last_name', 'users.NIK', 'aslabs.aslab_id')->get();
 
         return view('admin.mahasiswa', [

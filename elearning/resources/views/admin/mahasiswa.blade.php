@@ -106,7 +106,8 @@
       <!-- TABLE END -->
 
 
-      @include('components.pagination')
+      {{-- @include('components.pagination') --}}
+      {{$mahasiswa->links()}}
 
   </div>
     @endsection
