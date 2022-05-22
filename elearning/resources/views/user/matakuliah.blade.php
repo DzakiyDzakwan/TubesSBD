@@ -71,14 +71,15 @@
         @endif
     </div>
 
+    @if(auth()->user()->status === 'dosen')
     <div class="d-grid gap-3 d-md-block">
         {{-- <button class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#addmateri" type="button"><i class="fas fa-plus"></i> Materi</button> --}}
         {{-- create materi --}}
         <a href="/user/matakuliah/createMateripage/{{$prtm->pertemuan_id}}"><button class="btn btn-outline-success" type="button"><i class="fas fa-plus"></i> Materi</button></a>
         <a href=""><button class="btn btn-outline-success" type="button">Button</button></a>
         <a href=""><button class="btn btn-outline-success" type="button">Button</button></a>
-        
     </div>
+    @endif
         <div class="media py-3 ml-0">
             <p>{{$prtm->deskripsi}}</p>
             {{-- show materi --}}
@@ -96,6 +97,7 @@
                         {{-- {{dd($materis)}} --}}
                     </div>
                 </div>
+            @if(auth()->user()->status === 'dosen')
             <div class="justify-content-end d-flex col">
                 {{-- update materi --}}
                 <a href="/user/matakuliah/editmateri/{{$materi->materi_id}}"> 
@@ -110,6 +112,7 @@
                     </button>
                 </form>
             </div>
+            @endif
             </div>
             @endforeach
             {{-- end show materi --}}
