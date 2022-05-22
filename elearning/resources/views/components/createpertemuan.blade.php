@@ -18,7 +18,7 @@
 
           <label for="tanggal_pertemuan">Tanggal Pertemuan</label>
           <input class="form-control mb-3" type="date" name="tanggal_pertemuan" id="tanggal_pertemuan">
-          @foreach($kelas as $kls)
+          @foreach($juduls as $kls)
           <input type="hidden" class="col form-control mb-2" id="kelas" name="kelas" value="{{$kls->kelas_id}}">
           @endforeach
           <input class="btn btn-success form-control" type="submit" value="SUBMIT" />

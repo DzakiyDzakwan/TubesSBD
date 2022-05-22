@@ -25,7 +25,8 @@ class AbsensiController extends Controller
         //menampilkan judul matakuliah
         $pertemuan= Pertemuan::join('kelas','pertemuans.kelas','=','kelas.kelas_id')
         ->join('mata_kuliahs','kelas.mata_kuliah','=','mata_kuliahs.kode_mata_kuliah')
-        ->select('pertemuans.pertemuan_id','kelas.mata_kuliah','kelas.kelas','mata_kuliahs.nama_matkul')->where('pertemuans.pertemuan_id', $id)->get();
+        ->select('pertemuans.pertemuan_id','kelas.mata_kuliah','kelas.kelas','mata_kuliahs.nama_matkul')
+        ->where('pertemuans.pertemuan_id', $id)->get();
 
         $absens = Absensi::join('pertemuans','absensis.pertemuan','=','pertemuans.pertemuan_id')
         ->select('absensis.status','absensis.created_at','absensis.pertemuan','absensis.mahasiswa','absensis.absensi_id','pertemuans.pertemuan_id','pertemuans.tanggal_pertemuan')

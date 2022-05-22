@@ -77,10 +77,19 @@ Route::middleware('auth')->group(function() {
         Route::delete('/user/matakuliah/deletePertemuan/{id}', [PertemuanController::class, 'pertemuanDelete']);
         Route::get('/user/matakuliah/editPertemuan/{id}', [PertemuanController::class, 'pertemuanEdit']);
         Route::put('/user/matakuliah/updatePertemuan/{id}', [PertemuanController::class, 'pertemuanUpdate']);
+
+        //materi
+        Route::post('/user/matakuliah/createMateri', [MateriController::class, 'materiStore']);
+        Route::get('/user/matakuliah/createMateripage/{id}', [MateriController::class, 'createmateri']);
+        Route::post('/user/matakuliah/tambahpertemuan', [MateriController::class, 'showmateri']);
+        Route::get('/user/matakuliah/editmateri/{id}', [MateriController::class, 'editmateri']);
+        Route::put('/user/matakuliah/updatemateri/{id}', [MateriController::class, 'updatemateri']);
+        Route::delete('/user/matakuliah/deletemateri/{id}', [MateriController::class, 'deletemateri']);
       // });
 
       //Participant
-      Route::get('/user/participants/{id}', [ParticipantController::class, 'index']);
+      Route::get('/user/participants', [ParticipantController::class, 'index']);
+      // });
 
       //Absensi
       Route::get('/user/absen/{id}', [AbsensiController::class, 'absen']);
