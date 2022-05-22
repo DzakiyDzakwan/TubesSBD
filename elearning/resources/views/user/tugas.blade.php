@@ -30,10 +30,11 @@
 }
 </style>
   <div class="mx-2 my-3 mb-5 fw-bold pt-5 fs-3">[TIF1207] Struktur Data Dan Algoritma - Kelas C</div>
+  @foreach($tugas as $tgs)
   <div class="container my-4 bg-light py-3">
     <div class="mx-3 mt-2">
-      <p>Silahkan kerjakan tugas berikut !</p>
-      <p><b><h4>Submission status</h4></b></p>
+      <p>{{$tgs->deskripsi}}</p>
+      <p><b><h4>{{$tgs->nama_tugas}}</h4></b></p>
     <table class="table table-striped">
 
         <!-- data tabel -->
@@ -53,7 +54,7 @@
           <td>
             <b>Due date</b>
           </td>
-          <td>Thursday, 31 March 2022, 8:00 AM</td>
+          <td>{{$tgs->deadline_tugas}}</td>
         </tr>
         <tr>
           <td>
@@ -65,4 +66,5 @@
     <button class="button button1">Add submission</button>
     </div>
   </div>
+  @endforeach
 @endsection

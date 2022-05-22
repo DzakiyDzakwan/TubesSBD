@@ -15,8 +15,8 @@ class ParticipantController extends Controller
         $page = 'participants';
 
         $participants = Enrollment::join('kelas','enrollments.kelas','=','kelas.kelas_id')
-        ->join('users','enrollments.user','=','users.id')
-        ->select('users.first_name','users.last_name','kelas.kelas_id')
+        ->join('users','enrollments.user','=','users.nik')
+        ->select('users.first_name','users.last_name','kelas.kelas_id','enrollments.role')
         // ->where('kelas.kelas_id', $id)
         ->get();
 

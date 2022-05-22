@@ -97,17 +97,20 @@
             <tr>
                 <th>First name/Surname</th>
                 <th>Roles</th>
-                <th>Groups</th>
-                <th width="20%">Last access to course</th>
+                <th width="20%">Groups</th>
+                <!-- <th width="20%">Last access to course</th> -->
             </tr>
             </thead>
+            @foreach($participants as $participant)
             <tr>
-                <td><img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" class="rounded-circle px-2" width="50px"><a href="" class="text-decoration-none text-success fw-bold">Lorem Ipsum 211402000</a></td>
-                <td>Student</td>
+                <td><img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" class="rounded-circle px-2" width="50px"><a href="" class="text-decoration-none text-success fw-bold">{{$participant->first_name}} {{$participant->last_name}}</a></td>
+                
+                <td>{{$participant->role}}</td>
                 <td>No groups</td>
                 <td>Never</td>
             </tr>
-            <tr>
+            @endforeach
+            <!-- <tr>
                 <td><img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" class="rounded-circle px-2" width="50px"><a href="" class="text-decoration-none text-success fw-bold">Lorem Ipsum 211402001</a></td>
                 <td>Student</td>
                 <td>No groups</td>
@@ -130,7 +133,7 @@
                 <td>Student</td>
                 <td>No groups</td>
                 <td>Never</td>
-            </tr>
+            </tr> -->
         </table>
         </div>
         <!-- end table -->
