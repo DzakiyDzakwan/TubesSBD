@@ -18,8 +18,8 @@ class CreateTugasTable extends Migration
             $table->string('nama_tugas', 200);
             $table->text('deskripsi');
             $table->date('deadline_tugas');
-            $table->bigInteger('materi')->nullable(false)->unsigned();
-            $table->foreign('materi')->references('materi_id')->on('materis');
+            $table->bigInteger('pertemuan')->nullable(false)->unsigned();
+            $table->foreign('pertemuan')->references('pertemuan_id')->on('pertemuans');
             $table->timestamps();
         });
     }

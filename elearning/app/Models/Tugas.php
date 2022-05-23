@@ -19,8 +19,8 @@ class Tugas extends Model
         return $this->hasMany(Jawaban::class);
     }
 
-    public function  materi()
+    public function  pertemuan()
     {
-        return $this->belongsTo(Materi::class);
+        return $this->belongsTo(Pertemuan::class);
     }
 }

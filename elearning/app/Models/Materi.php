@@ -18,8 +18,4 @@ class Materi extends Model
     {
         return $this->belongsTo(Pertemuan::class);
     }
-    public function tugas()
-    {
-        return $this->hasOne(Tugas::class);
-    }
 }

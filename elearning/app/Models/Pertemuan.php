@@ -18,10 +18,17 @@ class Pertemuan extends Model
     {
         return $this->belongsTo(Kelas::class);
     }
+
     public function materi()
     {
         return $this->hasOne(Materi::class);
     }
+
+    public function tugas() 
+    {
+        return $this->hasOne(Tugas::class);
+    }
+
     public function absensi()
     {
         return $this->hasMany(Absensi::class);
