@@ -2,10 +2,8 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
-use App\Models\dosen;
+use App\Models\Jurusan;
 use App\Models\Mahasiswa;
-use App\Models\fakultas;
 use Illuminate\Database\Seeder;
 
 
@@ -18,11 +16,15 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        User::factory(5)->create();
-        dosen::factory(5)->create();
-        fakultas::factory(5)->create();
+        $this->call([
+            UserSeeder::class,
+            DosenSeeder::class,
+            FakultasSeeder::class,
+            JurusanSeeder::class,
+            MahasiswaSeeder::class,
+            MataKuliahSeeder::class,
+            KelasSeeder::class
 
-
-        // Mahasiswa::factory(5)->create();
+        ]);
     }
 }

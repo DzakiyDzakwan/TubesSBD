@@ -17,7 +17,7 @@ class CreateMataKuliahsTable extends Migration
             $table->char('kode_mata_kuliah', 6)->nullable(false)->primary();
             $table->string('nama_matkul', 200);
             $table->integer('sks')->unsigned();
-            $table->char('jurusan', 6);
+            $table->char('jurusan', 6)->nullable(false);
             $table->foreign('jurusan')->references('kode_jurusan')->on('jurusans')->cascadeOnDelete()->cascadeOnUpdate();
             $table->timestamps();
         });

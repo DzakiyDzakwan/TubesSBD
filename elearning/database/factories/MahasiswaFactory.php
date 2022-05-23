@@ -3,6 +3,8 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\User;
+use App\Models\Jurusan;
 
 class MahasiswaFactory extends Factory
 {
@@ -14,14 +16,14 @@ class MahasiswaFactory extends Factory
     public function definition()
     {
         return [
-            // 'NIM' => $this->faker->numerify('#########'),
-            // 'NISN' => $this->faker->numerify('#########'),
-            // 'semester' => $this->faker->randomDigitNotNull(),
-            // 'program' => $this->faker->company(2),
-            // 'angkatan' => $this->faker->year(),
-            // 'status_keaktifan' => $this->faker->randomElement(['aktif', 'tidak_aktif']),
-            // 'user_id' => $this->faker->randomDigitNotNull(),
-            // 'jurusan' => $this->faker->company()
+            'NIM' => $this->faker->numerify('#########'),
+            'NISN' => $this->faker->numerify('#########'),
+            'semester' => $this->faker->numerify('##'),
+            'program' => $this->faker->randomElement(['D3', 'S1', 'S2', 'S3']),
+            'angkatan' => $this->faker->year(),
+            'status' => $this->faker->randomElement(['aktif', 'inactive']),
+            'user' => User::factory()->create()->NIK,
+            'jurusan' => Jurusan::factory()->create()->kode_jurusan
         ];
     }
 }
