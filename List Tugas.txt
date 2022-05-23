@@ -158,3 +158,19 @@ Tugas :
 Jawaban :
 1.
 
+Input Jawaban : Rizki Sahat
+Edit Jawaban : Rizki Sahat
+
+Delete Jawaban : 
+
+Read Absensi Mahasiswa ditempat dosen :
+
+Nilai : Dzakiy Dzakwan
+
+Laporan : Dzakiy, , Amel, Neha
+
+PPT : Sahat, Agnes
+
+
+
+

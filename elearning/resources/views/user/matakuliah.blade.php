@@ -93,7 +93,7 @@
             <div class="row">
                 <div class="col">
                     <div class="bg-secondary bg-opacity-10 py-2 mb-3 rounded-3" style="width: 300px;">
-                        <a href="{{$materi->deskripsi}}" class="text-decoration-none text-success px-4">{{$materi->nama_materi}}</a>
+                        <a href="{{$materi->deskripsi}}" target="_blank" class="text-decoration-none text-success px-4">{{$materi->nama_materi}}</a>
                         {{-- {{dd($materis)}} --}}
                     </div>
                 </div>
