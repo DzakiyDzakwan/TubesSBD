@@ -14,6 +14,6 @@ class FakultasSeeder extends Seeder
      */
     public function run()
     {
-        Fakultas::factory(2)->create();
+        Fakultas::factory(1)->create();
     }
 }

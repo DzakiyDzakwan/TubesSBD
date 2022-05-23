@@ -14,6 +14,6 @@ class MataKuliahSeeder extends Seeder
      */
     public function run()
     {
-        Mata_kuliah::factory(8)->create();
+        Mata_kuliah::factory(30)->create();
     }
 }
