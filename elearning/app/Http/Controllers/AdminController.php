@@ -95,7 +95,7 @@ class AdminController extends Controller
 
         ]);
 
-        return back();
+        return back()->with('success', 'Mahasiswa Berhasil ditambahkan');
 
     }
 
@@ -109,7 +109,7 @@ class AdminController extends Controller
             
         ]);
 
-        return back();
+        return back()->with('success', 'Dosen Berhasil ditambahkan');
 
     }
 
@@ -132,7 +132,7 @@ class AdminController extends Controller
     public function mahasiswaDelete($id) {
         Mahasiswa::where('NIM', $id)->delete();
 
-        return back();
+        return back()->with('success', 'Mahasiswa Berhasil Dihapus !');
     }
 
     /* ASLAB */
@@ -142,7 +142,7 @@ class AdminController extends Controller
             'mahasiswa'=>$nim
         ]);
 
-        return back();
+        return back()->with('success', 'Aslab Created Successfully!');
     }
 
     public function aslabDelete($id) {
@@ -156,7 +156,7 @@ class AdminController extends Controller
 
         $page = 'dosen';
 
-        $dosen =  Dosen::join('users', 'dosens.user', '=', 'users.NIK')->select('dosens.NIP', 'users.first_name', 'users.last_name', 'dosens.NIDN', 'dosens.status')->get();
+        $dosen =  Dosen::join('users', 'dosens.user', '=', 'users.NIK')->select('dosens.NIP', 'users.first_name', 'users.last_name', 'dosens.NIDN', 'dosens.status')->paginate(5);
         /* $dosen =  Dosen::join('users', 'dosens.user', '=', 'users.NIK')->select('dosens.NIP', 'users.first_name', 'users.last_name', 'dosens.NIDN', 'dosens.status')->take(0)->skip(5)->get(); */
 
         return view('admin.dosen', [
@@ -169,7 +169,7 @@ class AdminController extends Controller
     public function dosenDelete($id) {
         Dosen::where('NIP' , $id )->delete();
 
-        return back();
+        return back()->with('success', 'Task Created Successfully!');
     }
 
     /* FAKULTAS */
@@ -208,7 +208,7 @@ class AdminController extends Controller
             'dekan'=>$request->dekan
         ]);
 
-        return back();
+        return back()->with('toast_success', 'Fakultas Berhasil ditambahkan');
 
     }
 
@@ -216,7 +216,7 @@ class AdminController extends Controller
 
         Fakultas::where('kode_fakultas', $id)->delete();
 
-        return back();
+        return back()->with('toast_success', 'Fakultas Berhasil dihapus');
 
     }
 
@@ -236,7 +236,7 @@ class AdminController extends Controller
 
         /* dd($request->all()); */
 
-        return back();
+        return back()->with('toast_success', 'Jurusan Berhasil ditambahkan');
 
     }
 
@@ -244,7 +244,7 @@ class AdminController extends Controller
         
         Jurusan::where('kode_jurusan', $id)->delete();
 
-        return back();
+        return back()->with('toast_success', 'Jurusan Berhasil dihapus');
 
     }
 
@@ -265,7 +265,7 @@ class AdminController extends Controller
             'jurusan'=>$request->jurusan
         ]);
 
-        return back();
+        return back()->with('toast_success', 'Mata Kuliah Berhasil ditambahkan');
 
     }
 
@@ -273,7 +273,7 @@ class AdminController extends Controller
         
         Mata_kuliah::where('kode_mata_kuliah', $id)->delete();
 
-        return back();
+        return back()->with('toast_success', 'Mata Kuliah Berhasil dihapus');
 
     }
 
@@ -295,7 +295,7 @@ class AdminController extends Controller
 
         ]);
         
-        return back();
+        return back()->with('toast_success', 'Kelas Berhasil ditambahkan');
 
     }
 
@@ -303,7 +303,7 @@ class AdminController extends Controller
         
         Kelas::where('kelas_id', $id)->delete();
 
-        return back();
+        return back()->with('Kelas Berhasil dihapus');
 
     }
 

@@ -22,4 +22,10 @@ class TugasController extends Controller
         //return view('user.tugas', compact('page'));
 
     }
+
+    public function store(Request $request) {
+
+        dd($request->all());
+
+    }
 }

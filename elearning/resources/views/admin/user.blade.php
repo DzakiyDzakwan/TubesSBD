@@ -92,10 +92,14 @@
       </div>
       <!-- TABLE END -->
 
+      
       <!-- pagination START -->
-      {{$users->links()}}
+        <div class="pagination-container">
+          {{$users->links()}}
+        </div>
       {{-- @include('components.pagination') --}}
       <!-- PAGINATION END -->
+      @include('sweetalert::alert')
     </div>
     @endsection
     <!-- MAIN-BAR END -->

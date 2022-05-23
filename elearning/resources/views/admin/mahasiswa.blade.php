@@ -107,8 +107,11 @@
 
 
       {{-- @include('components.pagination') --}}
-      {{$mahasiswa->links()}}
-
+        <div class="pagination-container">
+            {{$mahasiswa->links()}}
+        </div>
+      
+        @include('sweetalert::alert')
   </div>
     @endsection
 

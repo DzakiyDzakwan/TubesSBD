@@ -96,7 +96,7 @@
   <!-- TABLE END -->
 
   <div class="pagination-container">
-    <nav aria-label="Page navigation example">
+    {{-- <nav aria-label="Page navigation example">
       <ul class="pagination">
         <li class="page-item">
           <a class="page-link" href="#" aria-label="Previous">
@@ -112,8 +112,12 @@
           </a>
         </li>
       </ul>
-    </nav>
+    </nav> --}}
+    {{$dosens->links()}}
   </div>
+
+  @include('sweetalert::alert')
+  
 </div>
 @endsection
 
