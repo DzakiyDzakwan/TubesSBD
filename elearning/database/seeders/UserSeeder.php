@@ -44,7 +44,7 @@ class UserSeeder extends Seeder
             'alamat' => 'siswa',
             'tgl_lahir' => '1969-01-01',
             'password' => bcrypt('password'), // password
-            'status' => 'siswa',
+            'status' => 'mahasiswa',
             'remember_token' => Str::random(10),
         ]);
 
@@ -60,7 +60,7 @@ class UserSeeder extends Seeder
             'alamat' => 'guru',
             'tgl_lahir' => '1969-01-01',
             'password' => bcrypt('password'), // password
-            'status' => 'guru',
+            'status' => 'dosen',
             'remember_token' => Str::random(10),
         ]);
 
