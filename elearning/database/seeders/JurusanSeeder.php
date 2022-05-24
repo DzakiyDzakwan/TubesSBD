@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\Jurusan;
+use App\Models\Fakultas;
 
 class JurusanSeeder extends Seeder
 {
