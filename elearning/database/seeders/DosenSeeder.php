@@ -14,6 +14,15 @@ class DosenSeeder extends Seeder
      */
     public function run()
     {
-        Dosen::factory(3)->create();
+
+        Dosen::create([
+            'NIP'=> '210293001',
+            'NIDN'=> '210293001',
+            'user'=> '2114021232',
+            'status'=>'aktif'
+            
+        ]);
+
+        Dosen::factory(4)->create();
     }
 }

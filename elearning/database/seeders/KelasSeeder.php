@@ -14,6 +14,25 @@ class KelasSeeder extends Seeder
      */
     public function run()
     {
-        Kelas::factory(10)->create();
+
+        Kelas::create([
+
+            'kelas_id'=>'KLS001',
+            'kelas'=>'KOM A',
+            'dosen'=>'210293001',
+            'mata_kuliah'=>'MK011'
+
+        ]);
+
+        Kelas::create([
+
+            'kelas_id'=>'KLS002',
+            'kelas'=>'KOM A',
+            'dosen'=>'210293001',
+            'mata_kuliah'=>'MK012'
+
+        ]);
+
+        Kelas::factory(16)->create();
     }
 }

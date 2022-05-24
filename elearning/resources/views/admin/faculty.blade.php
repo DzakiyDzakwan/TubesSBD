@@ -363,5 +363,5 @@
         </div>
       </div>
       <!-- Kelas CONTAINER END -->
-      @include('sweetalert::alert')
+      {{-- @include('sweetalert::alert') --}}
   @endsection

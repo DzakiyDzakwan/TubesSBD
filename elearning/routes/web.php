@@ -95,11 +95,10 @@ Route::middleware('auth')->group(function() {
       Route::get('/user/absen/{id}', [AbsensiController::class, 'absen']);
       Route::post('/user/absen/add-absen', [AbsensiController::class, 'absenStore']);
 
-      //Materi
-
       
       //Tugas
-      Route::get('/user/tugas', [TugasController::class, 'tugas']);
+      Route::get('/user/tugas/{id}', [TugasController::class, 'tugas']);
+      Route::post('/user/tugas/create', [TugasController::class, 'store']);
 
       //Jawaban
 

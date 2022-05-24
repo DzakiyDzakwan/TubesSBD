@@ -14,6 +14,19 @@ class FakultasSeeder extends Seeder
      */
     public function run()
     {
-        Fakultas::factory(1)->create();
+
+        Fakultas::create([
+            'kode_fakultas'=>'FK001',
+            'nama_fakultas'=>'Kedokteran',
+            'dekan'=>NULL
+        ]);
+
+        Fakultas::create([
+            'kode_fakultas'=>'FK002',
+            'nama_fakultas'=>'Teknik',
+            'dekan'=>'210293001'
+        ]);
+
+        Fakultas::factory(2)->create();
     }
 }

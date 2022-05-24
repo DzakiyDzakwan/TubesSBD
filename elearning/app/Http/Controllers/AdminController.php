@@ -16,27 +16,6 @@ use App\Models\Kelas;
 class AdminController extends Controller
 {
 
-    public function login() {
-        return view('admin.login');
-    }
-
-    public function loginAuthenticate(Request $request) {
-
-        $credentials = $request->validate([
-            'user_name' => 'required',
-            'password' => 'required'
-        ]);
-
-        if(Auth::guard('webadmin')->attempt($credentials)) {
-            $request->session()->regenerate();
-
-            return redirect()->intended('/admin/user');
-        }
-
-        return back()->with('loginFail', 'Login gagal');
-
-    }
-
     /* DASHBOARD */
     public function dashboard() {
         $page = 'dashboard';
@@ -76,7 +55,7 @@ class AdminController extends Controller
 
         User::where('NIK', $nik)->delete();
 
-        return back();
+        return back()->with('success', 'User Berhasil Dihapus');
 
     }
 
@@ -117,7 +96,7 @@ class AdminController extends Controller
     public function mahasiswa() {
         $page = 'mahasiswa';
 
-        $mahasiswa = Mahasiswa::join('jurusans','mahasiswas.jurusan', '=', 'jurusans.kode_jurusan')->join('users', 'mahasiswas.user', '=', 'users.NIK')->select('mahasiswas.NIM','mahasiswas.NISN' ,'mahasiswas.semester', 'mahasiswas.angkatan', 'mahasiswas.status' ,'users.first_name', 'users.last_name', 'jurusans.nama_jurusan')->paginate(5);
+        $mahasiswa = Mahasiswa::join('jurusans','mahasiswas.jurusan', '=', 'jurusans.kode_jurusan')->join('users', 'mahasiswas.user', '=', 'users.NIK')->select('mahasiswas.NIM','mahasiswas.NISN' ,'mahasiswas.semester', 'mahasiswas.angkatan', 'mahasiswas.status' ,'users.first_name', 'users.last_name', 'jurusans.nama_jurusan')->orderBy('status', 'asc')->paginate(5);
 
 
         $aslab = Aslab::join('mahasiswas', 'aslabs.mahasiswa', '=', 'mahasiswas.NIM')->join('users', 'mahasiswas.user', '=', 'users.NIK')->select('users.first_name', 'users.last_name', 'users.NIK', 'aslabs.aslab_id')->get();
@@ -142,13 +121,13 @@ class AdminController extends Controller
             'mahasiswa'=>$nim
         ]);
 
-        return back()->with('success', 'Aslab Created Successfully!');
+        return back()->with('success', 'Aslab Berhasil ditambahkan');
     }
 
     public function aslabDelete($id) {
         Aslab::where('aslab_id', $id)->delete();
 
-        return back();
+        return back()->with('success', 'Aslab Berhasil dihapus');
     }
 
     /* DOSEN */
@@ -169,7 +148,7 @@ class AdminController extends Controller
     public function dosenDelete($id) {
         Dosen::where('NIP' , $id )->delete();
 
-        return back()->with('success', 'Task Created Successfully!');
+        return back()->with('success', 'Dosen Berhasil dihapus');
     }
 
     /* FAKULTAS */

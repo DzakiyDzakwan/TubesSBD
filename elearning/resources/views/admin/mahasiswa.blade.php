@@ -111,8 +111,9 @@
             {{$mahasiswa->links()}}
         </div>
       
-        @include('sweetalert::alert')
+        {{-- @include('sweetalert::alert') --}}
   </div>
+  
     @endsection
 
     @section('js')

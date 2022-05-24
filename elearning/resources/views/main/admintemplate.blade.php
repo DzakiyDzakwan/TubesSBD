@@ -35,6 +35,10 @@
     </div>
     <!-- MAIN-BAR END -->
 
+    {{-- sweetalert --}}
+    @include('sweetalert::alert') 
+    {{-- sweetalert End --}}
+
     <!-- JQUERY -->
     <script
       src="https://code.jquery.com/jquery-3.6.0.js"

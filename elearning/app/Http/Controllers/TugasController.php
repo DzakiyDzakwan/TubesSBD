@@ -25,7 +25,18 @@ class TugasController extends Controller
 
     public function store(Request $request) {
 
-        dd($request->all());
+        /* dd($request->all()); */
+
+        Tugas::create([
+
+            'nama_tugas'=>$request->nama_tugas,
+            'deskripsi'=>$request->deskripsi,
+            'deadline_tugas'=>$request->deadline,
+            'pertemuan'=>$request->pertemuan
+
+        ]);
+
+        return back()->with('success', 'Tugas Berhasil Dibuat');
 
     }
 }

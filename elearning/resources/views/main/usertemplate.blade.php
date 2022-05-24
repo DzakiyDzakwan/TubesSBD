@@ -52,6 +52,9 @@
         </div>
         <!-- konten end-->
 
+        {{-- Sweet Alert --}}
+        @include('sweetalert::alert')
+        {{-- Sweet Alert End --}}
       </div>
     </div>
     <!-- container end-->

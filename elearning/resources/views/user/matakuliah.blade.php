@@ -1,4 +1,7 @@
-<?php use App\Models\Materi; ?>
+<?php
+ use App\Models\Materi;
+ use App\Models\Tugas; 
+?>
 
 @extends('main.usertemplate')
 
@@ -48,6 +51,8 @@
         <hr class="">
     @foreach($pertemuan as $prtm)
     
+    @include('components.createtugas')
+
     <div class="col d-flex">
         <div>
             <a href="#" id="#" class="fw-bold pb-2 fs-3 px-2 text-decoration-none" style=" color: #008b00;">{{$prtm->nama_pertemuan}}</a>
@@ -76,8 +81,8 @@
         {{-- <button class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#addmateri" type="button"><i class="fas fa-plus"></i> Materi</button> --}}
         {{-- create materi --}}
         <a href="/user/matakuliah/createMateripage/{{$prtm->pertemuan_id}}"><button class="btn btn-outline-success" type="button"><i class="fas fa-plus"></i> Materi</button></a>
-        <a href=""><button class="btn btn-outline-success" type="button">Button</button></a>
-        <a href=""><button class="btn btn-outline-success" type="button">Button</button></a>
+        <a href="#" onclick="event.prevent()"><button class="btn btn-outline-success" type="button" data-bs-toggle="modal" data-bs-target="#addTugas{{$loop->iteration}}"><i class="fas fa-plus"></i>Tugas</button></a>
+        {{-- <a href=""><button class="btn btn-outline-success" type="button">Button</button></a> --}}
     </div>
     @endif
         <div class="media py-3 ml-0">
@@ -116,9 +121,17 @@
             </div>
             @endforeach
             {{-- end show materi --}}
+
+            {{-- Tugas --}}
+            <?php $tugas = Tugas::select('nama_tugas', 'tugas_id')->get() ?>
+
+            @foreach ($tugas as $tgs)
             <div class="bg-secondary bg-opacity-10 py-2 mb-3 rounded-3" style="width: 300px;">
-                <a href="/user/tugas" class="text-decoration-none text-success px-4">Tugas Mandiri</a>
+                <a href="/user/tugas/{{$tgs['tugas_id']}}" class="text-decoration-none text-success px-4">{{$tgs['nama_tugas']}}</a>
             </div>
+            @endforeach
+            {{-- Tugas End --}}
+
             <div class="bg-secondary bg-opacity-10 py-2 mb-3 rounded-3" style="width: 300px;">
                 <a href="/user/absen/{{$prtm->pertemuan_id}}" class="text-decoration-none text-success px-4">Daftar Hadir</a>
             </div>

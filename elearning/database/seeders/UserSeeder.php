@@ -27,7 +27,7 @@ class UserSeeder extends Seeder
             'kewarganegaraan' => 'WNI',
             'alamat' => 'admin',
             'tgl_lahir' => '1969-01-01',
-            'password' => bcrypt('password'), // password
+            'password' => bcrypt('admin'), // password
             'status' => 'admin',
             'remember_token' => Str::random(10),
         ]);
@@ -41,25 +41,25 @@ class UserSeeder extends Seeder
             'jenis_kelamin' => 'pria',
             'agama' => 'siswa',
             'kewarganegaraan' => 'WNI',
-            'alamat' => 'siswa',
+            'alamat' => 'islam',
             'tgl_lahir' => '1969-01-01',
-            'password' => bcrypt('password'), // password
+            'password' => bcrypt('siswa'), // password
             'status' => 'mahasiswa',
             'remember_token' => Str::random(10),
         ]);
 
         User::create([
             'NIK' => '2114021232',
-            'email' => 'guru@gmail.com',
+            'email' => 'dosen@gmail.com',
             'nomor_hp' => '086969696969',
-            'first_name' => 'guru',
-            'last_name' => 'guru',
+            'first_name' => 'dosen',
+            'last_name' => 'test',
             'jenis_kelamin' => 'pria',
-            'agama' => 'guru',
+            'agama' => 'Kristen',
             'kewarganegaraan' => 'WNI',
             'alamat' => 'guru',
             'tgl_lahir' => '1969-01-01',
-            'password' => bcrypt('password'), // password
+            'password' => bcrypt('dosen'), // password
             'status' => 'dosen',
             'remember_token' => Str::random(10),
         ]);
