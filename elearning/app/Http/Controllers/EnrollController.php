@@ -8,6 +8,7 @@ use App\Models\Jurusan;
 use App\Models\Mata_kuliah;
 use App\Models\Kelas;
 use App\Models\Enrollment;
+use App\Models\Mahasiswa;
 
 class EnrollController extends Controller
 {
@@ -91,6 +92,29 @@ class EnrollController extends Controller
 
     public function enroll(Request $request) {
 
+        $nik = auth()->user()->NIK;
+
+        $jurusanmhs = $mahasiswas=Mahasiswa::join('users','mahasiswas.user','=','users.NIK')->select('mahasiswas.jurusan')->where('users.NIK', $nik)->get()[0]['jurusan'];
+        // dd($jurusanmhs);
+
+        $check = Enrollment::join('kelas','enrollments.kelas','=','kelas.kelas_id')
+        ->join('mata_kuliahs','kelas.mata_kuliah','=','mata_kuliahs.kode_mata_kuliah')
+        ->where('enrollments.user', $nik)->sum('mata_kuliahs.sks');
+        // dd($check);
+        if($check >= 21){
+            return redirect('/dashboard')->with('errors', 'SKS melebihi batas');
+        }
+        $checkjurusan = Kelas::join('mata_kuliahs','kelas.mata_kuliah','=','mata_kuliahs.kode_mata_kuliah')
+        ->where('kelas.kelas_id', $request->kelas)
+        ->where('mata_kuliahs.jurusan', $jurusanmhs)
+        // ->where()
+        ->exists();
+        // dd($checkjurusan);
+
+        if(!$checkjurusan){
+            return redirect('/user/sitehome');
+        }
+        
         //Create data tabel enrollment kelas
         Enrollment::create([
             'enroll_id' => $request->enroll_id,

@@ -85,6 +85,9 @@ Route::middleware('auth')->group(function() {
         Route::get('/user/matakuliah/editmateri/{id}', [MateriController::class, 'editmateri']);
         Route::put('/user/matakuliah/updatemateri/{id}', [MateriController::class, 'updatemateri']);
         Route::delete('/user/matakuliah/deletemateri/{id}', [MateriController::class, 'deletemateri']);
+
+        //zoom
+        Route::get('/user/matakuliah/createzoom/{id}', [MateriController::class, 'createzoom']);
       // });
 
       //Participant

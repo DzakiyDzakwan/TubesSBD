@@ -81,6 +81,8 @@
         {{-- <button class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#addmateri" type="button"><i class="fas fa-plus"></i> Materi</button> --}}
         {{-- create materi --}}
         <a href="/user/matakuliah/createMateripage/{{$prtm->pertemuan_id}}"><button class="btn btn-outline-success" type="button"><i class="fas fa-plus"></i> Materi</button></a>
+        <a href="/user/matakuliah/createzoom/{{$prtm->pertemuan_id}}"><button class="btn btn-outline-success" type="button"><i class="fas fa-plus"></i> Link zoom</button></a>
+
         <a href="#" onclick="event.prevent()"><button class="btn btn-outline-success" type="button" data-bs-toggle="modal" data-bs-target="#addTugas{{$loop->iteration}}"><i class="fas fa-plus"></i>Tugas</button></a>
         {{-- <a href=""><button class="btn btn-outline-success" type="button">Button</button></a> --}}
     </div>

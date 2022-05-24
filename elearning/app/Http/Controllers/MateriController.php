@@ -24,9 +24,9 @@ class MateriController extends Controller
     public function createmateri($id){
         $page = 'createmateri';
 
+        //SELECT pertemuans.pertemuan_id, kelas.kelas_id FROM pertemuans JOIN kelas ON pertemuans.kelas = kelas.kelas_id
         $materi= Pertemuan::join('kelas','pertemuans.kelas','=','kelas.kelas_id')
-        ->join('mata_kuliahs','kelas.mata_kuliah','=','mata_kuliahs.kode_mata_kuliah')
-        ->select('pertemuans.pertemuan_id','kelas.mata_kuliah','kelas.kelas','mata_kuliahs.nama_matkul','kelas.kelas_id')
+        ->select('pertemuans.pertemuan_id','kelas.kelas_id')
         ->where('pertemuans.pertemuan_id', $id)->get();
         
         return view('user.createmateripage',[
@@ -37,10 +37,10 @@ class MateriController extends Controller
     }
 
     public function editmateri($id){
-
+        //SELECT materis.materi_id, materis.nama_materi, materis.deskripsi, kelas.kelas_id FROM materis JOIN pertemuans ON materis.pertemuan = pertemuans.pertemuan_id JOIN kelas ON pertemuans.kelas = kelas.kelas_id
         $materis = Materi::join('pertemuans','materis.pertemuan','=','pertemuans.pertemuan_id')
         ->join('kelas','pertemuans.kelas','=','kelas.kelas_id')
-        ->select('materis.nama_materi','materis.deskripsi','pertemuans.pertemuan_id','kelas.kelas_id','materis.materi_id')->where('materis.materi_id', $id)->get();
+        ->select('materis.materi_id','materis.nama_materi','materis.deskripsi','kelas.kelas_id')->where('materis.materi_id', $id)->get();
 
         return view('user.editmateri',[
             'materis'=>$materis
@@ -65,4 +65,28 @@ class MateriController extends Controller
         return back();
 
     }
+
+    //zoom
+    public function createzoom($id){
+
+
+        $materi= Pertemuan::join('kelas','pertemuans.kelas','=','kelas.kelas_id')
+        ->select('pertemuans.pertemuan_id','kelas.kelas_id')
+        ->where('pertemuans.pertemuan_id', $id)->get();
+
+        return view('user.createzoom',[
+            'materi'=>$materi
+        ]);
+    }
+
+    // public function editzoom($id){
+
+    //     $materis = Materi::join('pertemuans','materis.pertemuan','=','pertemuans.pertemuan_id')
+    //     ->join('kelas','pertemuans.kelas','=','kelas.kelas_id')
+    //     ->select('materis.nama_materi','materis.deskripsi','pertemuans.pertemuan_id','kelas.kelas_id','materis.materi_id')->where('materis.materi_id', $id)->get();
+
+    //     return view('user.editzoom',[
+    //         'materis'=>$materis
+    //     ]);
+    // }
 }

@@ -10,7 +10,7 @@
             
               <!-- Recently accessed courses -->
               <div class="col py-5">
-                <div class="card border-0">
+                {{-- <div class="card border-0">
                   <div class="header-card pb-5">
                     <h6 class="card-title position-absolute top-0 start-0 px-3 mt-3">
                       <b>Recently accessed courses</b>
@@ -46,7 +46,7 @@
                     <p class="card-text mt-3 text-muted"></p>
                     <p><a class="card-link link-dark text-decoration-none" href="#">[TIF1205] Sistem Basis Data - Kelas C</a></p>
                   </div>
-                </div>
+                </div> --}}
               </div>
           
               <!-- End Recently accessed courses -->

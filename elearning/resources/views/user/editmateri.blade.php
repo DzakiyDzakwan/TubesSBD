@@ -16,7 +16,7 @@
 
         <!-- container edit -->
         <div class="container mb-5 bg-light py-3">
-          <h2 class="text-success">Edit Materi</h2>
+          <h2 class="text-success">Edit </h2>
                 <div class="card card-body border-0">
                     @foreach($materis as $materi)
                     <form action="/user/matakuliah/updatemateri/{{$materi->materi_id}}" method="POST" class=" p-4">
@@ -25,7 +25,7 @@
                         <!-- Nama Materi-->
                         <div class="row mb-1">
                             <div class=" col-3 mb-3">
-                                <label for="nama_materi" class="form-label">Nama Materi</label>
+                                <label for="nama_materi" class="form-label">Nama </label>
                             </div>
                             <div class="col">
                                 <input type="text" class="col form-control" id="nama_materi" name="nama_materi" value="{{$materi->nama_materi}}">
@@ -35,7 +35,7 @@
                         <!-- Deskripsi -->
                         <div class="row mb-3">
                             <div class=" col-3 mb-5">
-                                <label for="deskripsi" class="form-label">Link Materi</label>
+                                <label for="deskripsi" class="form-label">Link </label>
                             </div>
                             <div class="col">
                                 <textarea type="text"  rows="5" class="col form-control" id="deskripsi" name="deskripsi" value="">{{$materi->deskripsi}}</textarea>
@@ -45,9 +45,7 @@
                          <!-- button -->
                          <div class="text-end px-3 pb-2 mx-4">
                             <button type="submit" class="btn btn-success ">Simpan</button>
-                            @foreach($materis as $mtr)
-                            <a href="/user/matakuliah/{{$mtr->kelas_id}}"><button type="button" class="btn btn-secondary ">Kembali</button></a>
-                            @endforeach
+                            <a href="/user/matakuliah/{{$materi->kelas_id}}"><button type="button" class="btn btn-secondary ">Kembali</button></a>
                         </div>
                     </form>
                     @endforeach
