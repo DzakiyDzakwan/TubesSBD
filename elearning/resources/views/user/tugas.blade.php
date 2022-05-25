@@ -33,13 +33,12 @@
   @foreach($tugas as $tgs)
   <div class="container my-4 bg-light py-3">
     <div class="mx-3 mt-2">
-      <p>{{$tgs->deskripsi}}</p>
+      <p>{{$tgs->deskripsi  }}</p>
       <p><b><h4>{{$tgs->nama_tugas}}</h4></b></p>
     <table class="table table-striped">
       @foreach ($jawaban as $jb)
-          
         <!-- data tabel -->
-        @if ()
+        @if ($jb->terkumpul != true)
         <tr>
           <td>
             <b>Submission status</b>
@@ -65,7 +64,30 @@
           <td>-</td>
         </tr>
         @else
-            
+        <tr>
+          <td>
+            <b>Submission status</b>
+          </td>
+          <td class="bg-success">Attempted</td>
+        </tr>
+        <tr>
+          <td>
+            <b>Grading status</b>
+          </td>
+          <td class="bg-success">graded</td>
+        </tr>
+        <tr>
+          <td>
+            <b>Due date</b>
+          </td>
+          <td>{{$tgs->deadline_tugas}}</td>
+        </tr>
+        <tr>
+          <td>
+           <b>Last modified</b>
+          </td>
+          <td class="bg-success">{{$jb->created_at->diffForHumans()}}</td>
+        </tr>
         @endif
       @endforeach
     </table>
@@ -80,6 +102,9 @@
       <input id="jawaban" type="hidden" name="jawaban" value="{{ old('jawaban') }}">
       <trix-editor input="jawaban"></trix-editor>
     </div>
+    @foreach ($jawaban as $jb)
+      <input type="hidden" name="terkumpul" id="terkumpul" value="{{ $jb->terkumpul == true }}">        
+    @endforeach
     @foreach ($mahasiswa as $ms)
       <input type="hidden" name="NIM" id="NIM" value="{{ $ms->NIM }}">
     @endforeach
