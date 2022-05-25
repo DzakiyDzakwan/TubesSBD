@@ -23,10 +23,11 @@ class JawabanController extends Controller
 
         if($request->hasFile('file')){
             $fileName = $request->file('file')->getClientOriginalName();
-            $path = $request->file('file')->storeAs('jawaban', $fileName, 'public');
+            $path = $request->file('file')->storeAs('jawaban',   $fileName, 'public');
             $validatedData['file'] = '/storage/' . $path;
         }
 
+        $validatedData['terkumpul'] = $request->terkumpul;
         $validatedData['tugas'] = $request->tugas;
         $validatedData['mahasiswa'] = $request->NIM;
 

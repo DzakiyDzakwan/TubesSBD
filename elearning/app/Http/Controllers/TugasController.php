@@ -16,11 +16,13 @@ class TugasController extends Controller
         $page = 'tugas';
         $tugas = Tugas::select('tugas_id','deadline_tugas', 'nama_tugas', 'deskripsi')->get();
         $mahasiswa = Mahasiswa::select('NIM')->get();
+        $jawaban = Jawaban::select('terkumpul','created_at')->get();
 
         return view('user.tugas', [
             'page'=> $page,
             'tugas'=>$tugas,
-            'mahasiswa'=>$mahasiswa
+            'mahasiswa'=>$mahasiswa,
+            'jawaban'=>$jawaban
         ]);
 
         //return view('user.tugas', compact('page'));

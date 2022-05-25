@@ -14,6 +14,8 @@ class Jawaban extends Model
         'updated_at'
     ];
 
+    public $timestamp = true;
+
     public function mahasiswa()
     {
         return $this->belongsTo(Mahasiswa::class);
