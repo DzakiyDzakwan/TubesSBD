@@ -20,7 +20,6 @@
 
 @foreach($juduls as $kls)
 <div class="mx-5 px-5 my-4 pt-2 fw-bold fs-2">[{{$kls->mata_kuliah}}] {{$kls->nama_matkul}} - {{$kls->kelas}}</div>
-{{$date}}
 @endforeach
 
 {{-- dosen membuat pertemuan --}}
@@ -49,7 +48,7 @@
             <div class="media py-3 ml-0">
                 <p>Selamat datang di Kelas {{$kls->nama_matkul}} {{$kls['kelas']}}</p>
                 <div class="bg-secondary bg-opacity-10 py-2 mb-3 rounded-3" style="width: 300px;">
-                    <a href="/user/participants/" class="text-decoration-none text-success px-4"><i class="fas fa-users mx-2"> </i>Participants</a>
+                    <a href="/user/participants/{{$kls->kelas_id}}" class="text-decoration-none text-success px-4"><i class="fas fa-users mx-2"> </i>Participants</a>
                 </div>
                 {{-- <div class="bg-secondary bg-opacity-10 py-2 mb-3 rounded-3" style="width: 300px;">
                     <a href="#" class="text-decoration-none text-success px-4">Link Zoom</a>

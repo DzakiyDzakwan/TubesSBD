@@ -91,7 +91,7 @@ Route::middleware('auth')->group(function() {
       // });
 
       //Participant
-      Route::get('/user/participants', [ParticipantController::class, 'index']);
+      Route::get('/user/participants/{id}', [ParticipantController::class, 'index']);
       // });
 
       //Absensi
