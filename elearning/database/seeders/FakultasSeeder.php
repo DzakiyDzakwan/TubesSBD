@@ -27,6 +27,18 @@ class FakultasSeeder extends Seeder
             'dekan'=>'210293001'
         ]);
 
-        Fakultas::factory(2)->create();
+        Fakultas::create([
+            'kode_fakultas'=>'FK003',
+            'nama_fakultas'=>'Sastra dan Ilmu Budaya',
+            'dekan'=>'210293001'
+        ]);
+
+        Fakultas::create([
+            'kode_fakultas'=>'FK004',
+            'nama_fakultas'=>'Ilmu Komputer dan Teknologi Informasi',
+            'dekan'=>'210293001'
+        ]);
+
+        /* Fakultas::factory(2)->create(); */
     }
 }

@@ -102,6 +102,9 @@ Route::middleware('auth')->group(function() {
       //Tugas
       Route::get('/user/tugas/{id}', [TugasController::class, 'tugas']);
       Route::post('/user/tugas/create', [TugasController::class, 'store']);
+      Route::get('/user/matakuliah/edittugas/{id}', [TugasController::class, 'editmateri']);
+      Route::put('/user/matakuliah/updatetugas/{id}', [TugasController::class, 'updatemateri']);
+      Route::delete('/user/matakuliah/deletetugas/{id}', [TugasController::class, 'deletemateri']);
 
       //Jawaban
       Route::post('/user/tugas/store-jawaban', [JawabanController::class, 'store']);

@@ -19,8 +19,8 @@ class KelasSeeder extends Seeder
 
             'kelas_id'=>'KLS001',
             'kelas'=>'KOM A',
-            'dosen'=>'210293001',
-            'mata_kuliah'=>'MK011'
+            'dosen'=>'210293003',
+            'mata_kuliah'=>'MK013'
 
         ]);
 
@@ -28,11 +28,38 @@ class KelasSeeder extends Seeder
 
             'kelas_id'=>'KLS002',
             'kelas'=>'KOM A',
-            'dosen'=>'210293001',
-            'mata_kuliah'=>'MK012'
+            'dosen'=>'210293003',
+            'mata_kuliah'=>'MK021'
 
         ]);
 
-        Kelas::factory(16)->create();
+        Kelas::create([
+
+            'kelas_id'=>'KLS003',
+            'kelas'=>'KOM A',
+            'dosen'=>'210293002',
+            'mata_kuliah'=>'MK020'
+
+        ]);
+
+        Kelas::create([
+
+            'kelas_id'=>'KLS004',
+            'kelas'=>'KOM B',
+            'dosen'=>'210293002',
+            'mata_kuliah'=>'MK021'
+
+        ]);
+
+        Kelas::create([
+
+            'kelas_id'=>'KLS005',
+            'kelas'=>'KOM A',
+            'dosen'=>'210293004',
+            'mata_kuliah'=>'MK022'
+
+        ]);
+
+        /* Kelas::factory(16)->create(); */
     }
 }

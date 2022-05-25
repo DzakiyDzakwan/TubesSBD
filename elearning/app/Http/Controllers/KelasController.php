@@ -21,7 +21,7 @@ class KelasController extends Controller
         ->select('kelas.mata_kuliah','kelas.kelas','kelas.kelas_id','mata_kuliahs.nama_matkul')->where('kelas.kelas_id', $id)->get();
         
         //show pertemuan
-        $pertemuan = Pertemuan::join('kelas','pertemuans.kelas','=','kelas.kelas_id')->select('pertemuans.nama_pertemuan','pertemuans.deskripsi','pertemuans.tanggal_pertemuan','pertemuans.pertemuan_id','pertemuans.kelas','kelas.kelas_id')->where('kelas.kelas_id', $id)->get();
+        $pertemuan = Pertemuan::join('kelas','pertemuans.kelas','=','kelas.kelas_id')->select('pertemuans.nama_pertemuan','pertemuans.link','pertemuans.tanggal_pertemuan','pertemuans.pertemuan_id','pertemuans.kelas','kelas.kelas_id')->where('kelas.kelas_id', $id)->get();
         
         //Materi
         if(auth()->user()->status === 'mahasiswa'){

@@ -133,7 +133,7 @@ class EnrollController extends Controller
             'role'=>'student'
 
         ]);
-        return redirect('/user/sitehome/');
+        return redirect('/user/sitehome/')->with('success', 'Enroll Berhasil');
 
     }
 

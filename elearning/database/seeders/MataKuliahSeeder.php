@@ -94,18 +94,81 @@ class MataKuliahSeeder extends Seeder
 
         Mata_kuliah::create([
             'kode_mata_kuliah'=>'MK012',
-            'nama_matkul'=>'Web Basic',
+            'nama_matkul'=>'Ilmu Pengantar Teknik Informatika',
             'sks'=>'3',
             'jurusan'=>'JR006'
         ]);
 
         Mata_kuliah::create([
             'kode_mata_kuliah'=>'MK013',
-            'nama_matkul'=>'Dasar Dasar Pemrograman',
+            'nama_matkul'=>'Dasar Dasar Pemrograman Teknik Informatika',
             'sks'=>'3',
             'jurusan'=>'JR006'
         ]);
 
-        Mata_kuliah::factory(8)->create();
+        Mata_kuliah::create([
+            'kode_mata_kuliah'=>'MK014',
+            'nama_matkul'=>'Sejarah Indonesia',
+            'sks'=>'2',
+            'jurusan'=>'JR007'
+        ]);
+
+        Mata_kuliah::create([
+            'kode_mata_kuliah'=>'MK015',
+            'nama_matkul'=>'Puisi',
+            'sks'=>'2',
+            'jurusan'=>'JR007'
+        ]);
+
+        Mata_kuliah::create([
+            'kode_mata_kuliah'=>'MK016',
+            'nama_matkul'=>'Sejarah Jepang',
+            'sks'=>'2',
+            'jurusan'=>'JR008'
+        ]);
+
+        Mata_kuliah::create([
+            'kode_mata_kuliah'=>'MK017',
+            'nama_matkul'=>'Hakyu',
+            'sks'=>'2',
+            'jurusan'=>'JR008'
+        ]);
+
+        Mata_kuliah::create([
+            'kode_mata_kuliah'=>'MK018',
+            'nama_matkul'=>'Pengenalan Perangkat Lunak',
+            'sks'=>'2',
+            'jurusan'=>'JR009'
+        ]);
+
+        Mata_kuliah::create([
+            'kode_mata_kuliah'=>'MK019',
+            'nama_matkul'=>'Pengenalan Perangkat Keras',
+            'sks'=>'2',
+            'jurusan'=>'JR009'
+        ]);
+
+        Mata_kuliah::create([
+            'kode_mata_kuliah'=>'MK020',
+            'nama_matkul'=>'Pemrograman Web',
+            'sks'=>'3',
+            'jurusan'=>'JR010'
+        ]);
+
+        Mata_kuliah::create([
+            'kode_mata_kuliah'=>'MK021',
+            'nama_matkul'=>'Dasar Dasar Pemrograman Teknologi Informasi',
+            'sks'=>'3',
+            'jurusan'=>'JR010'
+        ]);
+
+        Mata_kuliah::create([
+            'kode_mata_kuliah'=>'MK022',
+            'nama_matkul'=>'Sistem Basis Data',
+            'sks'=>'3',
+            'jurusan'=>'JR010'
+        ]);
+
+        /* Mata_kuliah::factory(8)->create(); */
     }
 }

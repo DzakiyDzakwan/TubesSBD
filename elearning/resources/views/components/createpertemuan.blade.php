@@ -13,8 +13,9 @@
           <label for="nama_pertemuan">Nama Pertemuan</label>
           <input class="form-control mb-3" type="text" name="nama_pertemuan" id="nama_pertemuan" required>
           
-          <label for="deskripsi">Deskripsi</label>
-          <textarea class="form-control mb-3" id="deskripsi" rows="3" name="deskripsi"></textarea>
+          <label for="link">Deskripsi</label>
+          {{-- <textarea class="form-control mb-3" id="deskripsi" rows="3" name="deskripsi"></textarea> --}}
+          <input class="form-control mb-3" type="text" name="link" id="link" required>
 
           <label for="tanggal_pertemuan">Tanggal Pertemuan</label>
           <input class="form-control mb-3" type="date" name="tanggal_pertemuan" id="tanggal_pertemuan">

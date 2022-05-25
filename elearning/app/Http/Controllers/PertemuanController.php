@@ -18,6 +18,7 @@ class PertemuanController extends Controller
         
         $request->validate([
             'nama_pertemuan'=>'required',
+            'link'=>'required',
         
         ]);
 
@@ -25,7 +26,7 @@ class PertemuanController extends Controller
         Pertemuan::create([
             'pertemuan_id'=>$request->pertemuan_id,
             'nama_pertemuan'=>$request->nama_pertemuan,
-            'deskripsi'=>$request->deskripsi,
+            'link'=>$request->link,
             'tanggal_pertemuan'=>$request->tanggal_pertemuan,
             'kelas'=>$request->kelas
         ]);

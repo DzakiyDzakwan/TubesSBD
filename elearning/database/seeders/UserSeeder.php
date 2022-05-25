@@ -23,7 +23,7 @@ class UserSeeder extends Seeder
             'first_name' => 'admin',
             'last_name' => 'admin',
             'jenis_kelamin' => 'pria',
-            'agama' => 'admin',
+            'agama' => 'Islam',
             'kewarganegaraan' => 'WNI',
             'alamat' => 'admin',
             'tgl_lahir' => '1969-01-01',
@@ -33,7 +33,7 @@ class UserSeeder extends Seeder
         ]);
 
         User::create([
-            'NIK' => '211402012',
+            'NIK' => '193901001',
             'email' => 'siswa@gmail.com',
             'nomor_hp' => '086969123123',
             'first_name' => 'siswa',
@@ -41,9 +41,57 @@ class UserSeeder extends Seeder
             'jenis_kelamin' => 'pria',
             'agama' => 'siswa',
             'kewarganegaraan' => 'WNI',
-            'alamat' => 'islam',
+            'alamat' => 'Kristen',
             'tgl_lahir' => '1969-01-01',
             'password' => bcrypt('siswa'), // password
+            'status' => 'mahasiswa',
+            'remember_token' => Str::random(10),
+        ]);
+
+        User::create([
+            'NIK' => '193901002',
+            'email' => 'siswa2@gmail.com',
+            'nomor_hp' => '086969123124',
+            'first_name' => 'Siswa',
+            'last_name' => 'Dua',
+            'jenis_kelamin' => 'pria',
+            'agama' => 'Islam',
+            'kewarganegaraan' => 'WNI',
+            'alamat' => 'islam',
+            'tgl_lahir' => '1969-01-01',
+            'password' => bcrypt('siswa2'), // password
+            'status' => 'mahasiswa',
+            'remember_token' => Str::random(10),
+        ]);
+
+        User::create([
+            'NIK' => '211402075',
+            'email' => 'siswa3@gmail.com',
+            'nomor_hp' => '082360360216',
+            'first_name' => 'Dzakiy',
+            'last_name' => 'Dzakwan',
+            'jenis_kelamin' => 'pria',
+            'agama' => 'Islam',
+            'kewarganegaraan' => 'WNI',
+            'alamat' => 'Jln Medan Binjai km 14',
+            'tgl_lahir' => '2002-12-01',
+            'password' => bcrypt('siswa3'), // password
+            'status' => 'mahasiswa',
+            'remember_token' => Str::random(10),
+        ]);
+
+        User::create([
+            'NIK' => '211402001',
+            'email' => 'siswa4@gmail.com',
+            'nomor_hp' => '081223456780',
+            'first_name' => 'Siapa',
+            'last_name' => 'Iya',
+            'jenis_kelamin' => 'pria',
+            'agama' => 'Islam',
+            'kewarganegaraan' => 'WNI',
+            'alamat' => 'Jln Medan Binjai km 14',
+            'tgl_lahir' => '2002-12-01',
+            'password' => bcrypt('siswa4'), // password
             'status' => 'mahasiswa',
             'remember_token' => Str::random(10),
         ]);
@@ -64,7 +112,55 @@ class UserSeeder extends Seeder
             'remember_token' => Str::random(10),
         ]);
 
-        User::factory(6)->create();
+        User::create([
+            'NIK' => '2114021231',
+            'email' => 'dosen2@gmail.com',
+            'nomor_hp' => '0869696969700',
+            'first_name' => 'Dosen',
+            'last_name' => 'Dua',
+            'jenis_kelamin' => 'pria',
+            'agama' => 'Kristen',
+            'kewarganegaraan' => 'WNI',
+            'alamat' => 'Jalan Dosen 2',
+            'tgl_lahir' => '1969-01-01',
+            'password' => bcrypt('dosen2'), // password
+            'status' => 'dosen',
+            'remember_token' => Str::random(10),
+        ]);
+
+        User::create([
+            'NIK' => '2114021233',
+            'email' => 'dosen3@gmail.com',
+            'nomor_hp' => '086969696980',
+            'first_name' => 'Ryan',
+            'last_name' => 'Azhari',
+            'jenis_kelamin' => 'pria',
+            'agama' => 'islam',
+            'kewarganegaraan' => 'WNI',
+            'alamat' => 'Jalan Buku',
+            'tgl_lahir' => '1969-01-01',
+            'password' => bcrypt('dosen3'), // password
+            'status' => 'dosen',
+            'remember_token' => Str::random(10),
+        ]);
+
+        User::create([
+            'NIK' => '2114021244',
+            'email' => 'dosen4@gmail.com',
+            'nomor_hp' => '086969696981',
+            'first_name' => 'Lasasti',
+            'last_name' => 'Sandra',
+            'jenis_kelamin' => 'wanita',
+            'agama' => 'Kristen',
+            'kewarganegaraan' => 'WNI',
+            'alamat' => 'Jalan Rol',
+            'tgl_lahir' => '1969-01-01',
+            'password' => bcrypt('dosen4'), // password
+            'status' => 'dosen',
+            'remember_token' => Str::random(10),
+        ]);
+
+        /* User::factory(6)->create(); */
 
     }
 }

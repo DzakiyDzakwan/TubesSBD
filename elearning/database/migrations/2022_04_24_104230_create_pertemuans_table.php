@@ -16,7 +16,7 @@ class CreatePertemuansTable extends Migration
         Schema::create('pertemuans', function (Blueprint $table) {
             $table->bigIncrements('pertemuan_id')->nullable(false);
             $table->string('nama_pertemuan', 200);
-            $table->text('deskripsi');
+            $table->string('link');
             $table->date('tanggal_pertemuan');
             $table->char('kelas', 6);
             $table->foreign('kelas')->references('kelas_id')->on('kelas')->cascadeOnDelete()->cascadeOnUpdate();

@@ -37,17 +37,23 @@
 <!--container -->
 <div class="container my-4 bg-light py-3">
 
+   
+    
+
     <div class="row px-5 py-4">
-    <a href="#" id="#" class="fw-bold fs-3 px-2 text-decoration-none" style=" color: #008b00;">General</a>
-        <div class="media py-3 ml-0">
-            <p>Selamat datang di Kelas SDA Kom C</p>
-            <div class="bg-secondary bg-opacity-10 py-2 mb-3 rounded-3" style="width: 300px;">
-                <a href="/user/participants/" class="text-decoration-none text-success px-4">Participants</a>
+        <a href="#" id="#" class="fw-bold fs-3 px-2 text-decoration-none" style=" color: #008b00;">General</a>
+        @foreach($juduls as $kls)
+            <div class="media py-3 ml-0">
+                <p>Selamat datang di Kelas {{$kls->nama_matkul}} {{$kls['kelas']}}</p>
+                <div class="bg-secondary bg-opacity-10 py-2 mb-3 rounded-3" style="width: 300px;">
+                    <a href="/user/participants/" class="text-decoration-none text-success px-4"><i class="fas fa-users mx-2"> </i>Participants</a>
+                </div>
+                {{-- <div class="bg-secondary bg-opacity-10 py-2 mb-3 rounded-3" style="width: 300px;">
+                    <a href="#" class="text-decoration-none text-success px-4">Link Zoom</a>
+                </div> --}}
             </div>
-            <div class="bg-secondary bg-opacity-10 py-2 mb-3 rounded-3" style="width: 300px;">
-                <a href="#" class="text-decoration-none text-success px-4">Link Zoom</a>
-            </div>
-        </div>
+        @endforeach
+
         <hr class="">
     @foreach($pertemuan as $prtm)
     
@@ -56,10 +62,11 @@
     <div class="col d-flex">
         <div>
             <a href="#" id="#" class="fw-bold pb-2 fs-3 px-2 text-decoration-none" style=" color: #008b00;">{{$prtm->nama_pertemuan}}</a>
+            <p class="px-2">Selamat Datang di {{$prtm->nama_pertemuan}}</p>
         </div>
 
         @if(auth()->user()->status === 'dosen')
-        <div class="justify-content-end d-flex col">
+        <div class="justify-content-end d-flex col px-">
             {{-- edit pertemuan --}}
             <a href="/user/matakuliah/editPertemuan/{{$prtm->pertemuan_id}}"> 
                 <button type="#" class="btn btn-primary"><i class="fas fa-edit"></i></button>
@@ -81,14 +88,26 @@
         {{-- <button class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#addmateri" type="button"><i class="fas fa-plus"></i> Materi</button> --}}
         {{-- create materi --}}
         <a href="/user/matakuliah/createMateripage/{{$prtm->pertemuan_id}}"><button class="btn btn-outline-success" type="button"><i class="fas fa-plus"></i> Materi</button></a>
-        <a href="/user/matakuliah/createzoom/{{$prtm->pertemuan_id}}"><button class="btn btn-outline-success" type="button"><i class="fas fa-plus"></i> Link zoom</button></a>
+        {{-- <a href="/user/matakuliah/createzoom/{{$prtm->pertemuan_id}}"><button class="btn btn-outline-success" type="button"><i class="fas fa-plus"></i> Link zoom</button></a> --}}
 
         <a href="#" onclick="event.prevent()"><button class="btn btn-outline-success" type="button" data-bs-toggle="modal" data-bs-target="#addTugas{{$loop->iteration}}"><i class="fas fa-plus"></i>Tugas</button></a>
         {{-- <a href=""><button class="btn btn-outline-success" type="button">Button</button></a> --}}
     </div>
     @endif
         <div class="media py-3 ml-0">
-            <p>{{$prtm->deskripsi}}</p>
+
+            {{-- LINK ZOOM --}}
+            <div class="bg-secondary bg-opacity-10 py-2 mb-3 rounded-3" style="width: 300px;">
+                <a href="#" class="text-decoration-none text-success px-4"><i class="fas fa-link mx-2"></i>Link Zoom</a>
+            </div>
+            {{-- Link zoom ENd --}}
+
+            {{-- Absensi --}}
+            <div class="bg-secondary bg-opacity-10 py-2 mb-3 rounded-3" style="width: 300px;">
+                <a href="/user/absen/{{$prtm->pertemuan_id}}" class="text-decoration-none text-success px-4"><i class="fas fa-clipboard-list mx-2"></i>Daftar Hadir</a>
+            </div>
+            {{-- Absensi End --}}
+
             {{-- show materi --}}
             <?php $materis = Materi::join('pertemuans','materis.pertemuan','=','pertemuans.pertemuan_id')->
             join('kelas','pertemuans.kelas','=','kelas.kelas_id')->select('materis.materi_id','materis.nama_materi','materis.deskripsi','materis.pertemuan','pertemuans.pertemuan_id','kelas.kelas_id')
@@ -99,27 +118,28 @@
             @foreach($materis as $materi)
             <div class="row">
                 <div class="col">
+
                     <div class="bg-secondary bg-opacity-10 py-2 mb-3 rounded-3" style="width: 300px;">
-                        <a href="{{$materi->deskripsi}}" target="_blank" class="text-decoration-none text-success px-4">{{$materi->nama_materi}}</a>
+                        <a href="{{$materi->deskripsi}}" target="_blank" class="text-decoration-none text-success px-4"><i class="fas fa-book mx-2"></i>{{$materi->nama_materi}}</a>
                         {{-- {{dd($materis)}} --}}
                     </div>
                 </div>
-            @if(auth()->user()->status === 'dosen')
-            <div class="justify-content-end d-flex col">
-                {{-- update materi --}}
-                <a href="/user/matakuliah/editmateri/{{$materi->materi_id}}"> 
-                    <button type="#" class="btn btn-primary"><i class="fas fa-edit"></i></button>
-                </a>
-                {{-- delete materi --}}
-                <form action="/user/matakuliah/deletemateri/{{$materi->materi_id}}" method="post" class="ms-2">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="btn btn-danger">
-                        <i class="fas fa-trash-alt"></i>
-                    </button>
-                </form>
-            </div>
-            @endif
+                @if(auth()->user()->status === 'dosen')
+                    <div class="justify-content-end d-flex col">
+                        {{-- update materi --}}
+                        <a href="/user/matakuliah/editmateri/{{$materi->materi_id}}"> 
+                            <button type="#" class="btn btn-primary"><i class="fas fa-edit"></i></button>
+                        </a>
+                        {{-- delete materi --}}
+                        <form action="/user/matakuliah/deletemateri/{{$materi->materi_id}}" method="post" class="ms-2">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </form>
+                    </div>
+                @endif
             </div>
             @endforeach
             {{-- end show materi --}}
@@ -128,15 +148,35 @@
             <?php $tugas = Tugas::select('nama_tugas', 'tugas_id')->get() ?>
 
             @foreach ($tugas as $tgs)
-            <div class="bg-secondary bg-opacity-10 py-2 mb-3 rounded-3" style="width: 300px;">
-                <a href="/user/tugas/{{$tgs['tugas_id']}}" class="text-decoration-none text-success px-4">{{$tgs['nama_tugas']}}</a>
+            <div class="row">
+                <div class="col">
+
+                    
+                    <div class="bg-secondary bg-opacity-10 py-2 mb-3 rounded-3" style="width: 300px;">
+                        <a href="/user/tugas/{{$tgs->tugas_id}}" class="text-decoration-none text-success px-4"><i class="fas fa-scroll mx-2"></i>{{$tgs->nama_tugas}}</a>
+                        {{-- {{dd($materis)}} --}}
+                    </div>
+                   
+                </div>
+                @if(auth()->user()->status === 'dosen')
+                    <div class="justify-content-end d-flex col">
+                        {{-- update materi --}}
+                        <a href="/user/matakuliah/edittugas/{{$tgs->tugas_id}}"> 
+                            <button type="#" class="btn btn-primary"><i class="fas fa-edit"></i></button>
+                        </a>
+                        {{-- delete materi --}}
+                        <form action="/user/matakuliah/deletetugas/{{$tgs->tugas_id}}" method="post" class="ms-2">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </form>
+                    </div>
+                @endif
             </div>
             @endforeach
             {{-- Tugas End --}}
-
-            <div class="bg-secondary bg-opacity-10 py-2 mb-3 rounded-3" style="width: 300px;">
-                <a href="/user/absen/{{$prtm->pertemuan_id}}" class="text-decoration-none text-success px-4">Daftar Hadir</a>
-            </div>
         </div><hr>
     @endforeach
     </div>     

@@ -55,9 +55,37 @@ class JurusanSeeder extends Seeder
             'kode_jurusan'=>'JR006',
             'nama_jurusan'=>'Teknik Informatika',
             'fakultas_id'=>'FK002',
+            'degree'=>'D3'
+        ]);
+
+        Jurusan::create([
+            'kode_jurusan'=>'JR007',
+            'nama_jurusan'=>'Sastra Indonesia',
+            'fakultas_id'=>'FK003',
             'degree'=>'S1'
         ]);
 
-        Jurusan::factory(4)->create();
+        Jurusan::create([
+            'kode_jurusan'=>'JR008',
+            'nama_jurusan'=>'Sastra Jepang',
+            'fakultas_id'=>'FK003',
+            'degree'=>'S1'
+        ]);
+
+        Jurusan::create([
+            'kode_jurusan'=>'JR009',
+            'nama_jurusan'=>'Ilmu Komputer',
+            'fakultas_id'=>'FK004',
+            'degree'=>'S1'
+        ]);
+
+        Jurusan::create([
+            'kode_jurusan'=>'JR010',
+            'nama_jurusan'=>'Teknologi Informasi',
+            'fakultas_id'=>'FK004',
+            'degree'=>'S1'
+        ]);
+
+        /* Jurusan::factory(4)->create(); */
     }
 }
