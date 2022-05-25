@@ -94,7 +94,7 @@ class MahasiswaSeeder extends Seeder
         ]);
 
         Mahasiswa::create([
-            'NIM' => '2194202018',
+            'NIM' => '219420209',
             'NISN' => '8',
             'semester' => '1',
             'program' => 'S1',

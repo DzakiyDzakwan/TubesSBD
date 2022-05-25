@@ -124,6 +124,13 @@ class EnrollController extends Controller
         if(!$checkjurusan){
             return redirect('/user/sitehome');
         }
+
+        //Check Apakah siswa sudah berada di dalam kelas
+        $checkKelas = Enrollment::where('enrollments.user', $nik)->where('enrollments.kelas', $request->kelas)->exists();
+
+        if($checkKelas){
+            return back()->with('warning', 'Anda Sudah mengenroll kelas ini');
+        }
         
         //Create data tabel enrollment kelas
         Enrollment::create([

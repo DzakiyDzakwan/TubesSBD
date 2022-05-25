@@ -12,9 +12,9 @@ class TugasController extends Controller
 {
     //create tugas, delete tugas, edit tugas
 
-    public function tugas(){
+    public function tugas($id){
         $page = 'tugas';
-        $tugas = Tugas::select('tugas_id','deadline_tugas', 'nama_tugas', 'deskripsi')->get();
+        $tugas = Tugas::select('tugas_id','deadline_tugas', 'nama_tugas', 'deskripsi')->where('tugas_id', $id)->get();
         $mahasiswa = Mahasiswa::select('NIM')->get();
         $jawaban = Jawaban::select('terkumpul','created_at')->get();
 

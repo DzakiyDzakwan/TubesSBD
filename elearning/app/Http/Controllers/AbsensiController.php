@@ -101,9 +101,9 @@ class AbsensiController extends Controller
 
         $mahasiswas=Mahasiswa::join('users','mahasiswas.user','=','users.NIK')->select('mahasiswas.NIM','users.NIK')->where('users.NIK', $nik)->get();
 
-        $check = Absensi::where('mahasiswa', $request->mahasiswa )->exists();
+        $check = Absensi::where('mahasiswa', $request->mahasiswa )->where('pertemuan', $request->pertemuan)->exists();
 
-        // dd($check);
+        /* dd($check); */
         if($check){
             return back()->with('errors', 'Anda Telah Melakukan Absensi');
         }

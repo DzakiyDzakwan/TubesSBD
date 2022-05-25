@@ -32,7 +32,13 @@ class JawabanController extends Controller
         $validatedData['mahasiswa'] = $request->NIM;
 
         // dd($validatedData);
-        Jawaban::create($validatedData);
+        Jawaban::create([
+            'jawaban'=>$request->jawaban,
+            'file'=>$validatedData['file'],
+            'terkumpul'=>true,
+            'tugas'=>$request->tugas,
+            'mahasiswa'=>$request->NIM
+        ]);
 
         return back()->with('success', 'Jawaban Telah Tersubmit Bro');
     }   
