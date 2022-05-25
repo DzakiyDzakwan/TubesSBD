@@ -53,7 +53,7 @@
                         <p class="fw-bold pt-2">Birth date</p>
                         <a >{{$profil['tgl_lahir']}}</a>
                         <p class="fw-bold pt-2">Gender</p>
-                        <a href="" class="text-decoration-none text-success">{{$profil['jenis_kelamin']}}</a>
+                        <a >{{$profil['jenis_kelamin']}}</a>
                         <p class="fw-bold pt-2">Country</p>
                         <p>{{$profil['kewarganegaraan']}}</p>
                         <p class="fw-bold pt-2">Address</p>
@@ -66,14 +66,8 @@
                         <a>{{$profil['nomor_hp']}}</a>
 
                         @endforeach
-                        
-                        
                     </div>
                     <!-- end user detail -->
-
-
-                    
-                  
                 </div>
                 <!-- end kolom kiri -->
 
@@ -82,19 +76,10 @@
                     <div class="pt-3 lh-1">
                         <p class="fw-bold pb-3 fs-5">Course details</p>
                         <p class="fw-bold ">Course profiles</p>
+                        {{-- menampilkan kelas yang dienroll mahasiswa --}}
                         @foreach ($kelas as $enrol)
-
                         <a href="#" class="text-decoration-none text-success"><p>[{{$enrol->kode_mata_kuliah}}] {{$enrol->nama_matkul}} - Kelas {{$enrol->kelas}}</p></a>
-                            
                         @endforeach
-                        {{-- <a href="" class="text-decoration-none text-success"><p>[TIF1207] Struktur Data Dan Algoritma - Kelas C</p></a>
-                        <a href="" class="text-decoration-none text-success"><p>[TIF1205] Sistem Basis Data - Kelas C</p></a>
-                        <a href="" class="text-decoration-none text-success"><p>[TIF1203] Pemrograman Web Lanjutan - Kelas C</p></a>
-                        <a href="" class="text-decoration-none text-success"><p>[TIF1201] Pemrograman Berorientasi Objek - Kelas C</p></a>
-                        <a href="" class="text-decoration-none text-success"><p>[TIF1208] Praktikum Struktur Data Dan Algoritma - Kelas C</p></a>
-                        <a href="" class="text-decoration-none text-success"><p>[TIF1206] Praktikum Sistem Basis Data - Kelas C</p></a>
-                        <a href="" class="text-decoration-none text-success"><p>[TIF1204] Praktikum Pemrograman Web Lanjutan - Kelas C</p></a>
-                        <a href="" class="text-decoration-none text-success"><p>[TIF1202] Praktikum Pemrograman Berorientasi Objek - Kelas C</p></a> --}}
                     </div>
 
                     <div class="py-3 lh-1">
@@ -155,10 +140,6 @@
                         @endforeach
                     </div>
                     <!-- end user detail -->
-
-
-                    
-                  
                 </div>
                 <!-- end kolom kiri -->
 
@@ -166,20 +147,11 @@
                 <div class="col">
                     <div class="pt-3 lh-1">
                         <p class="fw-bold pb-3 fs-5">Course details</p>
+                        {{-- menampilkan kelas yang dimasuki --}}
                         <p class="fw-bold ">Course profiles</p>
                         @foreach ($kelas as $kls)
-
                         <a href="#" class="text-decoration-none text-success"><p>[{{$kls->kode_mata_kuliah}}] {{$kls->nama_matkul}} - Kelas {{$kls->kelas}}</p></a>
-                            
                         @endforeach
-                        {{-- <a href="" class="text-decoration-none text-success"><p>[TIF1207] Struktur Data Dan Algoritma - Kelas C</p></a>
-                        <a href="" class="text-decoration-none text-success"><p>[TIF1205] Sistem Basis Data - Kelas C</p></a>
-                        <a href="" class="text-decoration-none text-success"><p>[TIF1203] Pemrograman Web Lanjutan - Kelas C</p></a>
-                        <a href="" class="text-decoration-none text-success"><p>[TIF1201] Pemrograman Berorientasi Objek - Kelas C</p></a>
-                        <a href="" class="text-decoration-none text-success"><p>[TIF1208] Praktikum Struktur Data Dan Algoritma - Kelas C</p></a>
-                        <a href="" class="text-decoration-none text-success"><p>[TIF1206] Praktikum Sistem Basis Data - Kelas C</p></a>
-                        <a href="" class="text-decoration-none text-success"><p>[TIF1204] Praktikum Pemrograman Web Lanjutan - Kelas C</p></a>
-                        <a href="" class="text-decoration-none text-success"><p>[TIF1202] Praktikum Pemrograman Berorientasi Objek - Kelas C</p></a> --}}
                     </div>
 
                     <div class="py-3 lh-1">
@@ -187,8 +159,6 @@
                         <a href="" class="text-decoration-none text-success"><p>Browser sessions</p></a>
                         <a href="" class="text-decoration-none text-success"><p>Grades overview</p></a>
                     </div>
-
-                    
                 </div>
                 <!-- end kolom kanan -->
             </div>

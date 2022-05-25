@@ -19,16 +19,18 @@ class ProfilController extends Controller
 
         //Pembatasan User dan Dosen
         if(auth()->user()->status === "mahasiswa") {
+            //SELECT mahasiswas.NIM, users.id, users.first_name, users.last_name, users.email, users.nomor_hp, users.jenis_kelamin, users.agama, users.kewarganegaraan, users.alamat, users.tgl_lahir FROM mahasiswas JOIN users ON mahasiswas.user = users.NIK WHERE users.NIK = $nik
+            $profil = Mahasiswa::join('users','mahasiswas.user','=','users.NIK')->select('mahasiswas.NIM','users.id','users.first_name','users.last_name','users.email','users.nomor_hp','users.jenis_kelamin','users.agama','users.kewarganegaraan','users.alamat','users.tgl_lahir')->where('users.NIK', $nik)->get();
 
-            $profil = Mahasiswa::join('users','mahasiswas.user','=','users.NIK')->select('mahasiswas.NIM','users.NIK','users.id','users.first_name','users.last_name','users.email','users.nomor_hp','users.jenis_kelamin','users.agama','users.kewarganegaraan','users.alamat','users.tgl_lahir')->where('users.NIK', $nik)->get();
-
-            $kelas = Enrollment::join('kelas','enrollments.kelas','=','kelas.kelas_id')->join('mata_kuliahs','kelas.mata_kuliah','=','mata_kuliahs.kode_mata_kuliah')->select('enrollments.kelas','kelas.kelas_id', 'kelas.kelas','mata_kuliahs.nama_matkul', 'mata_kuliahs.kode_mata_kuliah')->where('enrollments.user',$nik)->get();
+            //SELECT kelas.kelas, mata_kuliahs.nama_matkul, mata_kuliahs.kode_mata_kuliah FROM enrollments JOIN kelas ON enrollments.kelas = kelas.kelas_id JOIN mata_kuliahs ON kelas.mata_kuliah = mata_kuliahs.kode_mata_kuliah WHERE enrollments.user = $nik
+            $kelas = Enrollment::join('kelas','enrollments.kelas','=','kelas.kelas_id')->join('mata_kuliahs','kelas.mata_kuliah','=','mata_kuliahs.kode_mata_kuliah')->select('kelas.kelas','mata_kuliahs.nama_matkul', 'mata_kuliahs.kode_mata_kuliah')->where('enrollments.user',$nik)->get();
 
         } elseif(auth()->user()->status === "dosen") {
+            //SELECT dosens.NIP, dosens.NIDN, users.id, users.first_name, users.last_name, users.email, users.nomor_hp, users.jenis_kelamin, users.agama, users.kewarganegaraan, users.alamat, users.tgl_lahir FROM dosens JOIN users ON dosens.user = users.NIK WHERE users.NIK = $nik
+            $profil = Dosen::join('users','dosens.user','=','users.NIK')->select('dosens.NIP','dosens.NIDN','users.id','users.first_name','users.last_name','users.email','users.nomor_hp','users.jenis_kelamin','users.agama','users.kewarganegaraan','users.alamat','users.tgl_lahir')->where('users.NIK', $nik)->get();
 
-            $profil = Dosen::join('users','dosens.user','=','users.NIK')->select('dosens.NIP','dosens.NIDN','users.NIK','users.id','users.first_name','users.last_name','users.email','users.nomor_hp','users.jenis_kelamin','users.agama','users.kewarganegaraan','users.alamat','users.tgl_lahir')->where('users.NIK', $nik)->get();
-
-            $kelas = Kelas::join('dosens', 'kelas.dosen', '=', 'dosens.NIP')->join('users', 'dosens.user', '=', 'users.NIK')->join('mata_kuliahs', 'kelas.mata_kuliah', '=', 'mata_kuliahs.kode_mata_kuliah')->select('mata_kuliahs.nama_matkul', 'mata_kuliahs.kode_mata_kuliah','kelas.kelas_id', 'kelas.kelas', 'users.first_name', 'users.last_name')->where('dosens.user', $nik)->get();
+            //SELECT mata_kuliahs.nama_matkul, mata_kuliahs.kode_mata_kuliah, kelas.kelas FROM kelas JOIN dosens ON kelas.dosen = dosens.NIP JOIN users ON dosens.user = users.NIK JOIN mata_kuliahs ON kelas.mata_kuliah = mata_kuliahs.kode_mata_kuliah WHERE dosens.user = $nik
+            $kelas = Kelas::join('dosens', 'kelas.dosen', '=', 'dosens.NIP')->join('users', 'dosens.user', '=', 'users.NIK')->join('mata_kuliahs', 'kelas.mata_kuliah', '=', 'mata_kuliahs.kode_mata_kuliah')->select('mata_kuliahs.nama_matkul', 'mata_kuliahs.kode_mata_kuliah', 'kelas.kelas')->where('dosens.user', $nik)->get();
 
         }
 
