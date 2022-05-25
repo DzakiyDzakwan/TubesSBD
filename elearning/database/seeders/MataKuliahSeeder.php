@@ -168,6 +168,48 @@ class MataKuliahSeeder extends Seeder
             'sks'=>'3',
             'jurusan'=>'JR010'
         ]);
+        
+        Mata_kuliah::create([
+            'kode_mata_kuliah'=>'MK023',
+            'nama_matkul'=>'Rencana Bisnis',
+            'sks'=>'3',
+            'jurusan'=>'JR012'
+        ]);
+
+        Mata_kuliah::create([
+            'kode_mata_kuliah'=>'MK024',
+            'nama_matkul'=>'Marketing',
+            'sks'=>'2',
+            'jurusan'=>'JR012'
+        ]);
+
+        Mata_kuliah::create([
+            'kode_mata_kuliah'=>'MK025',
+            'nama_matkul'=>'Statstika Ekonomi dan Bisnis',
+            'sks'=>'3',
+            'jurusan'=>'JR013'
+        ]);
+
+        Mata_kuliah::create([
+            'kode_mata_kuliah'=>'MK026',
+            'nama_matkul'=>'Sistem Akuntansi Sektor Publik',
+            'sks'=>'3',
+            'jurusan'=>'JR013'
+        ]);
+
+        Mata_kuliah::create([
+            'kode_mata_kuliah'=>'MK027',
+            'nama_matkul'=>'Manajemen Kinerja SDM',
+            'sks'=>'2',
+            'jurusan'=>'JR014'
+        ]);
+
+        Mata_kuliah::create([
+            'kode_mata_kuliah'=>'MK028',
+            'nama_matkul'=>'Manajemen Investasi',
+            'sks'=>'3',
+            'jurusan'=>'JR014'
+        ]);
 
         /* Mata_kuliah::factory(8)->create(); */
     }

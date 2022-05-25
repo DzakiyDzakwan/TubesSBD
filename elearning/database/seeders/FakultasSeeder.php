@@ -39,6 +39,12 @@ class FakultasSeeder extends Seeder
             'dekan'=>'210293001'
         ]);
 
+        Fakultas::create([
+            'kode_fakultas'=>'FK005',
+            'nama_fakultas'=>'Ekonomi dan Bisnis',
+            'dekan'=>'210293004'
+        ]);
+
         /* Fakultas::factory(2)->create(); */
     }
 }
