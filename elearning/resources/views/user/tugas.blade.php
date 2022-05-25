@@ -63,7 +63,23 @@
           <td>-</td>
         </tr>
     </table>
-    <button class="button button1">Add submission</button>
+    <form action="/user/tugas/store-jawaban" method="POST" enctype="multipart/form-data">
+      @csrf
+      <div class="mb-3">
+        <label for="file" class="form-label">Masukkan file</label>
+        <input class="form-control" type="file" id="file" name="file">
+      </div>
+    <div>
+      <label for="jawaban" class="form-label">Body</label>
+      <input id="jawaban" type="hidden" name="jawaban" value="{{ old('jawaban') }}">
+      <trix-editor input="jawaban"></trix-editor>
+    </div>
+    @foreach ($mahasiswa as $ms)
+      <input type="hidden" name="NIM" id="NIM" value="{{ $ms->NIM }}">
+    @endforeach
+      <input type="hidden" name="tugas" id="tugas" value="{{ $tgs->tugas_id }}">
+      <button class="button button1" type="submit">Add submission</button>
+    </form>
     </div>
   </div>
   @endforeach

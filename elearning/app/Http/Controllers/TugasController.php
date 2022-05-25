@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Jawaban;
+use App\Models\Mahasiswa;
 use Illuminate\Http\Request;
 use App\Models\Tugas;
 
@@ -12,11 +14,13 @@ class TugasController extends Controller
 
     public function tugas(){
         $page = 'tugas';
-        $tugas = Tugas::select('deadline_tugas', 'nama_tugas', 'deskripsi')->get();
+        $tugas = Tugas::select('tugas_id','deadline_tugas', 'nama_tugas', 'deskripsi')->get();
+        $mahasiswa = Mahasiswa::select('NIM')->get();
 
         return view('user.tugas', [
             'page'=> $page,
-            'tugas'=>$tugas
+            'tugas'=>$tugas,
+            'mahasiswa'=>$mahasiswa
         ]);
 
         //return view('user.tugas', compact('page'));

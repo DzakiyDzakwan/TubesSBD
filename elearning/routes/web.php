@@ -15,7 +15,7 @@ use App\Http\Controllers\MateriController;
 use App\Http\Controllers\AbsensiController;
 use App\Http\Controllers\TugasController;
 use App\Http\Controllers\EditAdminController;
-
+use App\Http\Controllers\JawabanController;
 use App\Http\Controllers\TestController;
 
 
@@ -104,8 +104,7 @@ Route::middleware('auth')->group(function() {
       Route::post('/user/tugas/create', [TugasController::class, 'store']);
 
       //Jawaban
-
-
+      Route::post('/user/tugas/store-jawaban', [JawabanController::class, 'store']);
   });
 
   //Admin
