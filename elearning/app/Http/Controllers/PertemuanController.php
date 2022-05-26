@@ -30,7 +30,7 @@ class PertemuanController extends Controller
             'tanggal_pertemuan'=>$request->tanggal_pertemuan,
             'kelas'=>$request->kelas
         ]);
-        return back();
+        return back()->with('success', 'Pertemuan Berhasil dibuat');
 
     }
 
@@ -42,7 +42,7 @@ class PertemuanController extends Controller
 
         Pertemuan::where('pertemuan_id', $id)->delete();
 
-        return back();
+        return back()->with('success', 'Pertemuan Berhasil dihapus');
 
     }
 

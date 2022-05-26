@@ -27,19 +27,29 @@ class JawabanController extends Controller
             $validatedData['file'] = '/storage/' . $path;
         }
 
-        $validatedData['terkumpul'] = $request->terkumpul;
+        /* $validatedData['terkumpul'] = $request->terkumpul; */
         $validatedData['tugas'] = $request->tugas;
         $validatedData['mahasiswa'] = $request->NIM;
 
+        /* dd($request->all()); */
+
         // dd($validatedData);
         Jawaban::create([
-            'jawaban'=>$request->jawaban,
-            'file'=>$validatedData['file'],
-            'terkumpul'=>true,
+            'text_jawaban'=>$request->jawaban,
+            'file'=>$validatedData['file'], 
             'tugas'=>$request->tugas,
-            'mahasiswa'=>$request->NIM
+            'mahasiswa'=>$request->NIM,
+            'komentar'=>'Tidak ada Komentar'
         ]);
 
-        return back()->with('success', 'Jawaban Telah Tersubmit Bro');
-    }   
+        return back()->with('success', 'Jawaban Berhasil di Input');
+    } 
+    
+    public function delete($id) {
+
+        Jawaban::where('jawaban_id', $id)->delete();
+
+        return back()->with('success', 'Jawaban Berhasil dihapus');
+
+    }
 }

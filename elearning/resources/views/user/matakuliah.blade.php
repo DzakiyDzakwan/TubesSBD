@@ -123,7 +123,7 @@
                 
                 {{-- LINK ZOOM --}}
                 <div class="bg-secondary bg-opacity-10 py-2 mb-3 rounded-3" style="width: 300px;">
-                    <a href="{{$prtm->link}}" class="text-decoration-none text-success px-4"><i class="fas fa-link mx-2"></i>Link Pertemuan</a>
+                    <a href="{{$prtm->link}}" target="_blank" class="text-decoration-none text-success px-4"><i class="fas fa-link mx-2"></i>Link Pertemuan</a>
                 </div>
                 {{-- Link zoom ENd --}}
 
