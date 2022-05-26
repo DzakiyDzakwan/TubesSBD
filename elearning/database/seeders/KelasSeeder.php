@@ -260,7 +260,7 @@ class KelasSeeder extends Seeder
 
         Kelas::create([
 
-            'kelas_id'=>'KLS027',
+            'kelas_id'=>'KLS028',
             'kelas'=>'KOM B',
             'dosen'=>'210293015',
             'mata_kuliah'=>'MK040'
