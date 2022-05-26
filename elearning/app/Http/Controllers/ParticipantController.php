@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Enrollment;
-use App\Models\User;
+use App\Models\Kelas;
 use App\Models\Aslab;
 class ParticipantController extends Controller
 {
@@ -24,9 +24,9 @@ class ParticipantController extends Controller
 
         $participants = Enrollment::join('users', 'enrollments.user', '=', 'users.NIK')->where('enrollments.kelas', $id)->select('users.first_name', 'users.last_name', 'enrollments.role')->get();
 
-        $dosen = User::select('users.first_name', 'users.last_name')->where('NIK', $nik)->get()[0];
+        $dosen = Kelas::join('dosens', 'kelas.dosen', '=', 'dosens.NIP')->join('users', 'dosens.user', '=', 'users.NIK')->where('kelas_id', $id)->get()[0];
 
-        /* dd($participants); */
+        /* dd($dosen); */
 
         return view('user.participants', [
             'page'=> $page,

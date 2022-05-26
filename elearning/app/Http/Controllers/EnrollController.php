@@ -122,7 +122,7 @@ class EnrollController extends Controller
         // dd($checkjurusan);
 
         if(!$checkjurusan){
-            return redirect('/user/sitehome');
+            return redirect('/user/sitehome')->with('warning', 'Jurusan Tidak sesuai');
         }
 
         //Check Apakah siswa sudah berada di dalam kelas

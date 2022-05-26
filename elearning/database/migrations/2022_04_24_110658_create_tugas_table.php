@@ -19,7 +19,7 @@ class CreateTugasTable extends Migration
             $table->text('deskripsi');
             $table->date('deadline_tugas');
             $table->bigInteger('pertemuan')->nullable(false)->unsigned();
-            $table->foreign('pertemuan')->references('pertemuan_id')->on('pertemuans');
+            $table->foreign('pertemuan')->references('pertemuan_id')->on('pertemuans')->cascadeOnDelete()->cascadeOnUpdate();
             $table->timestamps();
         });
     }

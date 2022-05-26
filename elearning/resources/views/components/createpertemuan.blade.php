@@ -13,7 +13,7 @@
           <label for="nama_pertemuan">Nama Pertemuan</label>
           <input class="form-control mb-3" type="text" name="nama_pertemuan" id="nama_pertemuan" required>
           
-          <label for="link">Deskripsi</label>
+          <label for="link">Link Pertemuan</label>
           {{-- <textarea class="form-control mb-3" id="deskripsi" rows="3" name="deskripsi"></textarea> --}}
           <input class="form-control mb-3" type="text" name="link" id="link" required>
 

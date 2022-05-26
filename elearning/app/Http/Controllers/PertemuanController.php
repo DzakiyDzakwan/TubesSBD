@@ -19,6 +19,7 @@ class PertemuanController extends Controller
         $request->validate([
             'nama_pertemuan'=>'required',
             'link'=>'required',
+            'tanggal_pertemuan'=>'required'
         
         ]);
 
