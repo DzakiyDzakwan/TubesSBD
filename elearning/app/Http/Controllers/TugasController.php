@@ -75,12 +75,10 @@ class TugasController extends Controller
         /* dd($request->all()); */
 
         Tugas::create([
-
             'nama_tugas'=>$request->nama_tugas,
             'deskripsi'=>$request->deskripsi,
             'deadline_tugas'=>$request->deadline,
             'pertemuan'=>$request->pertemuan
-
         ]);
 
         return back()->with('success', 'Tugas Berhasil Dibuat');

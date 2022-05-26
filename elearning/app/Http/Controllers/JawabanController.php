@@ -52,7 +52,7 @@ class JawabanController extends Controller
         Jawaban::where('jawaban_id', $request->jawaban)->update([
             'submited_status'=>1,
             'nilai'=>$request->nilai,
-            'komentar'=>$request->komentar
+            'komentar'=>$request->keterangan
         ]);
 
         return back()->with('success', 'Nilai berhasil di Input');

@@ -139,7 +139,7 @@ $nik  = auth()->user()->NIK;
           <form action="/user/jawaban-delete/{{$jawaban->jawaban_id}}" method="POST">
             @csrf
             @method('DELETE')
-            <button class="btn-danger d-block mx-auto" type="submit">Delete Submission</button>
+            <button class="btn btn-danger d-block mx-auto" type="submit">Delete Submission</button>
           </form>
 
         @else
@@ -165,7 +165,7 @@ $nik  = auth()->user()->NIK;
             </tbody>
           </table>
 
-          <button class="btn-primary d-block mx-auto" data-bs-toggle="modal" data-bs-target="#addJawaban">add sumbission</button>
+          <button class="btn btn-primary d-block mx-auto" data-bs-toggle="modal" data-bs-target="#addJawaban">add sumbission</button>
         @endif
 
         
