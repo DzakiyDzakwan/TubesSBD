@@ -1,5 +1,5 @@
 <!-- create pertemuan -->
-<div class="modal fade" id="addNilai" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade" id="addNilai{{$loop->iteration}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
       <div class="modal-content">
         <div class="modal-header">
@@ -8,10 +8,12 @@
       </div>
   
       <div class="modal-body">
-        <form action="/user/matakuliah/createPertemuan" method="POST" class="text-dark ">
+        <form action="/user/tugas/createnilai" method="POST" class="text-dark ">
           @csrf
-          <label for="nama_pertemuan">Nilai</label>
-          <input class="form-control mb-3" type="number" name="nama_pertemuan" id="nama_pertemuan" required>
+          @method('patch')
+
+          <label for="nilai">Nilai</label>
+          <input class="form-control mb-3" type="number" name="nilai" id="nilai" required>
           
           <label for="link">Keterangan</label>
           {{-- <textarea class="form-control mb-3" id="deskripsi" rows="3" name="deskripsi"></textarea> --}}
@@ -19,7 +21,7 @@
 
           {{-- <label for="tanggal_pertemuan">Tanggal Pertemuan</label>
           <input class="form-control mb-3" type="date" name="tanggal_pertemuan" id="tanggal_pertemuan"> --}}
-          <input type="hidden" class="col form-control mb-2" id="jawaban" name="kelas" value="">
+          <input type="hidden" class="col form-control mb-2" id="jawaban" name="jawaban" value="{{$jwb->jawaban_id}}">
           <input class="btn btn-success form-control" type="submit" value="SUBMIT" />
         </form>
       </div>

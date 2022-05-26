@@ -87,7 +87,7 @@ Route::middleware('auth')->group(function() {
         Route::delete('/user/matakuliah/deletemateri/{id}', [MateriController::class, 'deletemateri']);
 
         //zoom
-        Route::get('/user/matakuliah/createzoom/{id}', [MateriController::class, 'createzoom']);
+        /* Route::get('/user/matakuliah/createzoom/{id}', [MateriController::class, 'createzoom']); */
       // });
 
       //Participant
@@ -108,6 +108,7 @@ Route::middleware('auth')->group(function() {
 
       //Jawaban
       Route::post('/user/tugas/store-jawaban', [JawabanController::class, 'store']);
+      Route::patch('/user/tugas/createnilai', [JawabanController::class, 'update']);
       Route::delete('/user/jawaban-delete/{id}', [JawabanController::class, 'delete']);
   });
 

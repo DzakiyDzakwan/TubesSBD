@@ -44,6 +44,19 @@ class JawabanController extends Controller
 
         return back()->with('success', 'Jawaban Berhasil di Input');
     } 
+
+
+    public function update(Request $request) {
+        /* dd($request->all()); */
+
+        Jawaban::where('jawaban_id', $request->jawaban)->update([
+            'submited_status'=>1,
+            'nilai'=>$request->nilai,
+            'komentar'=>$request->komentar
+        ]);
+
+        return back()->with('success', 'Nilai berhasil di Input');
+    }
     
     public function delete($id) {
 

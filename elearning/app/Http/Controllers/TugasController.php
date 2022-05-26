@@ -22,7 +22,7 @@ class TugasController extends Controller
         $tugas = Tugas::select('tugas_id','deadline_tugas', 'nama_tugas', 'deskripsi')->where('tugas_id', $id)->get()[0];
 
         if(auth()->user()->status === 'dosen') {
-            $jawaban = Jawaban::select('users.first_name', 'users.last_name', 'mahasiswas.NIM', 'jawabans.submited_status', 'jawabans.nilai', 'jawabans.file' , 'jawabans.text_jawaban', 'jawabans.updated_at')->where('tugas', $id)->join('mahasiswas', 'jawabans.mahasiswa', '=', 'mahasiswas.NIM')->join('users', 'mahasiswas.user', '=', 'users.NIK')->get();
+            $jawaban = Jawaban::select('users.first_name', 'users.last_name', 'jawabans.jawaban_id' ,'mahasiswas.NIM', 'jawabans.submited_status', 'jawabans.nilai', 'jawabans.file' , 'jawabans.text_jawaban', 'jawabans.updated_at')->where('tugas', $id)->join('mahasiswas', 'jawabans.mahasiswa', '=', 'mahasiswas.NIM')->join('users', 'mahasiswas.user', '=', 'users.NIK')->get();
 
             /* dd($jawaban); */
 
