@@ -26,12 +26,16 @@ class ParticipantController extends Controller
 
         $dosen = Kelas::join('dosens', 'kelas.dosen', '=', 'dosens.NIP')->join('users', 'dosens.user', '=', 'users.NIK')->where('kelas_id', $id)->get()[0];
 
+        $juduls = Kelas::join('mata_kuliahs','kelas.mata_kuliah','=','mata_kuliahs.kode_mata_kuliah')
+        ->select('kelas.mata_kuliah','kelas.kelas','kelas.kelas_id','mata_kuliahs.nama_matkul')->where('kelas.kelas_id', $id)->get();
+
         /* dd($dosen); */
 
         return view('user.participants', [
             'page'=> $page,
             'participants'=>$participants,
-            'dosen'=>$dosen
+            'dosen'=>$dosen,
+            'juduls'=>$juduls
         
         ]);
 
