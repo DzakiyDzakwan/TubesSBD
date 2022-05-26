@@ -203,6 +203,69 @@ class KelasSeeder extends Seeder
             'mata_kuliah'=>'MK031'
 
         ]);
+
+        Kelas::create([
+
+            'kelas_id'=>'KLS022',
+            'kelas'=>'KOM A',
+            'dosen'=>'210293014',
+            'mata_kuliah'=>'MK038'
+
+        ]);
+
+        Kelas::create([
+
+            'kelas_id'=>'KLS023',
+            'kelas'=>'KOM B',
+            'dosen'=>'210293014',
+            'mata_kuliah'=>'MK038'
+
+        ]);
+
+        Kelas::create([
+
+            'kelas_id'=>'KLS024',
+            'kelas'=>'KOM A',
+            'dosen'=>'210293014',
+            'mata_kuliah'=>'MK039'
+
+        ]);
+
+        Kelas::create([
+
+            'kelas_id'=>'KLS025',
+            'kelas'=>'KOM C',
+            'dosen'=>'210293015',
+            'mata_kuliah'=>'MK036'
+
+        ]);
+
+        Kelas::create([
+
+            'kelas_id'=>'KLS026',
+            'kelas'=>'KOM B',
+            'dosen'=>'210293015',
+            'mata_kuliah'=>'MK037'
+
+        ]);
+
+        Kelas::create([
+
+            'kelas_id'=>'KLS027',
+            'kelas'=>'KOM A',
+            'dosen'=>'210293015',
+            'mata_kuliah'=>'MK040'
+
+        ]);
+
+        Kelas::create([
+
+            'kelas_id'=>'KLS027',
+            'kelas'=>'KOM B',
+            'dosen'=>'210293015',
+            'mata_kuliah'=>'MK040'
+
+        ]);
         /* Kelas::factory(16)->create(); */
     }
 }

@@ -260,6 +260,54 @@ class MataKuliahSeeder extends Seeder
             'jurusan'=>'JR010'
         ]);
 
+        Mata_kuliah::create([
+            'kode_mata_kuliah'=>'MK036',
+            'nama_matkul'=>'Organisasi dan Arsitektur Komputer',
+            'sks'=>'3',
+            'jurusan'=>'JR010'
+        ]);
+
+        Mata_kuliah::create([
+            'kode_mata_kuliah'=>'MK037',
+            'nama_matkul'=>'Pengantar Teknologi Informasi',
+            'sks'=>'2',
+            'jurusan'=>'JR010'
+        ]);
+
+        Mata_kuliah::create([
+            'kode_mata_kuliah'=>'MK038',
+            'nama_matkul'=>'Routing Jaringan',
+            'sks'=>'3',
+            'jurusan'=>'JR010'
+        ]);
+
+        Mata_kuliah::create([
+            'kode_mata_kuliah'=>'MK039',
+            'nama_matkul'=>'Efek Visual dan Animasi',
+            'sks'=>'3',
+            'jurusan'=>'JR010'
+        ]);
+
+        Mata_kuliah::create([
+            'kode_mata_kuliah'=>'MK040',
+            'nama_matkul'=>'Pemrograman Integrative',
+            'sks'=>'3',
+            'jurusan'=>'JR010'
+        ]);
+
+        Mata_kuliah::create([
+            'kode_mata_kuliah'=>'MK041',
+            'nama_matkul'=>'Etika Politik',
+            'sks'=>'3',
+            'jurusan'=>'JR021'
+        ]);
+
+        Mata_kuliah::create([
+            'kode_mata_kuliah'=>'MK042',
+            'nama_matkul'=>'Sistem Perwakilan Politik',
+            'sks'=>'2',
+            'jurusan'=>'JR021'
+        ]);
 
 
         /* Mata_kuliah::factory(8)->create(); */

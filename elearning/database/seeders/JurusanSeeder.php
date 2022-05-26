@@ -156,6 +156,40 @@ class JurusanSeeder extends Seeder
             'degree'=>'S1'
         ]);
 
+        Jurusan::create([
+            'kode_jurusan'=>'JR021',
+            'nama_jurusan'=>'Ilmu Politik',
+            'fakultas_id'=>'FK008',
+            'degree'=>'S1'
+        ]);
+
+        Jurusan::create([
+            'kode_jurusan'=>'JR022',
+            'nama_jurusan'=>'Sosiologi',
+            'fakultas_id'=>'FK008',
+            'degree'=>'S1'
+        ]);
+
+        Jurusan::create([
+            'kode_jurusan'=>'JR023',
+            'nama_jurusan'=>'Ilmu Komunikasi',
+            'fakultas_id'=>'FK008',
+            'degree'=>'S1'
+        ]);
+
+        Jurusan::create([
+            'kode_jurusan'=>'JR024',
+            'nama_jurusan'=>'Ilmu Administrasi Publik',
+            'fakultas_id'=>'FK008',
+            'degree'=>'S1'
+        ]);
+
+        Jurusan::create([
+            'kode_jurusan'=>'JR025',
+            'nama_jurusan'=>'Antropologi Sosial',
+            'fakultas_id'=>'FK008',
+            'degree'=>'S1'
+        ]);
         /* Jurusan::factory(4)->create(); */
     }
 }

@@ -56,6 +56,12 @@ class FakultasSeeder extends Seeder
             'nama_fakultas'=>'Farmasi',
             'dekan'=>'210293004'
         ]);
+
+        Fakultas::create([
+            'kode_fakultas'=>'FK008',
+            'nama_fakultas'=>'Ilmu Sosial dan Ilmu Politik',
+            'dekan'=>'210293013'
+        ]);
         /* Fakultas::factory(2)->create(); */
     }
 }
