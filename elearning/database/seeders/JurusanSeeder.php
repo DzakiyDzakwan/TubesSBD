@@ -121,6 +121,41 @@ class JurusanSeeder extends Seeder
             'degree'=>'S1'
         ]);
 
+        Jurusan::create([
+            'kode_jurusan'=>'JR016',
+            'nama_jurusan'=>'Agribisnis',
+            'fakultas_id'=>'FK006',
+            'degree'=>'S1'
+        ]);
+
+        Jurusan::create([
+            'kode_jurusan'=>'JR017',
+            'nama_jurusan'=>'Agroteknologi',
+            'fakultas_id'=>'FK006',
+            'degree'=>'S1'
+        ]);
+
+        Jurusan::create([
+            'kode_jurusan'=>'JR018',
+            'nama_jurusan'=>'Farmasi',
+            'fakultas_id'=>'FK007',
+            'degree'=>'S1'
+        ]);
+
+        Jurusan::create([
+            'kode_jurusan'=>'JR019',
+            'nama_jurusan'=>'Teknik Kimia',
+            'fakultas_id'=>'FK002',
+            'degree'=>'S1'
+        ]);
+
+        Jurusan::create([
+            'kode_jurusan'=>'JR020',
+            'nama_jurusan'=>'Arsitektur',
+            'fakultas_id'=>'FK002',
+            'degree'=>'S1'
+        ]);
+
         /* Jurusan::factory(4)->create(); */
     }
 }

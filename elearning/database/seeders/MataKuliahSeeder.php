@@ -211,6 +211,57 @@ class MataKuliahSeeder extends Seeder
             'jurusan'=>'JR014'
         ]);
 
+        Mata_kuliah::create([
+            'kode_mata_kuliah'=>'MK029',
+            'nama_matkul'=>'Praktikum Sistem Basis Data',
+            'sks'=>'1',
+            'jurusan'=>'JR010'
+        ]);
+
+        Mata_kuliah::create([
+            'kode_mata_kuliah'=>'MK030',
+            'nama_matkul'=>'Pemrograman Web Lanjutan',
+            'sks'=>'3',
+            'jurusan'=>'JR010'
+        ]);
+
+        Mata_kuliah::create([
+            'kode_mata_kuliah'=>'MK031',
+            'nama_matkul'=>'Praktikum Pemrograman Web Lanjutan',
+            'sks'=>'1',
+            'jurusan'=>'JR010'
+        ]);
+
+        Mata_kuliah::create([
+            'kode_mata_kuliah'=>'MK032',
+            'nama_matkul'=>'Struktur Data dan Algoritma',
+            'sks'=>'3',
+            'jurusan'=>'JR010'
+        ]);
+
+        Mata_kuliah::create([
+            'kode_mata_kuliah'=>'MK033',
+            'nama_matkul'=>'Praktikum Struktur Data dan Algoritma',
+            'sks'=>'1',
+            'jurusan'=>'JR010'
+        ]);
+
+        Mata_kuliah::create([
+            'kode_mata_kuliah'=>'MK034',
+            'nama_matkul'=>'Pemrograman Berorientasi Objek',
+            'sks'=>'3',
+            'jurusan'=>'JR010'
+        ]);
+
+        Mata_kuliah::create([
+            'kode_mata_kuliah'=>'MK035',
+            'nama_matkul'=>'Pemrograman Berorientasi Objek',
+            'sks'=>'1',
+            'jurusan'=>'JR010'
+        ]);
+
+
+
         /* Mata_kuliah::factory(8)->create(); */
     }
 }

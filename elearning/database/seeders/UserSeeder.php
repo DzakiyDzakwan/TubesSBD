@@ -287,6 +287,117 @@ class UserSeeder extends Seeder
         ]);
 
 
+        User::create([
+            'NIK' => '2114059726',
+            'email' => 'dosen8@gmail.com',
+            'nomor_hp' => '0875431354972',
+            'first_name' => 'Kirana',
+            'last_name' => 'Syahira',
+            'jenis_kelamin' => 'wanita',
+            'agama' => 'Islam',
+            'kewarganegaraan' => 'WNI',
+            'alamat' => 'Jalan Rantang',
+            'tgl_lahir' => '1976-04-10',
+            'password' => bcrypt('dosen8'), // password
+            'status' => 'dosen',
+            'remember_token' => Str::random(10),
+        ]);
+        
+        User::create([
+            'NIK' => '2044024384',
+            'email' => 'dosen9@gmail.com',
+            'nomor_hp' => '086310548512',
+            'first_name' => 'Muhammad',
+            'last_name' => 'Radja',
+            'jenis_kelamin' => 'pria',
+            'agama' => 'Islam',
+            'kewarganegaraan' => 'WNI',
+            'alamat' => 'Jalan Thhamrin',
+            'tgl_lahir' => '1955-01-14',
+            'password' => bcrypt('dosen9'), // password
+            'status' => 'dosen',
+            'remember_token' => Str::random(10),
+        ]);
+
+        User::create([
+            'NIK' => '2110464123',
+            'email' => 'dosen10@gmail.com',
+            'nomor_hp' => '087454121643',
+            'first_name' => 'Prima',
+            'last_name' => 'Riyanti',
+            'jenis_kelamin' => 'wanita',
+            'agama' => 'Kristen',
+            'kewarganegaraan' => 'WNI',
+            'alamat' => 'Jalan Pelangi',
+            'tgl_lahir' => '1970-10-15',
+            'password' => bcrypt('dosen10'), // password
+            'status' => 'dosen',
+            'remember_token' => Str::random(10),
+        ]);
+
+        User::create([
+            'NIK' => '23154212546',
+            'email' => 'dosen11@gmail.com',
+            'nomor_hp' => '086513218762',
+            'first_name' => 'Saka',
+            'last_name' => 'Pramudya',
+            'jenis_kelamin' => 'pria',
+            'agama' => 'Islam',
+            'kewarganegaraan' => 'WNI',
+            'alamat' => 'Jalan Deli',
+            'tgl_lahir' => '1985-09-17',
+            'password' => bcrypt('dosen11'), // password
+            'status' => 'dosen',
+            'remember_token' => Str::random(10),
+        ]);
+
+        User::create([
+            'NIK' => '22154685512',
+            'email' => 'siswa10@gmail.com',
+            'nomor_hp' => '08774133256',
+            'first_name' => 'Zahra',
+            'last_name' => 'Sania',
+            'jenis_kelamin' => 'wanita',
+            'agama' => 'Islam',
+            'kewarganegaraan' => 'WNI',
+            'alamat' => 'Jln Bakti',
+            'tgl_lahir' => '2004-01-22',
+            'password' => bcrypt('siswa10'), // password
+            'status' => 'mahasiswa',
+            'remember_token' => Str::random(10),
+        ]);
+
+        User::create([
+            'NIK' => '22132215406',
+            'email' => 'siswa11@gmail.com',
+            'nomor_hp' => '08845312975',
+            'first_name' => 'Nasywa',
+            'last_name' => 'Aqila',
+            'jenis_kelamin' => 'wanita',
+            'agama' => 'Islam',
+            'kewarganegaraan' => 'WNI',
+            'alamat' => 'Jln Pelangi',
+            'tgl_lahir' => '2003-12-15',
+            'password' => bcrypt('siswa11'), // password
+            'status' => 'mahasiswa',
+            'remember_token' => Str::random(10),
+        ]);
+
+        User::create([
+            'NIK' => '211454877651',
+            'email' => 'siswa12@gmail.com',
+            'nomor_hp' => '0895641132',
+            'first_name' => 'Naura',
+            'last_name' => 'Ayu',
+            'jenis_kelamin' => 'wanita',
+            'agama' => 'Islam',
+            'kewarganegaraan' => 'WNI',
+            'alamat' => 'Jln Garu',
+            'tgl_lahir' => '2003-07-21',
+            'password' => bcrypt('siswa12'), // password
+            'status' => 'mahasiswa',
+            'remember_token' => Str::random(10),
+        ]);
         /* User::factory(6)->create(); */
 
     }

@@ -45,6 +45,17 @@ class FakultasSeeder extends Seeder
             'dekan'=>'210293004'
         ]);
 
+        Fakultas::create([
+            'kode_fakultas'=>'FK006',
+            'nama_fakultas'=>'Pertanian',
+            'dekan'=>'190481507'
+        ]);
+
+        Fakultas::create([
+            'kode_fakultas'=>'FK007',
+            'nama_fakultas'=>'Farmasi',
+            'dekan'=>'210293004'
+        ]);
         /* Fakultas::factory(2)->create(); */
     }
 }

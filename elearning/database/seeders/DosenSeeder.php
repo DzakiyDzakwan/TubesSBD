@@ -71,6 +71,38 @@ class DosenSeeder extends Seeder
             
         ]);
 
+        Dosen::create([
+            'NIP'=> '201643244',
+            'NIDN'=> '204651354',
+            'user'=> '2114059726',
+            'status'=>'aktif'
+            
+        ]);
+
+        Dosen::create([
+            'NIP'=> '206513216',
+            'NIDN'=> '203114456',
+            'user'=> '2044024384',
+            'status'=>'aktif'
+            
+        ]);
+
+        Dosen::create([
+            'NIP'=> '206464487',
+            'NIDN'=> '200641987',
+            'user'=> '2110464123',
+            'status'=>'aktif'
+            
+        ]);
+
+        Dosen::create([
+            'NIP'=> '223120046',
+            'NIDN'=> '214652008',
+            'user'=> '23154212546',
+            'status'=>'aktif'
+            
+        ]);
+
         /* Dosen::factory(4)->create(); */
     }
 }

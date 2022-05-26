@@ -57,7 +57,8 @@ class ProfilController extends Controller
          if(auth()->user()->status === "mahasiswa") {
 
             //show data user
-            $editprofil = Mahasiswa::join('users','mahasiswas.user','=','users.NIK')->select('mahasiswas.NIM','users.NIK','users.id','users.first_name','users.last_name','users.email','users.nomor_hp','users.jenis_kelamin','users.agama','users.kewarganegaraan','users.alamat','users.tgl_lahir')->where('users.id', $id)->get();
+            //SELECT mahasiswas.NIM, users.first_name, users.last_name, users.email, users.nomor_hp, users.jenis_kelamin, users.agama, users.kewarganegaraan, users.alamat, users.tgl_lahir FROM mahasiswas JOIN users ON mahasiswas.user = users.NIK WHERE users.id = $id
+            $editprofil = Mahasiswa::join('users','mahasiswas.user','=','users.NIK')->select('mahasiswas.NIM','users.first_name','users.last_name','users.email','users.nomor_hp','users.jenis_kelamin','users.agama','users.kewarganegaraan','users.alamat','users.tgl_lahir')->where('users.id', $id)->get();
 
         } elseif(auth()->user()->status === "dosen") {
 

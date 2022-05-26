@@ -105,6 +105,104 @@ class KelasSeeder extends Seeder
 
         ]);
 
+        Kelas::create([
+
+            'kelas_id'=>'KLS011',
+            'kelas'=>'KOM B',
+            'dosen'=>'190481502',
+            'mata_kuliah'=>'MK022'
+
+        ]);
+
+        Kelas::create([
+
+            'kelas_id'=>'KLS012',
+            'kelas'=>'KOM C',
+            'dosen'=>'190481502',
+            'mata_kuliah'=>'MK022'
+
+        ]);
+
+        Kelas::create([
+
+            'kelas_id'=>'KLS013',
+            'kelas'=>'KOM A',
+            'dosen'=>'210293004',
+            'mata_kuliah'=>'MK029'
+
+        ]);
+
+        Kelas::create([
+
+            'kelas_id'=>'KLS014',
+            'kelas'=>'KOM B',
+            'dosen'=>'190481502',
+            'mata_kuliah'=>'MK029'
+
+        ]);
+
+        Kelas::create([
+
+            'kelas_id'=>'KLS015',
+            'kelas'=>'KOM C',
+            'dosen'=>'190481502',
+            'mata_kuliah'=>'MK029'
+
+        ]);
+
+        Kelas::create([
+
+            'kelas_id'=>'KLS016',
+            'kelas'=>'KOM A',
+            'dosen'=>'190481505',
+            'mata_kuliah'=>'MK030'
+
+        ]);
+
+        Kelas::create([
+
+            'kelas_id'=>'KLS017',
+            'kelas'=>'KOM B',
+            'dosen'=>'190481505',
+            'mata_kuliah'=>'MK030'
+
+        ]);
+
+        Kelas::create([
+
+            'kelas_id'=>'KLS018',
+            'kelas'=>'KOM C',
+            'dosen'=>'190481505',
+            'mata_kuliah'=>'MK030'
+
+        ]);
+
+        Kelas::create([
+
+            'kelas_id'=>'KLS019',
+            'kelas'=>'KOM A',
+            'dosen'=>'190481505',
+            'mata_kuliah'=>'MK031'
+
+        ]);
+
+        Kelas::create([
+
+            'kelas_id'=>'KLS020',
+            'kelas'=>'KOM B',
+            'dosen'=>'190481505',
+            'mata_kuliah'=>'MK031'
+
+        ]);
+
+        Kelas::create([
+
+            'kelas_id'=>'KLS021',
+            'kelas'=>'KOM C',
+            'dosen'=>'190481505',
+            'mata_kuliah'=>'MK031'
+
+        ]);
         /* Kelas::factory(16)->create(); */
     }
 }

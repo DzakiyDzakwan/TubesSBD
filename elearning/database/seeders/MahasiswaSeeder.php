@@ -115,6 +115,38 @@ class MahasiswaSeeder extends Seeder
             'jurusan' => 'JR013'
         ]);
 
+        Mahasiswa::create([
+            'NIM' => '2162201015',
+            'NISN' => '10',
+            'semester' => '1',
+            'program' => 'S1',
+            'angkatan' => '2021',
+            'status' => 'aktif',
+            'user' => '22154685512',
+            'jurusan' => 'JR010'
+        ]);
+
+        Mahasiswa::create([
+            'NIM' => '2162231211',
+            'NISN' => '11',
+            'semester' => '1',
+            'program' => 'S1',
+            'angkatan' => '2021',
+            'status' => 'aktif',
+            'user' => '22132215406',
+            'jurusan' => 'JR010'
+        ]);
+
+        Mahasiswa::create([
+            'NIM' => '2162201132',
+            'NISN' => '12',
+            'semester' => '1',
+            'program' => 'S1',
+            'angkatan' => '2021',
+            'status' => 'aktif',
+            'user' => '211454877651',
+            'jurusan' => 'JR010'
+        ]);
         /* Mahasiswa::factory(20)->create(); */
     }
 }
