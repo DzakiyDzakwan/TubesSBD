@@ -15,8 +15,9 @@ use App\Models\Pertemuan;?>
           <label for="nama_materi">Nama Materi</label>
           <input class="form-control mb-3" type="text" name="nama_materi" id="nama_materi" required>
           
-          <label for="deskripsi">Deskripsi</label>
-          <textarea class="form-control mb-3" id="deskripsi" rows="3" name="deskripsi"></textarea>
+          <label for="deskripsi">Link Materi</label>
+          <input class="form-control mb-3" type="text" name="deskripsi" id="">
+          {{-- <textarea class="form-control mb-3" id="deskripsi" rows="3" name="deskripsi"></textarea> --}}
 
           @foreach($pertemuan as $prtm)
           <?php $materis = Pertemuan::join('kelas','pertemuans.kelas','=','kelas.kelas_id')

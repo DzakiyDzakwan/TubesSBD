@@ -35,10 +35,10 @@
                         <!-- Deskripsi -->
                         <div class="row mb-3">
                             <div class=" col-3 mb-5">
-                                <label for="deskripsi" class="form-label">Deskripsi Materi</label>
+                                <label for="deskripsi" class="form-label">Link Materi</label>
                             </div>
                             <div class="col">
-                                <textarea type="text"  rows="5" class="col form-control" id="deskripsi" name="deskripsi"></textarea>
+                                <input type="text" class="col form-control" id="deskripsi" name="deskripsi">
                             </div>
                         </div>
 

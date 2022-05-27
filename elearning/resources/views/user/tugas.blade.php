@@ -59,7 +59,7 @@ $nik  = auth()->user()->NIK;
             @include('components.createnilai')
             <tr>
               <td class="">{{$jwb->first_name}} {{$jwb->last_name}} {{$jwb->NIM}}</td>
-              <td class=""><a href="{{$jwb->file}}">Download</a></td>
+              <td class=""><a href="{{$jwb->file}}" download>Download</a></td>
               <td class="">{{$jwb->nilai}}</td>
 
               @if ($jwb->submited_status)

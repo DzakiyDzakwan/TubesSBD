@@ -109,7 +109,7 @@ class EnrollController extends Controller
         ->join('mata_kuliahs','kelas.mata_kuliah','=','mata_kuliahs.kode_mata_kuliah')
         ->where('enrollments.user', $nik)->sum('mata_kuliahs.sks');
         // dd($check);
-        if($check >= 21){
+        if($check >= 15){
             return redirect('/dashboard')->with('warning', 'SKS melebihi batas');
         }
 
